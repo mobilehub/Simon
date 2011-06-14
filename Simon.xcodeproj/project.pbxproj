@@ -8,12 +8,93 @@
 
 /* Begin PBXBuildFile section */
 		653D0E8E13A782AD00A5AB82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0E8D13A782AD00A5AB82 /* Foundation.framework */; };
+		653D0E9E13A783A500A5AB82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0E9D13A783A500A5AB82 /* UIKit.framework */; };
+		653D0E9F13A783A500A5AB82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0E8D13A782AD00A5AB82 /* Foundation.framework */; };
+		653D0EA113A783A500A5AB82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EA013A783A500A5AB82 /* CoreGraphics.framework */; };
+		653D0EA713A783A500A5AB82 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 653D0EA513A783A500A5AB82 /* InfoPlist.strings */; };
+		653D0EA913A783A500A5AB82 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EA813A783A500A5AB82 /* main.m */; };
+		653D0EAD13A783A500A5AB82 /* Unit_testsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EAC13A783A500A5AB82 /* Unit_testsAppDelegate.m */; };
+		653D0EC013A783C000A5AB82 /* NSObject+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 653D0EB213A783C000A5AB82 /* NSObject+Utils.h */; };
+		653D0EC113A783C000A5AB82 /* NSObject+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EB313A783C000A5AB82 /* NSObject+Utils.m */; };
+		653D0EC213A783C000A5AB82 /* NSObject+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EB313A783C000A5AB82 /* NSObject+Utils.m */; };
+		653D0EC313A783C000A5AB82 /* SIEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = 653D0EB413A783C000A5AB82 /* SIEnums.h */; };
+		653D0EC413A783C000A5AB82 /* SIStep.h in Headers */ = {isa = PBXBuildFile; fileRef = 653D0EB513A783C000A5AB82 /* SIStep.h */; };
+		653D0EC513A783C000A5AB82 /* SIStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EB613A783C000A5AB82 /* SIStep.m */; };
+		653D0EC613A783C000A5AB82 /* SIStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EB613A783C000A5AB82 /* SIStep.m */; };
+		653D0EC713A783C000A5AB82 /* SIStory.h in Headers */ = {isa = PBXBuildFile; fileRef = 653D0EB713A783C000A5AB82 /* SIStory.h */; };
+		653D0EC813A783C000A5AB82 /* SIStory.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EB813A783C000A5AB82 /* SIStory.m */; };
+		653D0EC913A783C000A5AB82 /* SIStory.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EB813A783C000A5AB82 /* SIStory.m */; };
+		653D0ECA13A783C000A5AB82 /* SIStoryFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 653D0EB913A783C000A5AB82 /* SIStoryFactory.h */; };
+		653D0ECB13A783C000A5AB82 /* SIStoryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EBA13A783C000A5AB82 /* SIStoryFactory.m */; };
+		653D0ECC13A783C000A5AB82 /* SIStoryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EBA13A783C000A5AB82 /* SIStoryFactory.m */; };
+		653D0ECD13A783C000A5AB82 /* SIStoryFactoryDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 653D0EBB13A783C000A5AB82 /* SIStoryFactoryDelegate.h */; };
+		653D0ECE13A783C000A5AB82 /* SIStoryFileReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 653D0EBC13A783C000A5AB82 /* SIStoryFileReader.h */; };
+		653D0ECF13A783C000A5AB82 /* SIStoryFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EBD13A783C000A5AB82 /* SIStoryFileReader.m */; };
+		653D0ED013A783C000A5AB82 /* SIStoryFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EBD13A783C000A5AB82 /* SIStoryFileReader.m */; };
+		653D0ED113A783C000A5AB82 /* SIStoryReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 653D0EBE13A783C000A5AB82 /* SIStoryReader.h */; };
+		653D0ED213A783C000A5AB82 /* SIStoryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EBF13A783C000A5AB82 /* SIStoryReader.m */; };
+		653D0ED313A783C000A5AB82 /* SIStoryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EBF13A783C000A5AB82 /* SIStoryReader.m */; };
+		653D0EE013A783DC00A5AB82 /* GHUnit-Tests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 653D0ED513A783DC00A5AB82 /* GHUnit-Tests-Info.plist */; };
+		653D0EE213A783DC00A5AB82 /* ParseKitGrammerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0ED613A783DC00A5AB82 /* ParseKitGrammerTests.m */; };
+		653D0EE413A783DC00A5AB82 /* SIStepTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0ED713A783DC00A5AB82 /* SIStepTests.m */; };
+		653D0EE613A783DC00A5AB82 /* SIStoryFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0ED813A783DC00A5AB82 /* SIStoryFactoryTests.m */; };
+		653D0EE813A783DC00A5AB82 /* SIStoryFileReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0ED913A783DC00A5AB82 /* SIStoryFileReaderTests.m */; };
+		653D0EEA13A783DC00A5AB82 /* SIStoryReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EDA13A783DC00A5AB82 /* SIStoryReaderTests.m */; };
+		653D0EEC13A783DC00A5AB82 /* UITreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EDB13A783DC00A5AB82 /* UITreeTests.m */; };
+		653D0EED13A783DC00A5AB82 /* simple.grammer in Resources */ = {isa = PBXBuildFile; fileRef = 653D0EDC13A783DC00A5AB82 /* simple.grammer */; };
+		653D0EEE13A783DC00A5AB82 /* Other types.stories in Resources */ = {isa = PBXBuildFile; fileRef = 653D0EDE13A783DC00A5AB82 /* Other types.stories */; };
+		653D0EEF13A783DC00A5AB82 /* Story files.stories in Resources */ = {isa = PBXBuildFile; fileRef = 653D0EDF13A783DC00A5AB82 /* Story files.stories */; };
+		653D0EF113A7842500A5AB82 /* Simon-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 653D0EF013A7842500A5AB82 /* Simon-Prefix.pch */; };
+		653D0EF313A7846B00A5AB82 /* dUsefulStuff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EF213A7846B00A5AB82 /* dUsefulStuff.framework */; };
+		653D0EF913A784C100A5AB82 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EF813A784C100A5AB82 /* GHUnitIOS.framework */; };
+		653D0EFB13A784D600A5AB82 /* ParseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EFA13A784D600A5AB82 /* ParseKit.framework */; };
+		653D0EFC13A784DA00A5AB82 /* ParseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EFA13A784D600A5AB82 /* ParseKit.framework */; };
+		653D0EFD13A7851C00A5AB82 /* dUsefulStuff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EF213A7846B00A5AB82 /* dUsefulStuff.framework */; };
+		653D0EFE13A7852200A5AB82 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EF613A784A500A5AB82 /* OCMock.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		653D0E8A13A782AD00A5AB82 /* libSimon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSimon.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		653D0E8D13A782AD00A5AB82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		653D0E9113A782AD00A5AB82 /* Simon-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Simon-Prefix.pch"; sourceTree = "<group>"; };
+		653D0E9113A782AD00A5AB82 /* Simon-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Simon-Prefix.pch"; path = "../Simon-Prefix.pch"; sourceTree = "<group>"; };
+		653D0E9B13A783A500A5AB82 /* Unit tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unit tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		653D0E9D13A783A500A5AB82 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		653D0EA013A783A500A5AB82 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		653D0EA413A783A500A5AB82 /* Unit tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit tests-Info.plist"; sourceTree = "<group>"; };
+		653D0EA613A783A500A5AB82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		653D0EA813A783A500A5AB82 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		653D0EAA13A783A500A5AB82 /* Unit tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Unit tests-Prefix.pch"; sourceTree = "<group>"; };
+		653D0EAB13A783A500A5AB82 /* Unit_testsAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Unit_testsAppDelegate.h; sourceTree = "<group>"; };
+		653D0EAC13A783A500A5AB82 /* Unit_testsAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Unit_testsAppDelegate.m; sourceTree = "<group>"; };
+		653D0EB213A783C000A5AB82 /* NSObject+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Utils.h"; sourceTree = "<group>"; };
+		653D0EB313A783C000A5AB82 /* NSObject+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Utils.m"; sourceTree = "<group>"; };
+		653D0EB413A783C000A5AB82 /* SIEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIEnums.h; sourceTree = "<group>"; };
+		653D0EB513A783C000A5AB82 /* SIStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIStep.h; sourceTree = "<group>"; };
+		653D0EB613A783C000A5AB82 /* SIStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStep.m; sourceTree = "<group>"; };
+		653D0EB713A783C000A5AB82 /* SIStory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIStory.h; sourceTree = "<group>"; };
+		653D0EB813A783C000A5AB82 /* SIStory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStory.m; sourceTree = "<group>"; };
+		653D0EB913A783C000A5AB82 /* SIStoryFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIStoryFactory.h; sourceTree = "<group>"; };
+		653D0EBA13A783C000A5AB82 /* SIStoryFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryFactory.m; sourceTree = "<group>"; };
+		653D0EBB13A783C000A5AB82 /* SIStoryFactoryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIStoryFactoryDelegate.h; sourceTree = "<group>"; };
+		653D0EBC13A783C000A5AB82 /* SIStoryFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIStoryFileReader.h; sourceTree = "<group>"; };
+		653D0EBD13A783C000A5AB82 /* SIStoryFileReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryFileReader.m; sourceTree = "<group>"; };
+		653D0EBE13A783C000A5AB82 /* SIStoryReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIStoryReader.h; sourceTree = "<group>"; };
+		653D0EBF13A783C000A5AB82 /* SIStoryReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryReader.m; sourceTree = "<group>"; };
+		653D0ED513A783DC00A5AB82 /* GHUnit-Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GHUnit-Tests-Info.plist"; sourceTree = "<group>"; };
+		653D0ED613A783DC00A5AB82 /* ParseKitGrammerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseKitGrammerTests.m; sourceTree = "<group>"; };
+		653D0ED713A783DC00A5AB82 /* SIStepTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStepTests.m; sourceTree = "<group>"; };
+		653D0ED813A783DC00A5AB82 /* SIStoryFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryFactoryTests.m; sourceTree = "<group>"; };
+		653D0ED913A783DC00A5AB82 /* SIStoryFileReaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryFileReaderTests.m; sourceTree = "<group>"; };
+		653D0EDA13A783DC00A5AB82 /* SIStoryReaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryReaderTests.m; sourceTree = "<group>"; };
+		653D0EDB13A783DC00A5AB82 /* UITreeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITreeTests.m; sourceTree = "<group>"; };
+		653D0EDC13A783DC00A5AB82 /* simple.grammer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = simple.grammer; sourceTree = "<group>"; };
+		653D0EDE13A783DC00A5AB82 /* Other types.stories */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Other types.stories"; sourceTree = "<group>"; };
+		653D0EDF13A783DC00A5AB82 /* Story files.stories */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Story files.stories"; sourceTree = "<group>"; };
+		653D0EF013A7842500A5AB82 /* Simon-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Simon-Prefix.pch"; sourceTree = "<group>"; };
+		653D0EF213A7846B00A5AB82 /* dUsefulStuff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = dUsefulStuff.framework; path = ../Releases/dUsefulStuff/v0.0.10/dUsefulStuff.framework; sourceTree = "<group>"; };
+		653D0EF613A784A500A5AB82 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = ../tools/OCMock.framework; sourceTree = "<group>"; };
+		653D0EF813A784C100A5AB82 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../tools/GHUnit 0.4.28/GHUnitIOS.framework"; sourceTree = "<group>"; };
+		653D0EFA13A784D600A5AB82 /* ParseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseKit.framework; path = ../Releases/ParseKit/v1.0.0/ParseKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,7 +102,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				653D0EF313A7846B00A5AB82 /* dUsefulStuff.framework in Frameworks */,
 				653D0E8E13A782AD00A5AB82 /* Foundation.framework in Frameworks */,
+				653D0EFC13A784DA00A5AB82 /* ParseKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		653D0E9813A783A500A5AB82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				653D0EFB13A784D600A5AB82 /* ParseKit.framework in Frameworks */,
+				653D0EF913A784C100A5AB82 /* GHUnitIOS.framework in Frameworks */,
+				653D0E9E13A783A500A5AB82 /* UIKit.framework in Frameworks */,
+				653D0E9F13A783A500A5AB82 /* Foundation.framework in Frameworks */,
+				653D0EA113A783A500A5AB82 /* CoreGraphics.framework in Frameworks */,
+				653D0EFD13A7851C00A5AB82 /* dUsefulStuff.framework in Frameworks */,
+				653D0EFE13A7852200A5AB82 /* OCMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -31,7 +128,11 @@
 		653D0E7F13A782AC00A5AB82 = {
 			isa = PBXGroup;
 			children = (
+				653D0EF013A7842500A5AB82 /* Simon-Prefix.pch */,
+				653D0ED413A783DC00A5AB82 /* tests */,
+				653D0EB113A783C000A5AB82 /* classes */,
 				653D0E8F13A782AD00A5AB82 /* Simon */,
+				653D0EA213A783A500A5AB82 /* Unit tests */,
 				653D0E8C13A782AD00A5AB82 /* Frameworks */,
 				653D0E8B13A782AD00A5AB82 /* Products */,
 			);
@@ -41,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				653D0E8A13A782AD00A5AB82 /* libSimon.a */,
+				653D0E9B13A783A500A5AB82 /* Unit tests.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,7 +150,13 @@
 		653D0E8C13A782AD00A5AB82 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				653D0EF213A7846B00A5AB82 /* dUsefulStuff.framework */,
+				653D0EF813A784C100A5AB82 /* GHUnitIOS.framework */,
+				653D0EF613A784A500A5AB82 /* OCMock.framework */,
+				653D0EFA13A784D600A5AB82 /* ParseKit.framework */,
 				653D0E8D13A782AD00A5AB82 /* Foundation.framework */,
+				653D0E9D13A783A500A5AB82 /* UIKit.framework */,
+				653D0EA013A783A500A5AB82 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -69,6 +177,73 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		653D0EA213A783A500A5AB82 /* Unit tests */ = {
+			isa = PBXGroup;
+			children = (
+				653D0EAB13A783A500A5AB82 /* Unit_testsAppDelegate.h */,
+				653D0EAC13A783A500A5AB82 /* Unit_testsAppDelegate.m */,
+				653D0EA313A783A500A5AB82 /* Supporting Files */,
+			);
+			path = "Unit tests";
+			sourceTree = "<group>";
+		};
+		653D0EA313A783A500A5AB82 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				653D0EA413A783A500A5AB82 /* Unit tests-Info.plist */,
+				653D0EA513A783A500A5AB82 /* InfoPlist.strings */,
+				653D0EA813A783A500A5AB82 /* main.m */,
+				653D0EAA13A783A500A5AB82 /* Unit tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		653D0EB113A783C000A5AB82 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				653D0EB213A783C000A5AB82 /* NSObject+Utils.h */,
+				653D0EB313A783C000A5AB82 /* NSObject+Utils.m */,
+				653D0EB413A783C000A5AB82 /* SIEnums.h */,
+				653D0EB513A783C000A5AB82 /* SIStep.h */,
+				653D0EB613A783C000A5AB82 /* SIStep.m */,
+				653D0EB713A783C000A5AB82 /* SIStory.h */,
+				653D0EB813A783C000A5AB82 /* SIStory.m */,
+				653D0EB913A783C000A5AB82 /* SIStoryFactory.h */,
+				653D0EBA13A783C000A5AB82 /* SIStoryFactory.m */,
+				653D0EBB13A783C000A5AB82 /* SIStoryFactoryDelegate.h */,
+				653D0EBC13A783C000A5AB82 /* SIStoryFileReader.h */,
+				653D0EBD13A783C000A5AB82 /* SIStoryFileReader.m */,
+				653D0EBE13A783C000A5AB82 /* SIStoryReader.h */,
+				653D0EBF13A783C000A5AB82 /* SIStoryReader.m */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		653D0ED413A783DC00A5AB82 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				653D0ED513A783DC00A5AB82 /* GHUnit-Tests-Info.plist */,
+				653D0ED613A783DC00A5AB82 /* ParseKitGrammerTests.m */,
+				653D0ED713A783DC00A5AB82 /* SIStepTests.m */,
+				653D0ED813A783DC00A5AB82 /* SIStoryFactoryTests.m */,
+				653D0ED913A783DC00A5AB82 /* SIStoryFileReaderTests.m */,
+				653D0EDA13A783DC00A5AB82 /* SIStoryReaderTests.m */,
+				653D0EDB13A783DC00A5AB82 /* UITreeTests.m */,
+				653D0EDC13A783DC00A5AB82 /* simple.grammer */,
+				653D0EDD13A783DC00A5AB82 /* stories */,
+			);
+			path = tests;
+			sourceTree = "<group>";
+		};
+		653D0EDD13A783DC00A5AB82 /* stories */ = {
+			isa = PBXGroup;
+			children = (
+				653D0EDE13A783DC00A5AB82 /* Other types.stories */,
+				653D0EDF13A783DC00A5AB82 /* Story files.stories */,
+			);
+			path = stories;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -76,6 +251,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				653D0EC013A783C000A5AB82 /* NSObject+Utils.h in Headers */,
+				653D0EC313A783C000A5AB82 /* SIEnums.h in Headers */,
+				653D0EC413A783C000A5AB82 /* SIStep.h in Headers */,
+				653D0EC713A783C000A5AB82 /* SIStory.h in Headers */,
+				653D0ECA13A783C000A5AB82 /* SIStoryFactory.h in Headers */,
+				653D0ECD13A783C000A5AB82 /* SIStoryFactoryDelegate.h in Headers */,
+				653D0ECE13A783C000A5AB82 /* SIStoryFileReader.h in Headers */,
+				653D0ED113A783C000A5AB82 /* SIStoryReader.h in Headers */,
+				653D0EF113A7842500A5AB82 /* Simon-Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +283,23 @@
 			productReference = 653D0E8A13A782AD00A5AB82 /* libSimon.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		653D0E9A13A783A500A5AB82 /* Unit tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 653D0EAE13A783A500A5AB82 /* Build configuration list for PBXNativeTarget "Unit tests" */;
+			buildPhases = (
+				653D0E9713A783A500A5AB82 /* Sources */,
+				653D0E9813A783A500A5AB82 /* Frameworks */,
+				653D0E9913A783A500A5AB82 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Unit tests";
+			productName = "Unit tests";
+			productReference = 653D0E9B13A783A500A5AB82 /* Unit tests.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -120,19 +321,73 @@
 			projectRoot = "";
 			targets = (
 				653D0E8913A782AD00A5AB82 /* Simon */,
+				653D0E9A13A783A500A5AB82 /* Unit tests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		653D0E9913A783A500A5AB82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				653D0EA713A783A500A5AB82 /* InfoPlist.strings in Resources */,
+				653D0EE013A783DC00A5AB82 /* GHUnit-Tests-Info.plist in Resources */,
+				653D0EED13A783DC00A5AB82 /* simple.grammer in Resources */,
+				653D0EEE13A783DC00A5AB82 /* Other types.stories in Resources */,
+				653D0EEF13A783DC00A5AB82 /* Story files.stories in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		653D0E8613A782AD00A5AB82 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				653D0EC113A783C000A5AB82 /* NSObject+Utils.m in Sources */,
+				653D0EC513A783C000A5AB82 /* SIStep.m in Sources */,
+				653D0EC813A783C000A5AB82 /* SIStory.m in Sources */,
+				653D0ECB13A783C000A5AB82 /* SIStoryFactory.m in Sources */,
+				653D0ECF13A783C000A5AB82 /* SIStoryFileReader.m in Sources */,
+				653D0ED213A783C000A5AB82 /* SIStoryReader.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		653D0E9713A783A500A5AB82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				653D0EA913A783A500A5AB82 /* main.m in Sources */,
+				653D0EAD13A783A500A5AB82 /* Unit_testsAppDelegate.m in Sources */,
+				653D0EC213A783C000A5AB82 /* NSObject+Utils.m in Sources */,
+				653D0EC613A783C000A5AB82 /* SIStep.m in Sources */,
+				653D0EC913A783C000A5AB82 /* SIStory.m in Sources */,
+				653D0ECC13A783C000A5AB82 /* SIStoryFactory.m in Sources */,
+				653D0ED013A783C000A5AB82 /* SIStoryFileReader.m in Sources */,
+				653D0ED313A783C000A5AB82 /* SIStoryReader.m in Sources */,
+				653D0EE213A783DC00A5AB82 /* ParseKitGrammerTests.m in Sources */,
+				653D0EE413A783DC00A5AB82 /* SIStepTests.m in Sources */,
+				653D0EE613A783DC00A5AB82 /* SIStoryFactoryTests.m in Sources */,
+				653D0EE813A783DC00A5AB82 /* SIStoryFileReaderTests.m in Sources */,
+				653D0EEA13A783DC00A5AB82 /* SIStoryReaderTests.m in Sources */,
+				653D0EEC13A783DC00A5AB82 /* UITreeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		653D0EA513A783A500A5AB82 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				653D0EA613A783A500A5AB82 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		653D0E9213A782AD00A5AB82 /* Debug */ = {
@@ -181,6 +436,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/Simon.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Releases/dUsefulStuff/v0.0.10\"",
+					"\"$(SRCROOT)/../Releases/ParseKit/v1.0.0\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Simon/Simon-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
@@ -193,11 +453,57 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/Simon.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Releases/dUsefulStuff/v0.0.10\"",
+					"\"$(SRCROOT)/../Releases/ParseKit/v1.0.0\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Simon/Simon-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		653D0EAF13A783A500A5AB82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Releases/OCMock/v0.1.7\"",
+					"\"$(SRCROOT)/../tools\"",
+					"\"$(SRCROOT)/../tools/GHUnit 0.4.28\"",
+					"\"$(SRCROOT)/../Releases/ParseKit/v1.0.0\"",
+					"\"$(SRCROOT)/../Releases/dUsefulStuff/v0.0.10\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Unit tests/Unit tests-Prefix.pch";
+				INFOPLIST_FILE = "Unit tests/Unit tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		653D0EB013A783A500A5AB82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Releases/OCMock/v0.1.7\"",
+					"\"$(SRCROOT)/../tools\"",
+					"\"$(SRCROOT)/../tools/GHUnit 0.4.28\"",
+					"\"$(SRCROOT)/../Releases/ParseKit/v1.0.0\"",
+					"\"$(SRCROOT)/../Releases/dUsefulStuff/v0.0.10\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Unit tests/Unit tests-Prefix.pch";
+				INFOPLIST_FILE = "Unit tests/Unit tests-Info.plist";
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
@@ -218,6 +524,14 @@
 			buildConfigurations = (
 				653D0E9513A782AD00A5AB82 /* Debug */,
 				653D0E9613A782AD00A5AB82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		653D0EAE13A783A500A5AB82 /* Build configuration list for PBXNativeTarget "Unit tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				653D0EAF13A783A500A5AB82 /* Debug */,
+				653D0EB013A783A500A5AB82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
