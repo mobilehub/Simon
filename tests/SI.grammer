@@ -1,0 +1,24 @@
+/*
+	Simon's BDD grammer.
+   Author: Derek Clarkson
+	Copywrite 2010 Derek Clarkson
+*/
+
+@start = step+;
+step = noun expression+ (continuance)* '.'; 
+
+continuance = operator expression+;
+expression = word | number | stringValue;
+
+noun = given | when | then | as;
+operator = 'and';
+
+word = Word;
+number = Number;
+stringValue = QuotedString;
+
+given = 'given';
+when = 'when';
+then = 'then';
+as = 'as';
+

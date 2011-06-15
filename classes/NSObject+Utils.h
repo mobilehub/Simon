@@ -13,4 +13,7 @@
 
 -(NSError *) errorForCode:(SIError) errorCode shortDescription:(NSString *) shortDescription description:(NSString *) description; 
 
+-(SIKeyword) keywordFromString:(NSString *) string;
+-(NSString *) stringFromKeyword:(SIKeyword) keyword;
+
 @end

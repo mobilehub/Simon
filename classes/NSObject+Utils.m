@@ -18,4 +18,42 @@
 	return [NSError errorWithDomain:SIMON_ERROR_DOMAIN code:errorCode userInfo:dic];
 }
 
+-(SIKeyword) keywordFromString:(NSString *) string {
+	NSString * upper = [string uppercaseString];
+	if ([@"GIVEN" isEqualToString:upper]) {
+		return SIKeywordGiven;
+	} else if ([@"THEN" isEqualToString:upper]) {
+		return SIKeywordThen;
+	} else if ([@"AS" isEqualToString:upper]) {
+		return SIKeywordAs;
+	} else if ([@"AND" isEqualToString:upper]) {
+		return SIKeywordAnd;
+	}
+	return SIKeywordUnknown;
+}
+
+-(NSString *) stringFromKeyword:(SIKeyword) keyword {
+	switch (keyword) {
+		case SIKeywordGiven:
+			return @"Given";
+			break;
+
+		case SIKeywordThen:
+			return @"Then";
+			break;
+
+		case SIKeywordAs:
+			return @"As";
+			break;
+
+		case SIKeywordAnd:
+			return @"And";
+			break;
+
+		default:
+			break;
+	}
+	return nil;	
+}
+
 @end

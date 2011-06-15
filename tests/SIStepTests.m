@@ -30,4 +30,10 @@
 	
 }
 
+-(void) testCanGenerateSimpleSelector {
+	SIStep * step = [[SIStep alloc] initWithKeyword:SIKeywordGiven];
+	SEL selector = [step selector];
+	GHAssertEqualStrings(NSStringFromSelector(selector), @"stepGiven", @"Incorrect selector returned");
+}
+
 @end

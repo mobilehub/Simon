@@ -14,7 +14,6 @@
 @interface SIStoryFactory()
 -(void) endCurrentStory;
 -(void) createNewStory;
--(SIKeyword) getKeywordFrom:(NSString *) word;
 -(void) didReadKeyword:(SIKeyword) keyword error:(NSError **) error;
 @end
 
@@ -37,7 +36,7 @@
 -(void) didReadWord:(NSString *) word error:(NSError **) error {
 
 	// If it's a keyword then call the keyword processing instead.
-	SIKeyword keyword = [self getKeywordFrom:word];
+	SIKeyword keyword = [self keywordFromString:word];
 	if (keyword != SIKeywordUnknown) {
 		[self didReadKeyword:keyword error:error];
 		return;
@@ -73,20 +72,6 @@
 
 -(void) createNewStory {
 	story = [[SIStory alloc] init];
-}
-
--(SIKeyword) getKeywordFrom:(NSString *) word {
-	NSString * upper = [word uppercaseString];
-	if ([@"GIVEN" isEqualToString:upper]) {
-		return SIKeywordGiven;
-	} else if ([@"THEN" isEqualToString:upper]) {
-		return SIKeywordThen;
-	} else if ([@"AS" isEqualToString:upper]) {
-		return SIKeywordAs;
-	} else if ([@"AND" isEqualToString:upper]) {
-		return SIKeywordAnd;
-	}
-	return SIKeywordUnknown;
 }
 
 -(void) didReadKeyword:(SIKeyword) keyword error:(NSError **) error {

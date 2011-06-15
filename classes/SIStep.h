@@ -22,4 +22,6 @@
 
 -(void) addWord:(NSString *) word;
 
+-(SEL) selector;
+
 @end

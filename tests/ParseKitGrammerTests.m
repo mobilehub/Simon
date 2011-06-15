@@ -32,7 +32,7 @@ typedef enum {
 	PKToken *tok = nil;
 	
 	while ((tok = [t nextToken]) != eof) {
-		NSLog(@"(%@) (%.1f) : %@", 
+		DC_LOG(@"(%@) (%.1f) : %@", 
 				tok.stringValue, tok.floatValue, [tok debugDescription]);
 	}
 	
@@ -50,7 +50,7 @@ typedef enum {
 	PKToken *tok = nil;
 	
 	while ((tok = [t nextToken]) != eof) {
-		NSLog(@"(%@) (%.1f) : %@", 
+		DC_LOG(@"(%@) (%.1f) : %@", 
 				tok.stringValue, tok.floatValue, [tok debugDescription]);
 	}
 	

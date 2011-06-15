@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6527B7CA13A871DF005A912F /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EF813A784C100A5AB82 /* GHUnitIOS.framework */; };
 		653D0E8E13A782AD00A5AB82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0E8D13A782AD00A5AB82 /* Foundation.framework */; };
 		653D0E9E13A783A500A5AB82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0E9D13A783A500A5AB82 /* UIKit.framework */; };
 		653D0E9F13A783A500A5AB82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0E8D13A782AD00A5AB82 /* Foundation.framework */; };
 		653D0EA113A783A500A5AB82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EA013A783A500A5AB82 /* CoreGraphics.framework */; };
-		653D0EA713A783A500A5AB82 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 653D0EA513A783A500A5AB82 /* InfoPlist.strings */; };
-		653D0EA913A783A500A5AB82 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EA813A783A500A5AB82 /* main.m */; };
-		653D0EAD13A783A500A5AB82 /* Unit_testsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EAC13A783A500A5AB82 /* Unit_testsAppDelegate.m */; };
 		653D0EC013A783C000A5AB82 /* NSObject+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 653D0EB213A783C000A5AB82 /* NSObject+Utils.h */; };
 		653D0EC113A783C000A5AB82 /* NSObject+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EB313A783C000A5AB82 /* NSObject+Utils.m */; };
 		653D0EC213A783C000A5AB82 /* NSObject+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EB313A783C000A5AB82 /* NSObject+Utils.m */; };
@@ -34,7 +32,6 @@
 		653D0ED113A783C000A5AB82 /* SIStoryReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 653D0EBE13A783C000A5AB82 /* SIStoryReader.h */; };
 		653D0ED213A783C000A5AB82 /* SIStoryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EBF13A783C000A5AB82 /* SIStoryReader.m */; };
 		653D0ED313A783C000A5AB82 /* SIStoryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EBF13A783C000A5AB82 /* SIStoryReader.m */; };
-		653D0EE013A783DC00A5AB82 /* GHUnit-Tests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 653D0ED513A783DC00A5AB82 /* GHUnit-Tests-Info.plist */; };
 		653D0EE213A783DC00A5AB82 /* ParseKitGrammerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0ED613A783DC00A5AB82 /* ParseKitGrammerTests.m */; };
 		653D0EE413A783DC00A5AB82 /* SIStepTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0ED713A783DC00A5AB82 /* SIStepTests.m */; };
 		653D0EE613A783DC00A5AB82 /* SIStoryFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0ED813A783DC00A5AB82 /* SIStoryFactoryTests.m */; };
@@ -46,26 +43,26 @@
 		653D0EEF13A783DC00A5AB82 /* Story files.stories in Resources */ = {isa = PBXBuildFile; fileRef = 653D0EDF13A783DC00A5AB82 /* Story files.stories */; };
 		653D0EF113A7842500A5AB82 /* Simon-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 653D0EF013A7842500A5AB82 /* Simon-Prefix.pch */; };
 		653D0EF313A7846B00A5AB82 /* dUsefulStuff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EF213A7846B00A5AB82 /* dUsefulStuff.framework */; };
-		653D0EF913A784C100A5AB82 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EF813A784C100A5AB82 /* GHUnitIOS.framework */; };
 		653D0EFB13A784D600A5AB82 /* ParseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EFA13A784D600A5AB82 /* ParseKit.framework */; };
 		653D0EFC13A784DA00A5AB82 /* ParseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EFA13A784D600A5AB82 /* ParseKit.framework */; };
 		653D0EFD13A7851C00A5AB82 /* dUsefulStuff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EF213A7846B00A5AB82 /* dUsefulStuff.framework */; };
 		653D0EFE13A7852200A5AB82 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EF613A784A500A5AB82 /* OCMock.framework */; };
+		65A85A6413A86C6600599E31 /* GHUnitIOSTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A85A6313A86C6600599E31 /* GHUnitIOSTestMain.m */; };
+		65D35BB913A872C50007A8AD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D35BB813A872C50007A8AD /* CoreData.framework */; };
+		65D35BBB13A872CE0007A8AD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D35BB813A872C50007A8AD /* CoreData.framework */; };
+		65D35BBD13A873260007A8AD /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D35BBC13A873260007A8AD /* libicucore.dylib */; };
+		65D35BBE13A8732F0007A8AD /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D35BBC13A873260007A8AD /* libicucore.dylib */; };
+		65D35BC013A8B3AC0007A8AD /* SI.grammer in Resources */ = {isa = PBXBuildFile; fileRef = 65D35BBF13A8B3AC0007A8AD /* SI.grammer */; };
+		65D35BC313A8BA130007A8AD /* NSObject+UtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D35BC213A8BA130007A8AD /* NSObject+UtilsTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		653D0E8A13A782AD00A5AB82 /* libSimon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSimon.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		653D0E8D13A782AD00A5AB82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		653D0E9113A782AD00A5AB82 /* Simon-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Simon-Prefix.pch"; path = "../Simon-Prefix.pch"; sourceTree = "<group>"; };
+		653D0E9113A782AD00A5AB82 /* Simon-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Simon-Prefix.pch"; sourceTree = "<group>"; };
 		653D0E9B13A783A500A5AB82 /* Unit tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unit tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		653D0E9D13A783A500A5AB82 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		653D0EA013A783A500A5AB82 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		653D0EA413A783A500A5AB82 /* Unit tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit tests-Info.plist"; sourceTree = "<group>"; };
-		653D0EA613A783A500A5AB82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		653D0EA813A783A500A5AB82 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		653D0EAA13A783A500A5AB82 /* Unit tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Unit tests-Prefix.pch"; sourceTree = "<group>"; };
-		653D0EAB13A783A500A5AB82 /* Unit_testsAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Unit_testsAppDelegate.h; sourceTree = "<group>"; };
-		653D0EAC13A783A500A5AB82 /* Unit_testsAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Unit_testsAppDelegate.m; sourceTree = "<group>"; };
 		653D0EB213A783C000A5AB82 /* NSObject+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Utils.h"; sourceTree = "<group>"; };
 		653D0EB313A783C000A5AB82 /* NSObject+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Utils.m"; sourceTree = "<group>"; };
 		653D0EB413A783C000A5AB82 /* SIEnums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIEnums.h; sourceTree = "<group>"; };
@@ -95,6 +92,11 @@
 		653D0EF613A784A500A5AB82 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = ../tools/OCMock.framework; sourceTree = "<group>"; };
 		653D0EF813A784C100A5AB82 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../tools/GHUnit 0.4.28/GHUnitIOS.framework"; sourceTree = "<group>"; };
 		653D0EFA13A784D600A5AB82 /* ParseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseKit.framework; path = ../Releases/ParseKit/v1.0.0/ParseKit.framework; sourceTree = "<group>"; };
+		65A85A6313A86C6600599E31 /* GHUnitIOSTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitIOSTestMain.m; sourceTree = "<group>"; };
+		65D35BB813A872C50007A8AD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		65D35BBC13A873260007A8AD /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		65D35BBF13A8B3AC0007A8AD /* SI.grammer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SI.grammer; sourceTree = "<group>"; };
+		65D35BC213A8BA130007A8AD /* NSObject+UtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+UtilsTests.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,8 @@
 				653D0EF313A7846B00A5AB82 /* dUsefulStuff.framework in Frameworks */,
 				653D0E8E13A782AD00A5AB82 /* Foundation.framework in Frameworks */,
 				653D0EFC13A784DA00A5AB82 /* ParseKit.framework in Frameworks */,
+				65D35BBB13A872CE0007A8AD /* CoreData.framework in Frameworks */,
+				65D35BBE13A8732F0007A8AD /* libicucore.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,13 +116,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D35BBD13A873260007A8AD /* libicucore.dylib in Frameworks */,
+				65D35BB913A872C50007A8AD /* CoreData.framework in Frameworks */,
 				653D0EFB13A784D600A5AB82 /* ParseKit.framework in Frameworks */,
-				653D0EF913A784C100A5AB82 /* GHUnitIOS.framework in Frameworks */,
 				653D0E9E13A783A500A5AB82 /* UIKit.framework in Frameworks */,
 				653D0E9F13A783A500A5AB82 /* Foundation.framework in Frameworks */,
 				653D0EA113A783A500A5AB82 /* CoreGraphics.framework in Frameworks */,
 				653D0EFD13A7851C00A5AB82 /* dUsefulStuff.framework in Frameworks */,
 				653D0EFE13A7852200A5AB82 /* OCMock.framework in Frameworks */,
+				6527B7CA13A871DF005A912F /* GHUnitIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +138,6 @@
 				653D0ED413A783DC00A5AB82 /* tests */,
 				653D0EB113A783C000A5AB82 /* classes */,
 				653D0E8F13A782AD00A5AB82 /* Simon */,
-				653D0EA213A783A500A5AB82 /* Unit tests */,
 				653D0E8C13A782AD00A5AB82 /* Frameworks */,
 				653D0E8B13A782AD00A5AB82 /* Products */,
 			);
@@ -150,6 +155,8 @@
 		653D0E8C13A782AD00A5AB82 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				65D35BBC13A873260007A8AD /* libicucore.dylib */,
+				65D35BB813A872C50007A8AD /* CoreData.framework */,
 				653D0EF213A7846B00A5AB82 /* dUsefulStuff.framework */,
 				653D0EF813A784C100A5AB82 /* GHUnitIOS.framework */,
 				653D0EF613A784A500A5AB82 /* OCMock.framework */,
@@ -173,27 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				653D0E9113A782AD00A5AB82 /* Simon-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		653D0EA213A783A500A5AB82 /* Unit tests */ = {
-			isa = PBXGroup;
-			children = (
-				653D0EAB13A783A500A5AB82 /* Unit_testsAppDelegate.h */,
-				653D0EAC13A783A500A5AB82 /* Unit_testsAppDelegate.m */,
-				653D0EA313A783A500A5AB82 /* Supporting Files */,
-			);
-			path = "Unit tests";
-			sourceTree = "<group>";
-		};
-		653D0EA313A783A500A5AB82 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				653D0EA413A783A500A5AB82 /* Unit tests-Info.plist */,
-				653D0EA513A783A500A5AB82 /* InfoPlist.strings */,
-				653D0EA813A783A500A5AB82 /* main.m */,
-				653D0EAA13A783A500A5AB82 /* Unit tests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -222,6 +208,7 @@
 		653D0ED413A783DC00A5AB82 /* tests */ = {
 			isa = PBXGroup;
 			children = (
+				65A85A6313A86C6600599E31 /* GHUnitIOSTestMain.m */,
 				653D0ED513A783DC00A5AB82 /* GHUnit-Tests-Info.plist */,
 				653D0ED613A783DC00A5AB82 /* ParseKitGrammerTests.m */,
 				653D0ED713A783DC00A5AB82 /* SIStepTests.m */,
@@ -229,8 +216,10 @@
 				653D0ED913A783DC00A5AB82 /* SIStoryFileReaderTests.m */,
 				653D0EDA13A783DC00A5AB82 /* SIStoryReaderTests.m */,
 				653D0EDB13A783DC00A5AB82 /* UITreeTests.m */,
+				65D35BBF13A8B3AC0007A8AD /* SI.grammer */,
 				653D0EDC13A783DC00A5AB82 /* simple.grammer */,
 				653D0EDD13A783DC00A5AB82 /* stories */,
+				65D35BC213A8BA130007A8AD /* NSObject+UtilsTests.m */,
 			);
 			path = tests;
 			sourceTree = "<group>";
@@ -331,11 +320,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				653D0EA713A783A500A5AB82 /* InfoPlist.strings in Resources */,
-				653D0EE013A783DC00A5AB82 /* GHUnit-Tests-Info.plist in Resources */,
 				653D0EED13A783DC00A5AB82 /* simple.grammer in Resources */,
 				653D0EEE13A783DC00A5AB82 /* Other types.stories in Resources */,
 				653D0EEF13A783DC00A5AB82 /* Story files.stories in Resources */,
+				65D35BC013A8B3AC0007A8AD /* SI.grammer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,8 +347,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				653D0EA913A783A500A5AB82 /* main.m in Sources */,
-				653D0EAD13A783A500A5AB82 /* Unit_testsAppDelegate.m in Sources */,
 				653D0EC213A783C000A5AB82 /* NSObject+Utils.m in Sources */,
 				653D0EC613A783C000A5AB82 /* SIStep.m in Sources */,
 				653D0EC913A783C000A5AB82 /* SIStory.m in Sources */,
@@ -373,21 +359,12 @@
 				653D0EE813A783DC00A5AB82 /* SIStoryFileReaderTests.m in Sources */,
 				653D0EEA13A783DC00A5AB82 /* SIStoryReaderTests.m in Sources */,
 				653D0EEC13A783DC00A5AB82 /* UITreeTests.m in Sources */,
+				65A85A6413A86C6600599E31 /* GHUnitIOSTestMain.m in Sources */,
+				65D35BC313A8BA130007A8AD /* NSObject+UtilsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		653D0EA513A783A500A5AB82 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				653D0EA613A783A500A5AB82 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		653D0E9213A782AD00A5AB82 /* Debug */ = {
@@ -395,21 +372,23 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_OBJCPP_ARC_ABI = NO;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = DC_DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -419,14 +398,20 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_OBJCPP_ARC_ABI = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = DC_DEBUG;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -442,8 +427,7 @@
 					"\"$(SRCROOT)/../Releases/ParseKit/v1.0.0\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Simon/Simon-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				GCC_PREFIX_HEADER = "Simon-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -459,8 +443,7 @@
 					"\"$(SRCROOT)/../Releases/ParseKit/v1.0.0\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Simon/Simon-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				GCC_PREFIX_HEADER = "Simon-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -469,6 +452,7 @@
 		653D0EAF13A783A500A5AB82 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -479,9 +463,10 @@
 					"\"$(SRCROOT)/../Releases/dUsefulStuff/v0.0.10\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Unit tests/Unit tests-Prefix.pch";
-				INFOPLIST_FILE = "Unit tests/Unit tests-Info.plist";
+				GCC_PREFIX_HEADER = "Simon-Prefix.pch";
+				INFOPLIST_FILE = "tests/GHUnit-Tests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -489,6 +474,7 @@
 		653D0EB013A783A500A5AB82 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -499,10 +485,11 @@
 					"\"$(SRCROOT)/../Releases/dUsefulStuff/v0.0.10\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Unit tests/Unit tests-Prefix.pch";
-				INFOPLIST_FILE = "Unit tests/Unit tests-Info.plist";
+				GCC_PREFIX_HEADER = "Simon-Prefix.pch";
+				INFOPLIST_FILE = "tests/GHUnit-Tests-Info.plist";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -526,6 +513,7 @@
 				653D0E9613A782AD00A5AB82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		653D0EAE13A783A500A5AB82 /* Build configuration list for PBXNativeTarget "Unit tests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +522,7 @@
 				653D0EB013A783A500A5AB82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

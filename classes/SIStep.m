@@ -27,6 +27,10 @@
 	[self.words addObject:word];
 }
 
+-(SEL) selector {
+//	NSMutableString * stringSelector = [[NSMutableString alloc]initWithString:];
+}
+
 -(void) dealloc {
 	DC_DEALLOC(words);
 	[super dealloc];
