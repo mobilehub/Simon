@@ -8,31 +8,43 @@
 
 #import "SIStep.h"
 #import <dUsefulStuff/DCCommon.h>
+#import "NSObject+Utils.h"
 
 @implementation SIStep
 
 @synthesize keyword;
-@synthesize words;
 
 -(id) initWithKeyword:(SIKeyword) aKeyword {
 	self = [super init];
 	if (self) {
 		keyword = aKeyword;
-		words = [[NSMutableArray alloc] init];
+		parameters = [[NSMutableArray alloc] init];
+		selector = [[NSMutableString alloc]initWithString:@"step"];
+		[selector appendString:[self stringFromKeyword:keyword]];
 	}
 	return self;
 }
 
 -(void) addWord:(NSString *) word {
-	[self.words addObject:word];
+	if (parametersAdded) {
+		[selector appendString:@"and"];
+	}
+	[selector appendString:[word capitalizedString]];
 }
 
 -(SEL) selector {
-//	NSMutableString * stringSelector = [[NSMutableString alloc]initWithString:];
+	return NSSelectorFromString(selector);
+}
+
+-(void) addParameter:(id) parm {
+	parametersAdded = YES;
+	[selector appendString:@":"];
+	[parameters addObject:parm];
 }
 
 -(void) dealloc {
-	DC_DEALLOC(words);
+	DC_DEALLOC(parameters);
+	DC_DEALLOC(selector);
 	[super dealloc];
 }
 

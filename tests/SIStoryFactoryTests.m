@@ -69,7 +69,7 @@
 	
 }
 
--(void) testWordsAreAdded {
+-(void) testWordsArePassedToStory {
 	
 	[factory didReadWord:@"Given" error:&error];
 	GHAssertNil(error, @"Error returned %@", error.localizedDescription);
@@ -79,10 +79,8 @@
 	GHAssertNil(error, @"Error returned %@", error.localizedDescription);
 	[factory didReadEndOfInput];
 
-	NSArray * words = [story stepAtIndex:0].words;
-	GHAssertEquals([words count], (NSUInteger) 2, @"Incorrect number of words returned");
-	GHAssertEqualStrings([words objectAtIndex:0], @"that", @"Word not stored correctly");
-	GHAssertEqualStrings([words objectAtIndex:1], @"I", @"Word not stored correctly");
+	SEL selector = [[story stepAtIndex:0] selector];
+	GHAssertEqualStrings(NSStringFromSelector(selector), @"stepGivenThatI", @"Word not stored correctly");
 }
 
 // Delegate methods.

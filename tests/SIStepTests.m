@@ -26,8 +26,8 @@
 -(void) testWordIsAdded {
 	SIStep * step = [[SIStep alloc] initWithKeyword:SIKeywordGiven];
 	[step addWord:@"word"];
-	GHAssertEqualStrings([step.words objectAtIndex:0], @"word", @"Word not stored");
-	
+	SEL selector = [step selector];
+	GHAssertEqualStrings(NSStringFromSelector(selector), @"stepGivenWord", @"Word not stored");
 }
 
 -(void) testCanGenerateSimpleSelector {
@@ -35,5 +35,33 @@
 	SEL selector = [step selector];
 	GHAssertEqualStrings(NSStringFromSelector(selector), @"stepGiven", @"Incorrect selector returned");
 }
+
+-(void) testCanGenerateMultiwordSelector {
+	SIStep * step = [[SIStep alloc] initWithKeyword:SIKeywordGiven];
+	[step addWord:@"I"];
+	[step addWord:@"am"];
+	[step addWord:@"Sam"];
+	SEL selector = [step selector];
+	GHAssertEqualStrings(NSStringFromSelector(selector), @"stepGivenIAmSam", @"Incorrect selector returned");
+}
+
+-(void) testCanGenerateSimpleSelectorWithOneStringParameter {
+	SIStep * step = [[SIStep alloc] initWithKeyword:SIKeywordGiven];
+	[step addParameter:@"abc"];
+	SEL selector = [step selector];
+	GHAssertEqualStrings(NSStringFromSelector(selector), @"stepGiven:", @"Incorrect selector returned");
+}
+
+-(void) testCanGenerateSelectorWithTwoStringParameters {
+	SIStep * step = [[SIStep alloc] initWithKeyword:SIKeywordGiven];
+	[step addWord:@"I"];
+	[step addWord:@"am"];
+	[step addParameter:@"Fred"];
+	[step addWord:@"from"];
+	[step addParameter:@"A Company"];
+	SEL selector = [step selector];
+	GHAssertEqualStrings(NSStringFromSelector(selector), @"stepGivenIAm:andFrom:", @"Incorrect selector returned");
+}
+
 
 @end

@@ -12,15 +12,18 @@
 @interface SIStep : NSObject {
 @private
 	SIKeyword keyword;
-	NSMutableArray * words;
+	NSMutableArray * parameters;
+	NSMutableString * selector;
+	BOOL parametersAdded;
 }
 
-@property(nonatomic,readonly) SIKeyword keyword;
-@property(nonatomic,readonly) NSMutableArray * words;
+@property (nonatomic, readonly) SIKeyword keyword;
 
 -(id) initWithKeyword:(SIKeyword) aKeyword;
 
 -(void) addWord:(NSString *) word;
+
+-(void) addParameter:(id) parm;
 
 -(SEL) selector;
 
