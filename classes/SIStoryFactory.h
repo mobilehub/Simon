@@ -18,6 +18,7 @@
 @private 
 	NSObject<SIStoryFactoryDelegate> * delegate;
 	SIStory * story;
+	BOOL keywordFound;
 }
 
 -(void) didReadURL:(NSString *) url error:(NSError **) error;
@@ -27,6 +28,7 @@
 -(void) didReadNumber:(CGFloat) number error:(NSError **) error;
 -(void) didReadQuotedString:(NSString *) quotedString error:(NSError **) error;
 -(void) didReadSymbol:(NSString *) symbol error:(NSError **) error;
+-(void) didReadNewLine;
 -(void) didReadEndOfInput;
 
 // Do not retain. Delegates are typically not retained.

@@ -35,9 +35,12 @@
 
 -(void) didReadWord:(NSString *) word error:(NSError **) error {
 
-	// If it's a keyword then call the keyword processing instead.
+	// If it's a keyword then call the keyword processing instead. But only
+	// if we haven't found one yet. As this only happens at the start of a line
+	// this excludes keywords which appear mid sentence.
 	SIKeyword keyword = [self keywordFromString:word];
-	if (keyword != SIKeywordUnknown) {
+	if (!keywordFound && keyword != SIKeywordUnknown) {
+		keywordFound = YES;
 		[self didReadKeyword:keyword error:error];
 		return;
 	}
@@ -57,6 +60,11 @@
 
 -(void) didReadSymbol:(NSString *) symbol error:(NSError **) error{
 	
+}
+
+-(void) didReadNewLine {
+	// Start looking for a keyword again.
+	keywordFound = NO;
 }
 
 -(void) didReadEndOfInput {

@@ -72,16 +72,28 @@
 -(void) testWordsArePassedToStory {
 	
 	[factory didReadWord:@"Given" error:&error];
-	GHAssertNil(error, @"Error returned %@", error.localizedDescription);
 	[factory didReadWord:@"that" error:&error];
-	GHAssertNil(error, @"Error returned %@", error.localizedDescription);
 	[factory didReadWord:@"I" error:&error];
-	GHAssertNil(error, @"Error returned %@", error.localizedDescription);
 	[factory didReadEndOfInput];
 
 	SEL selector = [[story stepAtIndex:0] selector];
 	GHAssertEqualStrings(NSStringFromSelector(selector), @"stepGivenThatI", @"Word not stored correctly");
 }
+
+-(void) testWithKeywordInMiddleOfSentenceIsTreatedAsWord {
+	
+	[factory didReadWord:@"Given" error:&error];
+	[factory didReadWord:@"x" error:&error];
+	[factory didReadWord:@"and" error:&error];
+	[factory didReadWord:@"y" error:&error];
+	[factory didReadEndOfInput];
+	
+	GHAssertNil(error, @"Error returned %@", error.localizedDescription);
+	GHAssertNotNil(story, @"Story should be present");
+	GHAssertEqualStrings(NSStringFromSelector([[story stepAtIndex:0] selector]), @"stepGivenXAndY", @"selector not correct");
+	
+}
+
 
 // Delegate methods.
 -(void) didReadStory:(SIStory *)aStory {

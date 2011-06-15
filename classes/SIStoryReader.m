@@ -11,6 +11,7 @@
 
 #import <ParseKit/PKTokenizer.h>
 #import <ParseKit/PKToken.h>
+#import <ParseKit/PKWhitespaceState.h>
 
 @interface SIStoryReader()
 -(void) readStoryLinesFromFile:(NSString *) file error:(NSError **) error;
@@ -50,12 +51,12 @@
 	
 	// process the lines of text in the file.
 	PKTokenizer *t = [PKTokenizer tokenizerWithString:contents];
+	t.whitespaceState.reportsWhitespaceTokens = YES;
 	
 	PKToken *eof = [PKToken EOFToken];
 	PKToken *tok = nil;
 	
 	while ((tok = [t nextToken]) != eof) {
-		DC_LOG(@"(%@) (%.1f) : %@", tok.stringValue, tok.floatValue, [tok debugDescription]);
 		switch (tok.tokenType) {
 			case PKTokenTypeWord:
 				[storyFactory didReadWord:tok.stringValue error:error];
@@ -77,6 +78,12 @@
 				break;
 			case PKTokenTypeSymbol:
 				[storyFactory didReadSymbol:tok.stringValue error:error];
+				break;
+			case PKTokenTypeWhitespace:
+				if ([tok.stringValue isEqualToString:@"\n"]) {
+					[storyFactory didReadNewLine];
+				}
+				// Swallow other white space.
 				break;
 			default:
 				DC_LOG(@"Don't know how to handle %@", tok);
