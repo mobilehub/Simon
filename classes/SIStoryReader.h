@@ -20,6 +20,9 @@
 	SIStoryFactory * storyFactory;
 }
 
+@property (retain, nonatomic) SIStoryFileReader *fileReader;
+@property (retain, nonatomic) SIStoryFactory *storyFactory;
+
 -(id) initWithStoryFileReader:(SIStoryFileReader *) storyFileReader storyFactory:(SIStoryFactory *) aStoryFactory;
 
 /**

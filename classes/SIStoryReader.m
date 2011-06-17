@@ -20,6 +20,20 @@
 
 @implementation SIStoryReader
 
+@synthesize fileReader;
+@synthesize storyFactory;
+
+// Default is to create a file reader which reads all files.
+-(id) init {
+	self = [super init];
+	if (self) {
+		fileReader = [[SIStoryFileReader alloc] init];
+		storyFactory = [[SIStoryFactory alloc] init];
+	}
+	return self;
+}
+
+// Otherwise use the passed reader and factory.
 -(id) initWithStoryFileReader:(SIStoryFileReader *) storyFileReader storyFactory:(SIStoryFactory *) aStoryFactory {
 	self = [super init];
 	if (self) {
@@ -97,8 +111,8 @@
 
 
 -(void) dealloc {
-	DC_DEALLOC(fileReader);
-	DC_DEALLOC(storyFactory);
+	self.fileReader = nil;
+	self.storyFactory = nil;
 	[super dealloc];
 }
 

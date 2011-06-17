@@ -13,8 +13,7 @@
 @private
 	SIKeyword keyword;
 	NSMutableArray * parameters;
-	NSMutableString * selector;
-	BOOL parametersAdded;
+	NSMutableString * selectorTemplate;
 }
 
 @property (nonatomic, readonly) SIKeyword keyword;
@@ -26,5 +25,7 @@
 -(void) addParameter:(id) parm;
 
 -(SEL) selector;
+
+-(NSInvocation *) invocation;
 
 @end

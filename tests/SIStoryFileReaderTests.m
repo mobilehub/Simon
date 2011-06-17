@@ -16,7 +16,7 @@
 
 @implementation SIStoryFileReaderTests
 
--(void) testInitReturnsStoryFiles {
+-(void) testInitReturnsAllStoryFiles {
 	SIStoryFileReader * fileSystemStoryReader = [[[SIStoryFileReader alloc] init] autorelease];
 	GHAssertEquals([fileSystemStoryReader.files count], (NSUInteger)2, @"Incorrect number of files returned");
 	GHAssertTrue([(NSString *)[fileSystemStoryReader.files objectAtIndex:0] hasSuffix:STORY_EXTENSION], @"Incorrect extension");

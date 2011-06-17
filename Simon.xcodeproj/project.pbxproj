@@ -47,6 +47,10 @@
 		653D0EFC13A784DA00A5AB82 /* ParseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EFA13A784D600A5AB82 /* ParseKit.framework */; };
 		653D0EFD13A7851C00A5AB82 /* dUsefulStuff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EF213A7846B00A5AB82 /* dUsefulStuff.framework */; };
 		653D0EFE13A7852200A5AB82 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EF613A784A500A5AB82 /* OCMock.framework */; };
+		6551A98113AB904A00679B94 /* SIStoryRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 6551A97F13AB904900679B94 /* SIStoryRunner.h */; };
+		6551A98213AB904A00679B94 /* SIStoryRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6551A98013AB904A00679B94 /* SIStoryRunner.m */; };
+		6551A98313AB904A00679B94 /* SIStoryRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6551A98013AB904A00679B94 /* SIStoryRunner.m */; };
+		6551A98713AB931F00679B94 /* SIStoryRunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6551A98613AB931F00679B94 /* SIStoryRunnerTests.m */; };
 		65A85A6413A86C6600599E31 /* GHUnitIOSTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A85A6313A86C6600599E31 /* GHUnitIOSTestMain.m */; };
 		65D35BB913A872C50007A8AD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D35BB813A872C50007A8AD /* CoreData.framework */; };
 		65D35BBB13A872CE0007A8AD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D35BB813A872C50007A8AD /* CoreData.framework */; };
@@ -92,6 +96,9 @@
 		653D0EF613A784A500A5AB82 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = ../tools/OCMock.framework; sourceTree = "<group>"; };
 		653D0EF813A784C100A5AB82 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = "../tools/GHUnit 0.4.28/GHUnitIOS.framework"; sourceTree = "<group>"; };
 		653D0EFA13A784D600A5AB82 /* ParseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseKit.framework; path = ../Releases/ParseKit/v1.0.0/ParseKit.framework; sourceTree = "<group>"; };
+		6551A97F13AB904900679B94 /* SIStoryRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIStoryRunner.h; sourceTree = "<group>"; };
+		6551A98013AB904A00679B94 /* SIStoryRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryRunner.m; sourceTree = "<group>"; };
+		6551A98613AB931F00679B94 /* SIStoryRunnerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryRunnerTests.m; sourceTree = "<group>"; };
 		65A85A6313A86C6600599E31 /* GHUnitIOSTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitIOSTestMain.m; sourceTree = "<group>"; };
 		65D35BB813A872C50007A8AD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		65D35BBC13A873260007A8AD /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
@@ -201,6 +208,8 @@
 				653D0EBD13A783C000A5AB82 /* SIStoryFileReader.m */,
 				653D0EBE13A783C000A5AB82 /* SIStoryReader.h */,
 				653D0EBF13A783C000A5AB82 /* SIStoryReader.m */,
+				6551A97F13AB904900679B94 /* SIStoryRunner.h */,
+				6551A98013AB904A00679B94 /* SIStoryRunner.m */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -220,6 +229,7 @@
 				653D0EDC13A783DC00A5AB82 /* simple.grammer */,
 				653D0EDD13A783DC00A5AB82 /* stories */,
 				65D35BC213A8BA130007A8AD /* NSObject+UtilsTests.m */,
+				6551A98613AB931F00679B94 /* SIStoryRunnerTests.m */,
 			);
 			path = tests;
 			sourceTree = "<group>";
@@ -249,6 +259,7 @@
 				653D0ECE13A783C000A5AB82 /* SIStoryFileReader.h in Headers */,
 				653D0ED113A783C000A5AB82 /* SIStoryReader.h in Headers */,
 				653D0EF113A7842500A5AB82 /* Simon-Prefix.pch in Headers */,
+				6551A98113AB904A00679B94 /* SIStoryRunner.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +351,7 @@
 				653D0ECB13A783C000A5AB82 /* SIStoryFactory.m in Sources */,
 				653D0ECF13A783C000A5AB82 /* SIStoryFileReader.m in Sources */,
 				653D0ED213A783C000A5AB82 /* SIStoryReader.m in Sources */,
+				6551A98213AB904A00679B94 /* SIStoryRunner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +373,8 @@
 				653D0EEC13A783DC00A5AB82 /* UITreeTests.m in Sources */,
 				65A85A6413A86C6600599E31 /* GHUnitIOSTestMain.m in Sources */,
 				65D35BC313A8BA130007A8AD /* NSObject+UtilsTests.m in Sources */,
+				6551A98313AB904A00679B94 /* SIStoryRunner.m in Sources */,
+				6551A98713AB931F00679B94 /* SIStoryRunnerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
