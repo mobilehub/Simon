@@ -6,7 +6,9 @@
 //  Copyright 2011 Sensis. All rights reserved.
 //
 
+#import <dUsefulStuff/DCCommon.h>
 #import "SIStoryRunner.h"
+#import "SIStory.h"
 
 @implementation SIStoryRunner
 
@@ -16,11 +18,31 @@
 {
     self = [super init];
     if (self) {
-		 reader = [[SIStoryReader alloc] init];
+		 reader = [[SIStoryFileReader alloc] init];
     }
     
     return self;
 }
+
+-(void) runStories:(NSError **) error {
+	
+	
+	// Read the stories.
+	DC_LOG(@"Reading stories");
+	NSArray *stories = [reader readStories: error];
+	if (stories == nil) {
+		return;
+	}
+
+	// Now execute the stories.
+	DC_LOG(@"Running %lu stories", [stories count]);
+	for (SIStory *story in stories) {
+		[story execute];
+	}
+	
+	DC_LOG(@"Done.");
+}
+
 
 -(void) dealloc {
 	self.reader = nil;

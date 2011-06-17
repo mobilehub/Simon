@@ -40,6 +40,15 @@
 	return [steps lastObject];
 }
 
+-(void) execute {
+	DC_LOG(@"Executing steps");
+	NSInvocation * invocation;
+	for (SIStep *step in steps) {
+		invocation = [step invocation];
+		DC_LOG(@"Looking for selector %@", NSStringFromSelector([invocation selector]));
+	}
+}
+
 -(void) dealloc {
 	DC_DEALLOC(steps);
 	[super dealloc];

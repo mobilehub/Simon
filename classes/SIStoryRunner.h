@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SIStoryReader.h"
+#import "SIStoryFileReader.h"
 
 @interface SIStoryRunner : NSObject {
 	@private 
-	SIStoryReader * reader;
+	SIStoryFileReader * reader;
 }
 
-@property (retain, nonatomic) SIStoryReader * reader;
+@property (retain, nonatomic) SIStoryFileReader * reader;
+
+-(void) runStories:(NSError **) error;
 
 @end

@@ -29,14 +29,10 @@
 		653D0ECE13A783C000A5AB82 /* SIStoryFileReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 653D0EBC13A783C000A5AB82 /* SIStoryFileReader.h */; };
 		653D0ECF13A783C000A5AB82 /* SIStoryFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EBD13A783C000A5AB82 /* SIStoryFileReader.m */; };
 		653D0ED013A783C000A5AB82 /* SIStoryFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EBD13A783C000A5AB82 /* SIStoryFileReader.m */; };
-		653D0ED113A783C000A5AB82 /* SIStoryReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 653D0EBE13A783C000A5AB82 /* SIStoryReader.h */; };
-		653D0ED213A783C000A5AB82 /* SIStoryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EBF13A783C000A5AB82 /* SIStoryReader.m */; };
-		653D0ED313A783C000A5AB82 /* SIStoryReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EBF13A783C000A5AB82 /* SIStoryReader.m */; };
 		653D0EE213A783DC00A5AB82 /* ParseKitGrammerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0ED613A783DC00A5AB82 /* ParseKitGrammerTests.m */; };
 		653D0EE413A783DC00A5AB82 /* SIStepTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0ED713A783DC00A5AB82 /* SIStepTests.m */; };
 		653D0EE613A783DC00A5AB82 /* SIStoryFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0ED813A783DC00A5AB82 /* SIStoryFactoryTests.m */; };
 		653D0EE813A783DC00A5AB82 /* SIStoryFileReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0ED913A783DC00A5AB82 /* SIStoryFileReaderTests.m */; };
-		653D0EEA13A783DC00A5AB82 /* SIStoryReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EDA13A783DC00A5AB82 /* SIStoryReaderTests.m */; };
 		653D0EEC13A783DC00A5AB82 /* UITreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EDB13A783DC00A5AB82 /* UITreeTests.m */; };
 		653D0EED13A783DC00A5AB82 /* simple.grammer in Resources */ = {isa = PBXBuildFile; fileRef = 653D0EDC13A783DC00A5AB82 /* simple.grammer */; };
 		653D0EEE13A783DC00A5AB82 /* Other types.stories in Resources */ = {isa = PBXBuildFile; fileRef = 653D0EDE13A783DC00A5AB82 /* Other types.stories */; };
@@ -79,14 +75,11 @@
 		653D0EBB13A783C000A5AB82 /* SIStoryFactoryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIStoryFactoryDelegate.h; sourceTree = "<group>"; };
 		653D0EBC13A783C000A5AB82 /* SIStoryFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIStoryFileReader.h; sourceTree = "<group>"; };
 		653D0EBD13A783C000A5AB82 /* SIStoryFileReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryFileReader.m; sourceTree = "<group>"; };
-		653D0EBE13A783C000A5AB82 /* SIStoryReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIStoryReader.h; sourceTree = "<group>"; };
-		653D0EBF13A783C000A5AB82 /* SIStoryReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryReader.m; sourceTree = "<group>"; };
 		653D0ED513A783DC00A5AB82 /* GHUnit-Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GHUnit-Tests-Info.plist"; sourceTree = "<group>"; };
 		653D0ED613A783DC00A5AB82 /* ParseKitGrammerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseKitGrammerTests.m; sourceTree = "<group>"; };
 		653D0ED713A783DC00A5AB82 /* SIStepTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStepTests.m; sourceTree = "<group>"; };
 		653D0ED813A783DC00A5AB82 /* SIStoryFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryFactoryTests.m; sourceTree = "<group>"; };
 		653D0ED913A783DC00A5AB82 /* SIStoryFileReaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryFileReaderTests.m; sourceTree = "<group>"; };
-		653D0EDA13A783DC00A5AB82 /* SIStoryReaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryReaderTests.m; sourceTree = "<group>"; };
 		653D0EDB13A783DC00A5AB82 /* UITreeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITreeTests.m; sourceTree = "<group>"; };
 		653D0EDC13A783DC00A5AB82 /* simple.grammer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = simple.grammer; sourceTree = "<group>"; };
 		653D0EDE13A783DC00A5AB82 /* Other types.stories */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Other types.stories"; sourceTree = "<group>"; };
@@ -206,8 +199,6 @@
 				653D0EBB13A783C000A5AB82 /* SIStoryFactoryDelegate.h */,
 				653D0EBC13A783C000A5AB82 /* SIStoryFileReader.h */,
 				653D0EBD13A783C000A5AB82 /* SIStoryFileReader.m */,
-				653D0EBE13A783C000A5AB82 /* SIStoryReader.h */,
-				653D0EBF13A783C000A5AB82 /* SIStoryReader.m */,
 				6551A97F13AB904900679B94 /* SIStoryRunner.h */,
 				6551A98013AB904A00679B94 /* SIStoryRunner.m */,
 			);
@@ -223,7 +214,6 @@
 				653D0ED713A783DC00A5AB82 /* SIStepTests.m */,
 				653D0ED813A783DC00A5AB82 /* SIStoryFactoryTests.m */,
 				653D0ED913A783DC00A5AB82 /* SIStoryFileReaderTests.m */,
-				653D0EDA13A783DC00A5AB82 /* SIStoryReaderTests.m */,
 				653D0EDB13A783DC00A5AB82 /* UITreeTests.m */,
 				65D35BBF13A8B3AC0007A8AD /* SI.grammer */,
 				653D0EDC13A783DC00A5AB82 /* simple.grammer */,
@@ -257,7 +247,6 @@
 				653D0ECA13A783C000A5AB82 /* SIStoryFactory.h in Headers */,
 				653D0ECD13A783C000A5AB82 /* SIStoryFactoryDelegate.h in Headers */,
 				653D0ECE13A783C000A5AB82 /* SIStoryFileReader.h in Headers */,
-				653D0ED113A783C000A5AB82 /* SIStoryReader.h in Headers */,
 				653D0EF113A7842500A5AB82 /* Simon-Prefix.pch in Headers */,
 				6551A98113AB904A00679B94 /* SIStoryRunner.h in Headers */,
 			);
@@ -350,7 +339,6 @@
 				653D0EC813A783C000A5AB82 /* SIStory.m in Sources */,
 				653D0ECB13A783C000A5AB82 /* SIStoryFactory.m in Sources */,
 				653D0ECF13A783C000A5AB82 /* SIStoryFileReader.m in Sources */,
-				653D0ED213A783C000A5AB82 /* SIStoryReader.m in Sources */,
 				6551A98213AB904A00679B94 /* SIStoryRunner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,12 +352,10 @@
 				653D0EC913A783C000A5AB82 /* SIStory.m in Sources */,
 				653D0ECC13A783C000A5AB82 /* SIStoryFactory.m in Sources */,
 				653D0ED013A783C000A5AB82 /* SIStoryFileReader.m in Sources */,
-				653D0ED313A783C000A5AB82 /* SIStoryReader.m in Sources */,
 				653D0EE213A783DC00A5AB82 /* ParseKitGrammerTests.m in Sources */,
 				653D0EE413A783DC00A5AB82 /* SIStepTests.m in Sources */,
 				653D0EE613A783DC00A5AB82 /* SIStoryFactoryTests.m in Sources */,
 				653D0EE813A783DC00A5AB82 /* SIStoryFileReaderTests.m in Sources */,
-				653D0EEA13A783DC00A5AB82 /* SIStoryReaderTests.m in Sources */,
 				653D0EEC13A783DC00A5AB82 /* UITreeTests.m in Sources */,
 				65A85A6413A86C6600599E31 /* GHUnitIOSTestMain.m in Sources */,
 				65D35BC313A8BA130007A8AD /* NSObject+UtilsTests.m in Sources */,

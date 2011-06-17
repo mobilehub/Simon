@@ -21,6 +21,7 @@
 		parameters = [[NSMutableArray alloc] init];
 		selectorTemplate = [[NSMutableString alloc]initWithString:@"step"];
 		[selectorTemplate appendString:[self stringFromKeyword:keyword]];
+		parameterSignature = [[NSMutableString alloc]initWithString:@"v@:"];
 	}
 	return self;
 }
@@ -41,6 +42,7 @@
 	}
 	
 	// Add the next word. 
+	DC_LOG(@"Adding word: %@", word);
 	[selectorTemplate appendString:[word capitalizedString]];
 }
 
@@ -51,12 +53,7 @@
 
 -(NSInvocation *) invocation {
 	
-	NSMutableString * parameterSignature = [[NSMutableString alloc] initWithString:@"v@:"];
-	for (id parm in parameters) {
-		[parameterSignature appendString:@"@"];
-	}
 	DC_LOG(@"Using method parameter signature %s", [parameterSignature UTF8String]);
-	
 	NSMethodSignature * signature = [NSMethodSignature signatureWithObjCTypes:[parameterSignature UTF8String]];
 	
 	NSInvocation * invocation = [NSInvocation invocationWithMethodSignature:signature];
@@ -69,18 +66,19 @@
 		[invocation setArgument:parm atIndex:index++];
 	}
 	
-	DC_DEALLOC(parameterSignature);
 	return invocation;
 }
 
 -(void) addParameter:(id) parm {
 	[selectorTemplate appendString:@":"];
+	[parameterSignature appendString:@"@"];
 	[parameters addObject:parm];
 }
 
 -(void) dealloc {
 	DC_DEALLOC(parameters);
 	DC_DEALLOC(selectorTemplate);
+	DC_DEALLOC(parameterSignature);
 	[super dealloc];
 }
 

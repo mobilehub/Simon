@@ -19,4 +19,5 @@
 -(SIStep *) stepAtIndex:(NSUInteger) index;
 -(NSUInteger) numberOfSteps;
 -(SIStep *) lastStep;
+-(void) execute;
 @end

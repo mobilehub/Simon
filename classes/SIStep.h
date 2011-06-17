@@ -14,6 +14,7 @@
 	SIKeyword keyword;
 	NSMutableArray * parameters;
 	NSMutableString * selectorTemplate;
+	NSMutableString *parameterSignature;
 }
 
 @property (nonatomic, readonly) SIKeyword keyword;
