@@ -27,6 +27,7 @@
 	self = [super init];
 	if (self) {
 		self.files = [[NSBundle mainBundle] pathsForResourcesOfType:STORY_EXTENSION inDirectory:nil];
+		self.storyFactory = [[SIStoryFactory alloc] init];
 	}
 	return self;
 }
@@ -44,17 +45,23 @@
 			@throw myException;
 		}
 		self.files = [NSArray arrayWithObject:file];
+		self.storyFactory = [[SIStoryFactory alloc] init];
 	}
 	return self;
 }
 
 -(NSArray *) readStories:(NSError **) error {
-	NSMutableArray * stories = [[[NSMutableArray alloc] init] autorelease];
+	
+	stories = [[[NSMutableArray alloc] init] autorelease];
+	
+	self.storyFactory.delegate = self;
 	
 	for (NSString * file in self.files) {
 		[self readStoryLinesFromFile:file error:error];
 	}
-	
+
+	self.storyFactory.delegate = nil;
+
 	return stories;
 }
 
@@ -75,6 +82,7 @@
 	PKToken *eof = [PKToken EOFToken];
 	PKToken *tok = nil;
 	
+	DC_LOG(@"Processing tokens");
 	while ((tok = [t nextToken]) != eof) {
 		switch (tok.tokenType) {
 			case PKTokenTypeWord:
@@ -111,11 +119,19 @@
 		}
 	}
 	[storyFactory didReadEndOfInput];
+	DC_LOG(@"Finished reading file");
 	
 }
 
+-(void) didReadStory:(SIStory *) aStory {
+	DC_LOG(@"Received story from factory");
+	[stories addObject:aStory];
+}
+
+
 -(void) dealloc {
 	self.files = nil;
+	self.storyFactory = nil;
 	[super dealloc];
 }
 

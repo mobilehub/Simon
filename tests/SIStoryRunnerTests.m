@@ -11,9 +11,9 @@
 #import "SIStoryRunner.h"
 
 @interface SIStoryRunnerTests : GHTestCase {}
--(void) asSimon;
--(void) givenThisFileExists;
--(void) thenIShouldBeAbleToRead:(NSNumber *) aNumber and:(NSString *) aString;
+-(void) stepAsSimon;
+-(void) stepGivenThisFileExists;
+-(void) stepThenIShouldBeAbleToRead:(NSNumber *) aNumber and:(NSString *) aString;
 @end
 
 @implementation SIStoryRunnerTests
@@ -29,15 +29,15 @@
 	GHAssertNil(error, @"Error returned %@", error.localizedDescription);
 }
 
--(void) asSimon {
+-(void) stepAsSimon {
 	DC_LOG(@"As Simon");
 }
 
--(void) givenThisFileExists {
+-(void) stepGivenThisFileExists {
 	DC_LOG(@"Given this file exists");
 }
 
--(void) thenIShouldBeAbleToRead:(NSNumber *) aNumber and:(NSString *) aString {
+-(void) stepThenIShouldBeAbleToRead:(NSNumber *) aNumber and:(NSString *) aString {
 	DC_LOG(@"Then I should be able to read %f and %@", [aNumber floatValue], aString);
 }
 

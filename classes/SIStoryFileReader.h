@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "SIStoryFactory.h"
+#import "SIStoryFactoryDelegate.h"
 
-@interface SIStoryFileReader : NSObject {
+@interface SIStoryFileReader : NSObject<SIStoryFactoryDelegate> {
 	@private
 	NSArray * files;
 	SIStoryFactory * storyFactory;
+	NSMutableArray *stories;
 }
 
 /**

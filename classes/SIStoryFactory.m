@@ -95,6 +95,7 @@
 				*error = [self errorForCode:SIErrorInvalidStorySyntax shortDescription:@"Invalid Story syntax" description:@"Cannot start a story with the keyword \"Then\"."];
 				return;
 			}
+			[story newStepWithKeyword:SIKeywordThen];
 			break;
 		
 		case SIKeywordAs:

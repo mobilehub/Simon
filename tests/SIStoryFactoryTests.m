@@ -58,6 +58,20 @@
 	
 }
 
+-(void) testThenStartsANewStep {
+	
+	[factory didReadWord:@"Given" error:&error];
+	[factory didReadNewLine];
+	[factory didReadWord:@"then" error:&error];
+	[factory didReadEndOfInput];
+	
+	GHAssertNil(error, @"Error returned %@", error.localizedDescription);
+	GHAssertNotNil(story, @"Story should be present");
+	GHAssertEquals([story numberOfSteps], (NSUInteger) 2, @"Incorrect number of steps");
+	GHAssertEquals([story stepAtIndex:0].keyword, SIKeywordGiven, @"Given Step does not have the given keyword");
+	GHAssertEquals([story stepAtIndex:1].keyword, SIKeywordThen, @"Then Step does not have the given keyword");
+}
+
 -(void) testWithInvalidStartOfStoryWithThen {
 	
 	[factory didReadWord:@"Then" error:&error];
