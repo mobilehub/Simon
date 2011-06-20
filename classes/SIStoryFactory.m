@@ -10,6 +10,7 @@
 #import <dUsefulStuff/DCCommon.h>
 #import "SIEnums.h"
 #import "NSObject+Utils.h"
+#import "NSString+Utils.h"
 
 @interface SIStoryFactory()
 -(void) endCurrentStory;
@@ -51,11 +52,11 @@
 }
 
 -(void) didReadNumber:(CGFloat) number error:(NSError **) error {
-	
+	[[story lastStep] addParameter:[NSNumber numberWithFloat:number]];
 }
 
 -(void) didReadQuotedString:(NSString *) quotedString error:(NSError **) error {
-	
+	[[story lastStep] addParameter:[quotedString stringByRemovingQuotes]];
 }
 
 -(void) didReadSymbol:(NSString *) symbol error:(NSError **) error{

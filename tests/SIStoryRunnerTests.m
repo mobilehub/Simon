@@ -9,9 +9,15 @@
 #import <GHUnitIOS/GHUnit.h>
 #import <dUsefulStuff/DCCommon.h>
 #import "SIStoryRunner.h"
+#import "SISimon.h"
 
-@interface SIStoryRunnerTests : GHTestCase {}
--(void) stepAsSimon;
+@interface SIStoryRunnerTests : GHTestCase {
+@private
+	BOOL step1Called;
+	BOOL step2Called;
+	BOOL step3Called;
+}
+-(void) stepAs:(NSString *) name;
 -(void) stepGivenThisFileExists;
 -(void) stepThenIShouldBeAbleToRead:(NSNumber *) aNumber and:(NSString *) aString;
 @end
@@ -27,18 +33,53 @@
 	[runner runStories:&error];
 	
 	GHAssertNil(error, @"Error returned %@", error.localizedDescription);
+	GHAssertTrue(step1Called, @"Step 1 not called");
+	GHAssertTrue(step2Called, @"Step 2 not called");
+	GHAssertTrue(step3Called, @"Step 3 not called");
 }
 
--(void) stepAsSimon {
-	DC_LOG(@"As Simon");
+-(void) testScanningAllClasses {
+
+	Class selfClass = [self class];
+	unsigned int methodCount;
+	Method *methods = class_copyMethodList(selfClass, &methodCount);
+	// This handles disposing of methods for us even if an exception should fly. 
+	[NSData dataWithBytesNoCopy:methods
+								length:sizeof(Method) * methodCount];
+	for (size_t j = 0; j < methodCount; ++j) {
+		Method currMethod = methods[j];
+		SEL sel = method_getName(currMethod);	
+		DC_LOG(@"Selector: %@", NSStringFromSelector(sel));
+	}
+	return;
+	
+	//NSArray * classes = SIFindImplementationClasses();
+	//for (Class class in classes) {
+	//	DC_LOG(@"Class: %@", NSStringFromClass(class);
+	//}
+	
 }
 
+// ### Methods which are called by Simon ###
+
+
+SIMapStep(@"As ([A-Z][a-z]+)", stepAs:)
+-(void) stepAs:(NSString *) name {
+	DC_LOG(@"As %@", name);
+	step1Called = YES;
+}
+
+
+SIMapStep(@"Given this file exists", stepGivenThisFileExists)
 -(void) stepGivenThisFileExists {
 	DC_LOG(@"Given this file exists");
+	step2Called = YES;
 }
 
+SIMapStep(@"then I should be able to read (\d+) and ([a-z]+) from it", stepThenIShouldBeAbleToRead:and:)
 -(void) stepThenIShouldBeAbleToRead:(NSNumber *) aNumber and:(NSString *) aString {
 	DC_LOG(@"Then I should be able to read %f and %@", [aNumber floatValue], aString);
+	step3Called = YES;
 }
 
 @end

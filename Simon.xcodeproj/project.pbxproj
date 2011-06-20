@@ -47,6 +47,12 @@
 		6551A98213AB904A00679B94 /* SIStoryRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6551A98013AB904A00679B94 /* SIStoryRunner.m */; };
 		6551A98313AB904A00679B94 /* SIStoryRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6551A98013AB904A00679B94 /* SIStoryRunner.m */; };
 		6551A98713AB931F00679B94 /* SIStoryRunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6551A98613AB931F00679B94 /* SIStoryRunnerTests.m */; };
+		6551A98A13AC8A5300679B94 /* NSString+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 6551A98813AC8A5200679B94 /* NSString+Utils.h */; };
+		6551A98B13AC8A5300679B94 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6551A98913AC8A5200679B94 /* NSString+Utils.m */; };
+		6551A98C13AC8A5300679B94 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6551A98913AC8A5200679B94 /* NSString+Utils.m */; };
+		6551A99013AC8B8900679B94 /* NSString+UtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6551A98E13AC8B8900679B94 /* NSString+UtilsTests.m */; };
+		6551A99113AC8B8900679B94 /* NSString+UtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6551A98E13AC8B8900679B94 /* NSString+UtilsTests.m */; };
+		6551A99313ACDEBE00679B94 /* SISimon.h in Headers */ = {isa = PBXBuildFile; fileRef = 6551A99213ACDEBE00679B94 /* SISimon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65A85A6413A86C6600599E31 /* GHUnitIOSTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A85A6313A86C6600599E31 /* GHUnitIOSTestMain.m */; };
 		65D35BB913A872C50007A8AD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D35BB813A872C50007A8AD /* CoreData.framework */; };
 		65D35BBB13A872CE0007A8AD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D35BB813A872C50007A8AD /* CoreData.framework */; };
@@ -54,6 +60,15 @@
 		65D35BBE13A8732F0007A8AD /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D35BBC13A873260007A8AD /* libicucore.dylib */; };
 		65D35BC013A8B3AC0007A8AD /* SI.grammer in Resources */ = {isa = PBXBuildFile; fileRef = 65D35BBF13A8B3AC0007A8AD /* SI.grammer */; };
 		65D35BC313A8BA130007A8AD /* NSObject+UtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D35BC213A8BA130007A8AD /* NSObject+UtilsTests.m */; };
+		65FCD11413ADDA7100A90FCA /* SISimon.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FCD11313ADDA7100A90FCA /* SISimon.m */; };
+		65FCD11513ADDA7100A90FCA /* SISimon.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FCD11313ADDA7100A90FCA /* SISimon.m */; };
+		65FCD11913ADE3F700A90FCA /* SIRuntimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FCD11713ADE3C200A90FCA /* SIRuntimeTests.m */; };
+		65FCD11E13AE2D6A00A90FCA /* SIClassSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FCD11C13AE2D6900A90FCA /* SIClassSelector.h */; };
+		65FCD11F13AE2D6A00A90FCA /* SIClassSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FCD11D13AE2D6900A90FCA /* SIClassSelector.m */; };
+		65FCD12013AE2D6A00A90FCA /* SIClassSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FCD11D13AE2D6900A90FCA /* SIClassSelector.m */; };
+		65FCD12613AF622400A90FCA /* SIRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FCD12413AF622300A90FCA /* SIRuntime.h */; };
+		65FCD12713AF622400A90FCA /* SIRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FCD12513AF622300A90FCA /* SIRuntime.m */; };
+		65FCD12813AF622400A90FCA /* SIRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FCD12513AF622300A90FCA /* SIRuntime.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,11 +107,21 @@
 		6551A97F13AB904900679B94 /* SIStoryRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIStoryRunner.h; sourceTree = "<group>"; };
 		6551A98013AB904A00679B94 /* SIStoryRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryRunner.m; sourceTree = "<group>"; };
 		6551A98613AB931F00679B94 /* SIStoryRunnerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryRunnerTests.m; sourceTree = "<group>"; };
+		6551A98813AC8A5200679B94 /* NSString+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utils.h"; sourceTree = "<group>"; };
+		6551A98913AC8A5200679B94 /* NSString+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utils.m"; sourceTree = "<group>"; };
+		6551A98E13AC8B8900679B94 /* NSString+UtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UtilsTests.m"; sourceTree = "<group>"; };
+		6551A99213ACDEBE00679B94 /* SISimon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SISimon.h; sourceTree = "<group>"; };
 		65A85A6313A86C6600599E31 /* GHUnitIOSTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitIOSTestMain.m; sourceTree = "<group>"; };
 		65D35BB813A872C50007A8AD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		65D35BBC13A873260007A8AD /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		65D35BBF13A8B3AC0007A8AD /* SI.grammer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SI.grammer; sourceTree = "<group>"; };
 		65D35BC213A8BA130007A8AD /* NSObject+UtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+UtilsTests.m"; sourceTree = "<group>"; };
+		65FCD11313ADDA7100A90FCA /* SISimon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SISimon.m; sourceTree = "<group>"; };
+		65FCD11713ADE3C200A90FCA /* SIRuntimeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIRuntimeTests.m; sourceTree = "<group>"; };
+		65FCD11C13AE2D6900A90FCA /* SIClassSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIClassSelector.h; sourceTree = "<group>"; };
+		65FCD11D13AE2D6900A90FCA /* SIClassSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIClassSelector.m; sourceTree = "<group>"; };
+		65FCD12413AF622300A90FCA /* SIRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIRuntime.h; sourceTree = "<group>"; };
+		65FCD12513AF622300A90FCA /* SIRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIRuntime.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +226,14 @@
 				653D0EBD13A783C000A5AB82 /* SIStoryFileReader.m */,
 				6551A97F13AB904900679B94 /* SIStoryRunner.h */,
 				6551A98013AB904A00679B94 /* SIStoryRunner.m */,
+				6551A98813AC8A5200679B94 /* NSString+Utils.h */,
+				6551A98913AC8A5200679B94 /* NSString+Utils.m */,
+				6551A99213ACDEBE00679B94 /* SISimon.h */,
+				65FCD11313ADDA7100A90FCA /* SISimon.m */,
+				65FCD11C13AE2D6900A90FCA /* SIClassSelector.h */,
+				65FCD11D13AE2D6900A90FCA /* SIClassSelector.m */,
+				65FCD12413AF622300A90FCA /* SIRuntime.h */,
+				65FCD12513AF622300A90FCA /* SIRuntime.m */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -220,6 +253,8 @@
 				653D0EDD13A783DC00A5AB82 /* stories */,
 				65D35BC213A8BA130007A8AD /* NSObject+UtilsTests.m */,
 				6551A98613AB931F00679B94 /* SIStoryRunnerTests.m */,
+				6551A98E13AC8B8900679B94 /* NSString+UtilsTests.m */,
+				65FCD11713ADE3C200A90FCA /* SIRuntimeTests.m */,
 			);
 			path = tests;
 			sourceTree = "<group>";
@@ -249,6 +284,10 @@
 				653D0ECE13A783C000A5AB82 /* SIStoryFileReader.h in Headers */,
 				653D0EF113A7842500A5AB82 /* Simon-Prefix.pch in Headers */,
 				6551A98113AB904A00679B94 /* SIStoryRunner.h in Headers */,
+				6551A98A13AC8A5300679B94 /* NSString+Utils.h in Headers */,
+				6551A99313ACDEBE00679B94 /* SISimon.h in Headers */,
+				65FCD11E13AE2D6A00A90FCA /* SIClassSelector.h in Headers */,
+				65FCD12613AF622400A90FCA /* SIRuntime.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +379,11 @@
 				653D0ECB13A783C000A5AB82 /* SIStoryFactory.m in Sources */,
 				653D0ECF13A783C000A5AB82 /* SIStoryFileReader.m in Sources */,
 				6551A98213AB904A00679B94 /* SIStoryRunner.m in Sources */,
+				6551A98B13AC8A5300679B94 /* NSString+Utils.m in Sources */,
+				6551A99013AC8B8900679B94 /* NSString+UtilsTests.m in Sources */,
+				65FCD11413ADDA7100A90FCA /* SISimon.m in Sources */,
+				65FCD11F13AE2D6A00A90FCA /* SIClassSelector.m in Sources */,
+				65FCD12713AF622400A90FCA /* SIRuntime.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +405,12 @@
 				65D35BC313A8BA130007A8AD /* NSObject+UtilsTests.m in Sources */,
 				6551A98313AB904A00679B94 /* SIStoryRunner.m in Sources */,
 				6551A98713AB931F00679B94 /* SIStoryRunnerTests.m in Sources */,
+				6551A98C13AC8A5300679B94 /* NSString+Utils.m in Sources */,
+				6551A99113AC8B8900679B94 /* NSString+UtilsTests.m in Sources */,
+				65FCD11513ADDA7100A90FCA /* SISimon.m in Sources */,
+				65FCD11913ADE3F700A90FCA /* SIRuntimeTests.m in Sources */,
+				65FCD12013AE2D6A00A90FCA /* SIClassSelector.m in Sources */,
+				65FCD12813AF622400A90FCA /* SIRuntime.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +475,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../Releases/dUsefulStuff/v0.0.10\"",
 					"\"$(SRCROOT)/../Releases/ParseKit/v1.0.0\"",
+					"\"$(SRCROOT)/../tools/OCHamcrest-1.5\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Simon-Prefix.pch";
@@ -441,6 +492,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../Releases/dUsefulStuff/v0.0.10\"",
 					"\"$(SRCROOT)/../Releases/ParseKit/v1.0.0\"",
+					"\"$(SRCROOT)/../tools/OCHamcrest-1.5\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Simon-Prefix.pch";
@@ -461,6 +513,7 @@
 					"\"$(SRCROOT)/../tools/GHUnit 0.4.28\"",
 					"\"$(SRCROOT)/../Releases/ParseKit/v1.0.0\"",
 					"\"$(SRCROOT)/../Releases/dUsefulStuff/v0.0.10\"",
+					"\"$(SRCROOT)/../tools/OCHamcrest-1.5\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Simon-Prefix.pch";
@@ -483,6 +536,7 @@
 					"\"$(SRCROOT)/../tools/GHUnit 0.4.28\"",
 					"\"$(SRCROOT)/../Releases/ParseKit/v1.0.0\"",
 					"\"$(SRCROOT)/../Releases/dUsefulStuff/v0.0.10\"",
+					"\"$(SRCROOT)/../tools/OCHamcrest-1.5\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Simon-Prefix.pch";

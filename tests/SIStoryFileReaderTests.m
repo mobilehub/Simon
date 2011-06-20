@@ -31,9 +31,12 @@
 }
 
 -(void) testReadingStorySendsDataToFactory {
-	
+
+	SIStoryFileReader * fileReader = [[[SIStoryFileReader alloc]initWithFileName:@"Story files"] autorelease];
+
 	id mockStoryFactory = [OCMockObject mockForClass:[SIStoryFactory class]];
 	NSError * error = nil;
+	[[mockStoryFactory expect] setDelegate:fileReader];
 	[[mockStoryFactory expect] didReadWord:@"As" error:&error];
 	[[mockStoryFactory expect] didReadWord:@"Simon" error:&error];
 	[[mockStoryFactory expect] didReadNewLine];
@@ -57,8 +60,8 @@
 	[[mockStoryFactory expect] didReadSymbol:@"." error:&error];
 	[[mockStoryFactory expect] didReadNewLine];
 	[[mockStoryFactory expect] didReadEndOfInput];
+	[[mockStoryFactory expect] setDelegate:nil];
 	
-	SIStoryFileReader * fileReader = [[[SIStoryFileReader alloc]initWithFileName:@"Story files"] autorelease];
 	fileReader.storyFactory = mockStoryFactory;
 	
 	GHAssertNotNil([fileReader readStories:&error], @"Array not returned");
@@ -69,9 +72,12 @@
 }
 
 -(void) testReadingOtherStoryTypeDataSentToFactory {
-	
+
+	SIStoryFileReader * fileReader = [[[SIStoryFileReader alloc]initWithFileName:@"Other types"] autorelease];
+
 	id mockStoryFactory = [OCMockObject mockForClass:[SIStoryFactory class]];
 	NSError * error = nil;
+	[[mockStoryFactory expect] setDelegate:fileReader];
 	[[mockStoryFactory expect] didReadEmail:@"d4rkf1br3@gmail.com" error:&error];
 	[[mockStoryFactory expect] didReadNewLine];
 	[[mockStoryFactory expect] didReadURL:@"http://drekka.github.com" error:&error];
@@ -79,8 +85,8 @@
 	[[mockStoryFactory expect] didReadEmail:@"mailto:d4rkf1br3@gmail.com" error:&error];
 	[[mockStoryFactory expect] didReadNewLine];
 	[[mockStoryFactory expect] didReadEndOfInput];
+	[[mockStoryFactory expect] setDelegate:nil];
 	
-	SIStoryFileReader * fileReader = [[[SIStoryFileReader alloc]initWithFileName:@"Other types"] autorelease];
 	fileReader.storyFactory = mockStoryFactory;
 	
 	GHAssertNotNil([fileReader readStories:&error], @"Array not returned");
