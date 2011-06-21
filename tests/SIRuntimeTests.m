@@ -3,27 +3,42 @@
 #import <dUsefulStuff/DCCommon.h>
 #import "SIStoryRunner.h"
 #import "SIRuntime.h"
+#import "SIStepMapping.h"
 
 @interface SIRuntimeTests : GHTestCase {
 @private
 }
 @end
 
-@interface SIRuntime(internal)
--(NSArray *) allMappingMethodsInRuntime;
--(void) addMappingMethodsFromClass:(Class) class toArray:(NSMutableArray *) array;
-@end
-
 @implementation SIRuntimeTests
 
--(void) testFindsImplementationClasses {
+-(void) testFindsAllMappings {
+	
 	SIRuntime * runtime = [[[SIRuntime alloc] init] autorelease];
-	NSArray * classSelectors = [runtime allMappingMethodsInRuntime];
-	GHAssertEquals([classSelectors count], (NSUInteger)3, @"incorrect number of classes returned");
+	NSArray * mappings = [runtime allMappingMethodsInRuntime];
+
+	GHAssertEquals([mappings count], (NSUInteger)3, @"incorrect number of classes returned");
+
+	SIStepMapping * mapping = [mappings objectAtIndex:0];
+	GHAssertEquals(mapping.selector, @selector(stepAs:), @"Incorrect selector returned");
+	GHAssertEqualStrings(NSStringFromClass(mapping.class), @"SIStoryRunnerTests", @"Incorrect class returned");
+	GHAssertEqualStrings(mapping.regex, @"As ([A-Z][a-z]+)", @"Incorrect regex returned");
+
+	mapping = [mappings objectAtIndex:1];
+	GHAssertEquals(mapping.selector, @selector(stepGivenThisFileExists), @"Incorrect selector returned");
+	GHAssertEqualStrings(NSStringFromClass(mapping.class), @"SIStoryRunnerTests", @"Incorrect class returned");
+	GHAssertEqualStrings(mapping.regex, @"Given this file exists", @"Incorrect regex returned");
+
+	mapping = [mappings objectAtIndex:2];
+	GHAssertEquals(mapping.selector, @selector(stepThenIShouldBeAbleToRead:and:), @"Incorrect selector returned");
+	GHAssertEqualStrings(NSStringFromClass(mapping.class), @"SIStoryRunnerTests", @"Incorrect class returned");
+	GHAssertEqualStrings(mapping.regex, @"then I should be able to read (\\d+) and ([a-z]+) from it", @"Incorrect regex returned");
+
 }
 
--(void) testInit {
-//	SISimon * simon = [[[SISimon alloc] init] autorelease];
+-(void) testFindsSpecific {
+	
+	
 }
 
 @end

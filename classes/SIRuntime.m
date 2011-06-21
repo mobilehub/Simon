@@ -8,35 +8,22 @@
 
 #import "SIRuntime.h"
 #import <dUsefulStuff/DCCommon.h>
-#import "SIClassSelector.h"
+#import "SIStepMapping.h"
 #import "SISimon.h"
+#import <objc/message.h>
 
 @interface SIRuntime()
--(NSArray *) allMappingMethodsInRuntime;
 -(void) addMappingMethodsFromClass:(Class) class toArray:(NSMutableArray *) array;
 @end
 
 @implementation SIRuntime
-
--(id) init {
-	self = [super init];
-	if (self) {
-		NSArray * mappings = [self allMappingMethodsInRuntime];
-		for(SIClassSelector * classSelector in mappings) {
-			DC_LOG(@"Calling selector");
-			id instance = [[[classSelector.class alloc] init] autorelease];
-			[instance performSelector:classSelector.selector];
-		}
-	}
-	return self;
-}
 
 -(NSArray *) allMappingMethodsInRuntime {
 	
 	int numClasses = objc_getClassList(NULL, 0);
 	DC_LOG(@"Found %i classes in runtime", numClasses);
 	
-	NSMutableArray * classSelectors = [[[NSMutableArray alloc] init] autorelease];
+	NSMutableArray * stepMappings = [[[NSMutableArray alloc] init] autorelease];
 	if (numClasses > 0 ) {
 		
 		Class * classes = malloc(sizeof(Class) * numClasses);
@@ -52,40 +39,43 @@
 				continue;
 			}
 			
-			// Include if the class has step methods.
-			[self addMappingMethodsFromClass:nextClass toArray:classSelectors];
+			// Now locate the mapping methods.
+			[self addMappingMethodsFromClass:nextClass toArray:stepMappings];
 			
 		}
 		
 		free(classes);
 	}
 	
-	return classSelectors;
+	return stepMappings;
 	
 }
 
 -(void) addMappingMethodsFromClass:(Class) class toArray:(NSMutableArray *) array {
-	
+
+	DC_LOG(@"Checking %@", NSStringFromClass(class));
+
+	// Get the class methods. To get instance methods, drop the object_getClass function.
 	unsigned int methodCount;
-	Method *methods = class_copyMethodList(class, &methodCount);
+	Method *methods = class_copyMethodList(object_getClass(class), &methodCount);
 	
 	// This handles disposing of the method memory for us even if an exception is thrown. 
 	[NSData dataWithBytesNoCopy:methods
 								length:sizeof(Method) * methodCount];
 	
+	// Search the methods for mapping methods. If found, execute them to retrieve the 
+	// mapping objects and add to the return array.
 	NSString  * prefix = toNSString(STEP_METHOD_PREFIX);
 	for (size_t j = 0; j < methodCount; ++j) {
 		
 		Method currMethod = methods[j];
 		SEL sel = method_getName(currMethod);	
+		DC_LOG(@"Checking sel %@", NSStringFromSelector(sel));
 
 		if ([NSStringFromSelector(sel) hasPrefix:prefix]) {
 			DC_LOG(@"\tStep method found %@ %@", NSStringFromClass(class), NSStringFromSelector(sel));
-			SIClassSelector * classSelector = [[SIClassSelector alloc] init];
-			classSelector.selector = sel;
-			classSelector.class = class;
-			[array addObject:classSelector];
-			[classSelector release];
+			id returnValue = objc_msgSend(class, sel, class);
+			[array addObject:returnValue];
 		}
 	}
 }

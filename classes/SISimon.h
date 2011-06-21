@@ -6,6 +6,7 @@
 //  Copyright 2011 Sensis. All rights reserved.
 //
 #import <dUsefulStuff/DCCommon.h>
+#import "SIStepMapping.h"
 
 #define STEP_METHOD_PREFIX __stepMap
 
@@ -19,9 +20,14 @@
 /**
  * Macro which is used in test code implementations to map selectors to BDD Steps.
  */
-#define SIMapStep(regex, selector) \
--(void) DC_CONCATINATE(STEP_METHOD_PREFIX, __LINE__) { \
-	DC_LOG(@"At line %lu", __LINE__); \
+#define SIMapStep(theRegex, aSelector) \
++(SIStepMapping *) DC_CONCATINATE(STEP_METHOD_PREFIX, __LINE__):(Class) class { \
+	DC_LOG(@"Creating mapping \"%@\" -> %@::%@", theRegex, NSStringFromClass(class), toNSString(aSelector)); \
+	SIStepMapping *mapping = [[[SIStepMapping alloc] init] autorelease]; \
+	mapping.selector = @selector(aSelector); \
+	mapping.regex = theRegex; \
+	mapping.class = class; \
+	return mapping; \
 }
 
 @interface SISimon : NSObject {

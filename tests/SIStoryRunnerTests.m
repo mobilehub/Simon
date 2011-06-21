@@ -38,30 +38,7 @@
 	GHAssertTrue(step3Called, @"Step 3 not called");
 }
 
--(void) testScanningAllClasses {
-
-	Class selfClass = [self class];
-	unsigned int methodCount;
-	Method *methods = class_copyMethodList(selfClass, &methodCount);
-	// This handles disposing of methods for us even if an exception should fly. 
-	[NSData dataWithBytesNoCopy:methods
-								length:sizeof(Method) * methodCount];
-	for (size_t j = 0; j < methodCount; ++j) {
-		Method currMethod = methods[j];
-		SEL sel = method_getName(currMethod);	
-		DC_LOG(@"Selector: %@", NSStringFromSelector(sel));
-	}
-	return;
-	
-	//NSArray * classes = SIFindImplementationClasses();
-	//for (Class class in classes) {
-	//	DC_LOG(@"Class: %@", NSStringFromClass(class);
-	//}
-	
-}
-
 // ### Methods which are called by Simon ###
-
 
 SIMapStep(@"As ([A-Z][a-z]+)", stepAs:)
 -(void) stepAs:(NSString *) name {
@@ -69,14 +46,13 @@ SIMapStep(@"As ([A-Z][a-z]+)", stepAs:)
 	step1Called = YES;
 }
 
-
 SIMapStep(@"Given this file exists", stepGivenThisFileExists)
 -(void) stepGivenThisFileExists {
 	DC_LOG(@"Given this file exists");
 	step2Called = YES;
 }
 
-SIMapStep(@"then I should be able to read (\d+) and ([a-z]+) from it", stepThenIShouldBeAbleToRead:and:)
+SIMapStep(@"then I should be able to read (\\d+) and ([a-z]+) from it", stepThenIShouldBeAbleToRead:and:)
 -(void) stepThenIShouldBeAbleToRead:(NSNumber *) aNumber and:(NSString *) aString {
 	DC_LOG(@"Then I should be able to read %f and %@", [aNumber floatValue], aString);
 	step3Called = YES;

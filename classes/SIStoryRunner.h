@@ -12,6 +12,7 @@
 @interface SIStoryRunner : NSObject {
 	@private 
 	SIStoryFileReader * reader;
+	NSMutableArray *stepMappings;
 }
 
 @property (retain, nonatomic) SIStoryFileReader * reader;

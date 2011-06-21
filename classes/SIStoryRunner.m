@@ -9,6 +9,7 @@
 #import <dUsefulStuff/DCCommon.h>
 #import "SIStoryRunner.h"
 #import "SIStory.h"
+#import "SIStepMapping.h"
 
 @implementation SIStoryRunner
 
@@ -19,6 +20,8 @@
     self = [super init];
     if (self) {
 		 reader = [[SIStoryFileReader alloc] init];
+		 stepMappings = [[NSMutableArray alloc] init];
+
     }
     
     return self;
@@ -46,6 +49,7 @@
 
 -(void) dealloc {
 	self.reader = nil;
+	[stepMappings release];
 	[super dealloc];
 }
 

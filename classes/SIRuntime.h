@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SIRuntime : NSObject
+@interface SIRuntime : NSObject {
+	@private
+}
+
+-(NSArray *) allMappingMethodsInRuntime;
 
 @end

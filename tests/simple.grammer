@@ -1,8 +1,0 @@
-@start = expression+;
-expression = keyword | otherWord;
-otherWord = Word;
-keyword = a | the;
-a = /^a/;
-the = /^the/;
-
-
