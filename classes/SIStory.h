@@ -15,9 +15,8 @@
 	NSMutableArray * steps;
 }
 
--(void) newStepWithKeyword:(SIKeyword) keyword;
+-(void) newStepWithKeyword:(SIKeyword) keyword command:(NSString *) theCommand;
 -(SIStep *) stepAtIndex:(NSUInteger) index;
 -(NSUInteger) numberOfSteps;
--(SIStep *) lastStep;
 -(void) execute;
 @end

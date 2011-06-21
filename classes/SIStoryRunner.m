@@ -14,14 +14,14 @@
 @implementation SIStoryRunner
 
 @synthesize reader;
+@synthesize runtime;
 
 - (id)init
 {
     self = [super init];
     if (self) {
 		 reader = [[SIStoryFileReader alloc] init];
-		 stepMappings = [[NSMutableArray alloc] init];
-
+		 runtime = [[SIRuntime alloc] init];
     }
     
     return self;
@@ -29,6 +29,8 @@
 
 -(void) runStories:(NSError **) error {
 	
+	// Read the runtime to local all mappings. 
+	NSArray * mappings = [runtime allMappingMethodsInRuntime];
 	
 	// Read the stories.
 	DC_LOG(@"Reading stories");
@@ -42,14 +44,14 @@
 	for (SIStory *story in stories) {
 		[story execute];
 	}
-	
+
 	DC_LOG(@"Done.");
 }
 
 
 -(void) dealloc {
 	self.reader = nil;
-	[stepMappings release];
+	DC_DEALLOC(runtime);
 	[super dealloc];
 }
 

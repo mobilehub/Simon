@@ -16,10 +16,12 @@
 	NSString *regex;
 	SEL selector;
 	Class class;
+	BOOL executed;
 }
 
 @property (nonatomic, retain) NSString *regex;
 @property (nonatomic, assign) SEL selector;
 @property (nonatomic, assign) Class class;
+@property (nonatomic, assign) BOOL executed;
 
 @end

@@ -12,21 +12,12 @@
 @interface SIStep : NSObject {
 @private
 	SIKeyword keyword;
-	NSMutableArray * parameters;
-	NSMutableString * selectorTemplate;
-	NSMutableString *parameterSignature;
+	NSString *command;
 }
 
 @property (nonatomic, readonly) SIKeyword keyword;
+@property (nonatomic, retain) NSString *command;
 
--(id) initWithKeyword:(SIKeyword) aKeyword;
-
--(void) addWord:(NSString *) word;
-
--(void) addParameter:(id) parm;
-
--(SEL) selector;
-
--(NSInvocation *) invocation;
+-(id) initWithKeyword:(SIKeyword) aKeyword command:(NSString *) theCommand;
 
 @end

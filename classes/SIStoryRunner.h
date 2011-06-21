@@ -8,14 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "SIStoryFileReader.h"
+#import "SIRuntime.h"
 
 @interface SIStoryRunner : NSObject {
 	@private 
 	SIStoryFileReader * reader;
-	NSMutableArray *stepMappings;
+	SIRuntime *runtime;
 }
 
 @property (retain, nonatomic) SIStoryFileReader * reader;
+@property (retain, readonly) SIRuntime *runtime;
 
 -(void) runStories:(NSError **) error;
 

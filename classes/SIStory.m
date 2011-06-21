@@ -21,9 +21,9 @@
 	return self;
 }
 
--(void) newStepWithKeyword:(SIKeyword) keyword {
-	SIStep * step = [[SIStep alloc] initWithKeyword:keyword];
-	DC_LOG(@"Adding new step with keyword %i", keyword);
+-(void) newStepWithKeyword:(SIKeyword) keyword command:(NSString *) theCommand {
+	SIStep * step = [[SIStep alloc] initWithKeyword:keyword command:theCommand];
+	DC_LOG(@"Adding new step with keyword %i and command \"%@\"", keyword, theCommand);
 	[steps addObject:step];
 	[step release];
 }
@@ -36,16 +36,12 @@
 	return [steps count];
 }
 
--(SIStep *) lastStep {
-	return [steps lastObject];
-}
-
 -(void) execute {
 	DC_LOG(@"Executing steps");
-	NSInvocation * invocation;
+	//NSInvocation * invocation;
 	for (SIStep *step in steps) {
-		invocation = [step invocation];
-		DC_LOG(@"Looking for selector %@", NSStringFromSelector([invocation selector]));
+		//invocation = [step invocation];
+		//DC_LOG(@"Looking for selector %@", NSStringFromSelector([invocation selector]));
 	}
 }
 

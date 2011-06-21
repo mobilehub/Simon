@@ -13,5 +13,6 @@
 @synthesize regex;
 @synthesize selector;
 @synthesize class;
+@synthesize executed;
 
 @end
