@@ -45,6 +45,10 @@
 	}
 }
 
+-(void) mapSteps:(NSArray *) mappings {
+	
+}
+
 -(void) dealloc {
 	DC_DEALLOC(steps);
 	[super dealloc];

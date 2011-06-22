@@ -23,4 +23,8 @@
 
 -(id) initWithKeyword:(SIKeyword) aKeyword command:(NSString *) theCommand;
 
+-(void) findMappingInList:(NSArray *) mappings;
+
+-(BOOL) isMapped;
+
 @end

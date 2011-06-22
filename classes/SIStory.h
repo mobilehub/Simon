@@ -19,4 +19,5 @@
 -(SIStep *) stepAtIndex:(NSUInteger) index;
 -(NSUInteger) numberOfSteps;
 -(void) execute;
+-(void) mapSteps:(NSArray *) mappings;
 @end

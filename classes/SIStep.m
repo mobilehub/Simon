@@ -25,6 +25,20 @@
 	return self;
 }
 
+-(void) findMappingInList:(NSArray *) mappings {
+	for (SIStepMapping * mapping in mappings) {
+		if ([mapping canMapToStep:self.command]) {
+			self.stepMapping = mapping;
+			return;
+		}
+	}
+}
+
+-(BOOL) isMapped {
+	return self.stepMapping != nil;
+}
+
+
 -(void) dealloc {
 	self.command = nil;
 	[super dealloc];

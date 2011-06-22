@@ -25,5 +25,6 @@
 @property (nonatomic, assign, readonly) BOOL executed;
 
 -(id) initWithClass:(Class) theClass selector:(SEL) aSelector regex:(NSString *) theRegex;
+-(BOOL) canMapToStep:(NSString *) step;
 
 @end

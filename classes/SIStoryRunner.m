@@ -11,6 +11,9 @@
 #import "SIStory.h"
 #import "SIStepMapping.h"
 
+@interface SIStoryRunner()
+@end
+
 @implementation SIStoryRunner
 
 @synthesize reader;
@@ -37,6 +40,11 @@
 	NSArray *stories = [reader readStories: error];
 	if (stories == nil) {
 		return;
+	}
+	
+	// Find the mapping for each story.
+	for (SIStory *story in stories) {
+		[story mapSteps:(NSArray *) mappings];
 	}
 
 	// Now execute the stories.

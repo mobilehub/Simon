@@ -35,6 +35,11 @@
 	return self;
 }
 
+-(BOOL) canMapToStep:(NSString *) step {
+	NSRange rangeOfFirstMatch = [regex rangeOfFirstMatchInString:step options:0 range:NSMakeRange(0, [step length])];
+	return ! NSEqualRanges(rangeOfFirstMatch, NSMakeRange(NSNotFound, 0));
+}
+
 -(void) dealloc {
 	DC_DEALLOC(regex);
 	[super dealloc];
