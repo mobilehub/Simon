@@ -14,6 +14,7 @@
 
 @synthesize keyword;
 @synthesize command;
+@synthesize stepMapping;
 
 -(id) initWithKeyword:(SIKeyword) aKeyword command:(NSString *) theCommand {
 	self = [super init];

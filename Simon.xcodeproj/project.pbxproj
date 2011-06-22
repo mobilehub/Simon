@@ -28,7 +28,7 @@
 		653D0EE413A783DC00A5AB82 /* SIStepTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0ED713A783DC00A5AB82 /* SIStepTests.m */; };
 		653D0EE813A783DC00A5AB82 /* SIStoryFileReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0ED913A783DC00A5AB82 /* SIStoryFileReaderTests.m */; };
 		653D0EEC13A783DC00A5AB82 /* UITreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EDB13A783DC00A5AB82 /* UITreeTests.m */; };
-		653D0EEE13A783DC00A5AB82 /* Other types.stories in Resources */ = {isa = PBXBuildFile; fileRef = 653D0EDE13A783DC00A5AB82 /* Other types.stories */; };
+		653D0EEE13A783DC00A5AB82 /* Invalid Syntax.stories in Resources */ = {isa = PBXBuildFile; fileRef = 653D0EDE13A783DC00A5AB82 /* Invalid Syntax.stories */; };
 		653D0EEF13A783DC00A5AB82 /* Story files.stories in Resources */ = {isa = PBXBuildFile; fileRef = 653D0EDF13A783DC00A5AB82 /* Story files.stories */; };
 		653D0EF113A7842500A5AB82 /* Simon-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 653D0EF013A7842500A5AB82 /* Simon-Prefix.pch */; };
 		653D0EF313A7846B00A5AB82 /* dUsefulStuff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EF213A7846B00A5AB82 /* dUsefulStuff.framework */; };
@@ -57,6 +57,7 @@
 		65FCD12613AF622400A90FCA /* SIRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FCD12413AF622300A90FCA /* SIRuntime.h */; };
 		65FCD12713AF622400A90FCA /* SIRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FCD12513AF622300A90FCA /* SIRuntime.m */; };
 		65FCD12813AF622400A90FCA /* SIRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FCD12513AF622300A90FCA /* SIRuntime.m */; };
+		65FCD12E13B2291400A90FCA /* Unformatted.stories in Resources */ = {isa = PBXBuildFile; fileRef = 65FCD12D13B2245D00A90FCA /* Unformatted.stories */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,7 +80,7 @@
 		653D0ED713A783DC00A5AB82 /* SIStepTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStepTests.m; sourceTree = "<group>"; };
 		653D0ED913A783DC00A5AB82 /* SIStoryFileReaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryFileReaderTests.m; sourceTree = "<group>"; };
 		653D0EDB13A783DC00A5AB82 /* UITreeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITreeTests.m; sourceTree = "<group>"; };
-		653D0EDE13A783DC00A5AB82 /* Other types.stories */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Other types.stories"; sourceTree = "<group>"; };
+		653D0EDE13A783DC00A5AB82 /* Invalid Syntax.stories */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Invalid Syntax.stories"; sourceTree = "<group>"; };
 		653D0EDF13A783DC00A5AB82 /* Story files.stories */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Story files.stories"; sourceTree = "<group>"; };
 		653D0EF013A7842500A5AB82 /* Simon-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Simon-Prefix.pch"; sourceTree = "<group>"; };
 		653D0EF213A7846B00A5AB82 /* dUsefulStuff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = dUsefulStuff.framework; path = ../Releases/dUsefulStuff/v0.0.10/dUsefulStuff.framework; sourceTree = "<group>"; };
@@ -102,6 +103,7 @@
 		65FCD12413AF622300A90FCA /* SIRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIRuntime.h; sourceTree = "<group>"; };
 		65FCD12513AF622300A90FCA /* SIRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIRuntime.m; sourceTree = "<group>"; };
 		65FCD12B13AF808000A90FCA /* libobjc.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.A.dylib; path = usr/lib/libobjc.A.dylib; sourceTree = SDKROOT; };
+		65FCD12D13B2245D00A90FCA /* Unformatted.stories */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Unformatted.stories; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,8 +232,9 @@
 		653D0EDD13A783DC00A5AB82 /* stories */ = {
 			isa = PBXGroup;
 			children = (
-				653D0EDE13A783DC00A5AB82 /* Other types.stories */,
+				653D0EDE13A783DC00A5AB82 /* Invalid Syntax.stories */,
 				653D0EDF13A783DC00A5AB82 /* Story files.stories */,
+				65FCD12D13B2245D00A90FCA /* Unformatted.stories */,
 			);
 			path = stories;
 			sourceTree = "<group>";
@@ -325,8 +328,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				653D0EEE13A783DC00A5AB82 /* Other types.stories in Resources */,
+				653D0EEE13A783DC00A5AB82 /* Invalid Syntax.stories in Resources */,
 				653D0EEF13A783DC00A5AB82 /* Story files.stories in Resources */,
+				65FCD12E13B2291400A90FCA /* Unformatted.stories in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

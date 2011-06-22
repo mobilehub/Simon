@@ -10,10 +10,10 @@
 
 @implementation NSObject (NSObject_Utils)
 
--(NSError *) errorForCode:(SIError) errorCode shortDescription:(NSString *) shortDescription description:(NSString *) description {
+-(NSError *) errorForCode:(SIError) errorCode shortDescription:(NSString *) shortDescription failureReason:(NSString *) failureReason {
 	NSDictionary * dic = [NSDictionary dictionaryWithObjectsAndKeys:
-								 description, NSLocalizedDescriptionKey, 
-								 shortDescription, NSLocalizedFailureReasonErrorKey, 
+								 shortDescription, NSLocalizedDescriptionKey, 
+								 failureReason, NSLocalizedFailureReasonErrorKey, 
 								 nil];
 	return [NSError errorWithDomain:SIMON_ERROR_DOMAIN code:errorCode userInfo:dic];
 }

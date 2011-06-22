@@ -1,3 +1,9 @@
 As Simon
 Given this file exists
 then I should be able to read 5 and "abc" from it.
+
+Given something
+and something else,
+then this should be ok
+and this should be ok too.
+

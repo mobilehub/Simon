@@ -9,7 +9,6 @@
 #import <GHUnitIOS/GHUnit.h>
 #import <dUsefulStuff/DCCommon.h>
 #import "SIStory.h"
-#import "SIStoryFactory.h"
 
 @interface UITreeTests : GHTestCase {}
 

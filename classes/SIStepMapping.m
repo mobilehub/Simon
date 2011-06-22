@@ -7,6 +7,8 @@
 //
 
 #import "SIStepMapping.h"
+#import "NSObject+Utils.h"
+#import <dUsefulStuff/DCCommon.h>
 
 @implementation SIStepMapping
 
@@ -14,5 +16,28 @@
 @synthesize selector;
 @synthesize class;
 @synthesize executed;
+
+-(id) initWithClass:(Class) theClass selector:(SEL) aSelector regex:(NSString *) theRegex {
+	self = [super init];
+	if (self) {
+		class = theClass;
+		selector = aSelector;
+		NSError * error = nil;
+		regex	= [[NSRegularExpression alloc] initWithPattern:theRegex 
+																	options:NSRegularExpressionCaseInsensitive
+																	  error:&error];
+		if (regex == nil) {
+			@throw [self errorForCode:SIErrorInvalidRegularExpression 
+						shortDescription:error.localizedDescription 
+							failureReason:error.localizedFailureReason];
+		}
+	}
+	return self;
+}
+
+-(void) dealloc {
+	DC_DEALLOC(regex);
+	[super dealloc];
+}
 
 @end

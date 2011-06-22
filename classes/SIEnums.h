@@ -19,7 +19,8 @@ typedef enum {
 #define SIMON_ERROR_DOMAIN @"Simon"
 
 typedef enum {
-	SIErrorInvalidStorySyntax = 1
+	SIErrorInvalidStorySyntax = 1,
+	SIErrorInvalidRegularExpression
 } SIError;
 
 

@@ -13,15 +13,17 @@
  */
 @interface SIStepMapping : NSObject {
 	@private
-	NSString *regex;
+	NSRegularExpression *regex;
 	SEL selector;
 	Class class;
 	BOOL executed;
 }
 
-@property (nonatomic, retain) NSString *regex;
-@property (nonatomic, assign) SEL selector;
-@property (nonatomic, assign) Class class;
-@property (nonatomic, assign) BOOL executed;
+@property (nonatomic, retain, readonly) NSRegularExpression *regex;
+@property (nonatomic, assign, readonly) SEL selector;
+@property (nonatomic, assign, readonly) Class class;
+@property (nonatomic, assign, readonly) BOOL executed;
+
+-(id) initWithClass:(Class) theClass selector:(SEL) aSelector regex:(NSString *) theRegex;
 
 @end

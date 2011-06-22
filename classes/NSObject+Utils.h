@@ -11,7 +11,7 @@
 
 @interface NSObject (NSObject_Utils)
 
--(NSError *) errorForCode:(SIError) errorCode shortDescription:(NSString *) shortDescription description:(NSString *) description; 
+-(NSError *) errorForCode:(SIError) errorCode shortDescription:(NSString *) shortDescription failureReason:(NSString *) failureReason; 
 
 -(SIKeyword) keywordFromString:(NSString *) string;
 -(NSString *) stringFromKeyword:(SIKeyword) keyword;
