@@ -27,4 +27,6 @@
 
 -(BOOL) isMapped;
 
+-(void) execute:(NSError **) error;
+
 @end

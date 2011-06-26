@@ -79,7 +79,6 @@
 	
 	// If there is nothing left or it starts with a comment char then ignore it.
 	if ([cleanLine length] == 0 || [cleanLine hasPrefix:@"#"]) {
-		DC_LOG(@"Blank or comment, ignoring.");
 		return YES;
 	}
 

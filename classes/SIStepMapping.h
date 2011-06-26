@@ -17,14 +17,19 @@
 	SEL selector;
 	Class class;
 	BOOL executed;
+	NSString *command;
+	id target;
 }
 
-@property (nonatomic, retain, readonly) NSRegularExpression *regex;
-@property (nonatomic, assign, readonly) SEL selector;
-@property (nonatomic, assign, readonly) Class class;
+@property (nonatomic, retain) NSRegularExpression *regex;
+@property (nonatomic, assign) SEL selector;
+@property (nonatomic, assign) Class class;
 @property (nonatomic, assign, readonly) BOOL executed;
+@property (nonatomic, retain) NSString *command;
+@property (nonatomic, retain) id target;
 
--(id) initWithClass:(Class) theClass selector:(SEL) aSelector regex:(NSString *) theRegex;
++(SIStepMapping *) stepMappingWithClass:(Class) theClass selector:(SEL) aSelector regex:(NSString *) theRegex error:(NSError **) error;
 -(BOOL) canMapToStep:(NSString *) step;
+-(BOOL) invoke:(NSError **) error;
 
 @end

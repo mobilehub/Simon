@@ -20,7 +20,8 @@ typedef enum {
 
 typedef enum {
 	SIErrorInvalidStorySyntax = 1,
-	SIErrorInvalidRegularExpression
+	SIErrorInvalidRegularExpression,
+	SIErrorUnknownSelector
 } SIError;
 
 

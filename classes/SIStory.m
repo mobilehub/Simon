@@ -36,17 +36,26 @@
 	return [steps count];
 }
 
--(void) execute {
-	DC_LOG(@"Executing steps");
-	//NSInvocation * invocation;
+-(void) execute:(NSError **) error {
+
+	// If the story is not fully mapped then exit.
 	for (SIStep *step in steps) {
-		//invocation = [step invocation];
-		//DC_LOG(@"Looking for selector %@", NSStringFromSelector([invocation selector]));
+		if (![step isMapped]) {
+			DC_LOG(@"Story is not fully mapped. Cannot execute.");
+			return;
+		}
+	}
+	
+	DC_LOG(@"Executing steps");
+	for (SIStep *step in steps) {
+		[step execute:error];
 	}
 }
 
 -(void) mapSteps:(NSArray *) mappings {
-	
+	for (SIStep *step in steps) {
+		[step findMappingInList:mappings];
+	}
 }
 
 -(void) dealloc {

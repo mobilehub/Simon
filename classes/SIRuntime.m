@@ -70,7 +70,6 @@
 		
 		Method currMethod = methods[j];
 		SEL sel = method_getName(currMethod);	
-		DC_LOG(@"Checking sel %@", NSStringFromSelector(sel));
 
 		if ([NSStringFromSelector(sel) hasPrefix:prefix]) {
 			DC_LOG(@"\tStep method found %@ %@", NSStringFromClass(class), NSStringFromSelector(sel));

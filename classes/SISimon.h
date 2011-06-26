@@ -23,7 +23,12 @@
 #define SIMapStep(theRegex, aSelector) \
 +(SIStepMapping *) DC_CONCATINATE(STEP_METHOD_PREFIX, __LINE__):(Class) class { \
 	DC_LOG(@"Creating mapping \"%@\" -> %@::%@", theRegex, NSStringFromClass(class), toNSString(aSelector)); \
-	return [[[SIStepMapping alloc] initWithClass:class selector:@selector(aSelector) regex:theRegex] autorelease]; \
+	NSError *error = nil; \
+	SIStepMapping *mapping = [SIStepMapping stepMappingWithClass:class selector:@selector(aSelector) regex:theRegex error:&error]; \
+	if (mapping == nil) { \
+		@throw [NSException exceptionWithName:@"SIMappingException" reason:error.localizedDescription userInfo:error.userInfo]; \
+	} \
+   return mapping; \
 }
 
 @interface SISimon : NSObject {

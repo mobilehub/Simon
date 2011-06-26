@@ -43,6 +43,7 @@
 	}
 	
 	// Find the mapping for each story.
+	DC_LOG(@"Mappin steps to story steps");
 	for (SIStory *story in stories) {
 		[story mapSteps:(NSArray *) mappings];
 	}
@@ -50,7 +51,7 @@
 	// Now execute the stories.
 	DC_LOG(@"Running %lu stories", [stories count]);
 	for (SIStory *story in stories) {
-		[story execute];
+		[story execute:error];
 	}
 
 	DC_LOG(@"Done.");

@@ -28,6 +28,7 @@
 -(void) findMappingInList:(NSArray *) mappings {
 	for (SIStepMapping * mapping in mappings) {
 		if ([mapping canMapToStep:self.command]) {
+			DC_LOG(@"Found mapping for step %@", self.command);
 			self.stepMapping = mapping;
 			return;
 		}
@@ -38,6 +39,10 @@
 	return self.stepMapping != nil;
 }
 
+-(void) execute:(NSError **) error {
+	self.stepMapping.command = self.command;
+	[self.stepMapping invoke:error];
+}
 
 -(void) dealloc {
 	self.command = nil;

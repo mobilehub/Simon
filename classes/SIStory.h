@@ -18,6 +18,6 @@
 -(void) newStepWithKeyword:(SIKeyword) keyword command:(NSString *) theCommand;
 -(SIStep *) stepAtIndex:(NSUInteger) index;
 -(NSUInteger) numberOfSteps;
--(void) execute;
+-(void) execute:(NSError **) error;
 -(void) mapSteps:(NSArray *) mappings;
 @end
