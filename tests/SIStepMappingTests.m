@@ -13,23 +13,29 @@
 
 @interface SIStepMappingTests : GHTestCase {
 @private
-@private
-	BOOL doSomethingCalled;
-	BOOL doSomethingWithStringCalled;
+	BOOL methodCalled;
 }
+-(void) invokeWithRegex:(NSString *) regex selector:(SEL) selector command:(NSString *) command;
 @end
 
 @implementation SIStepMappingTests
 
 -(void) setUp {
-	doSomethingCalled = NO;
-	doSomethingWithStringCalled = NO;
+	methodCalled = NO;
 }
 
--(void) testMapsStep {
+-(void) testCreateFailsWhenInvalidSelector {
 	NSError *error = nil;
-	SIStepMapping * mapping = [SIStepMapping stepMappingWithClass:[self class] selector:@selector(doSomething) regex:@"abc" error:&error];
-	GHAssertTrue([mapping canMapToStep:@"abc"], @"Did not map the step");
+	SIStepMapping * mapping = [SIStepMapping stepMappingWithClass:[self class] selector:@selector(doesNotExist) regex:@"abc" error:&error];
+	GHAssertNil(mapping, @"Nil mapping returned, error %@", error.localizedDescription);
+	GHAssertEquals(error.code, SIErrorUnknownSelector, @"Unknown selector message not returned");
+}
+
+-(void) testCreateFailsWhenSelectorAndRegexMissMatch {
+	NSError *error = nil;
+	SIStepMapping * mapping = [SIStepMapping stepMappingWithClass:[self class] selector:@selector(doSomethingWithA:andB:) regex:@"abc (.*) def (.*) (.*)" error:&error];
+	GHAssertNil(mapping, @"Mapping should be nil");
+	GHAssertEquals(error.code, SIErrorRegularExpressionWillNotMatchSelector, @"Unknown selector message not returned");
 }
 
 -(void) testDoesntMapStepWhenInvalidRegex {
@@ -40,8 +46,13 @@
 	GHAssertEquals(error.code, SIErrorInvalidRegularExpression, @"Invalid regex message not returned");
 }
 
+-(void) testCanMapToStepReturnsTrueWhenMatched {
+	NSError *error = nil;
+	SIStepMapping * mapping = [SIStepMapping stepMappingWithClass:[self class] selector:@selector(doSomething) regex:@"abc" error:&error];
+	GHAssertTrue([mapping canMapToStep:@"abc"], @"Did not map the step");
+}
 
--(void) testDoesNotMapStep {
+-(void) testCanMapToStepReturnsFalseWhenNoMatch {
 	NSError *error = nil;
 	SIStepMapping * mapping = [SIStepMapping stepMappingWithClass:[self class] selector:@selector(doSomething) regex:@"abc" error:&error];
 	GHAssertNotNil(mapping, @"nil mapping, error says %@", error.localizedDescription);
@@ -58,41 +69,106 @@
 	BOOL ok = [mapping invoke:&error];
 	
 	GHAssertTrue(ok, @"Invocation should have worked");
-	GHAssertTrue(doSomethingCalled, @"Method not called");
-}
-
--(void) testInvokeFailsWhenInvalidSelector {
-	NSError *error = nil;
-	SIStepMapping * mapping = [SIStepMapping stepMappingWithClass:[self class] selector:@selector(doesNotExist) regex:@"abc" error:&error];
-	GHAssertNotNil(mapping, @"Nil mapping returned, error %@", error.localizedDescription);
-	
-	BOOL ok = [mapping invoke:&error];
-	
-	GHAssertFalse(ok, @"Invocation worked");
-	GHAssertEquals(error.code, SIErrorUnknownSelector, @"Unknown selector message not returned");
+	GHAssertTrue(methodCalled, @"Method not called");
 }
 
 -(void) testInvokePassesStringValue {
-	NSError *error = nil;
-	SIStepMapping * mapping = [SIStepMapping stepMappingWithClass:[self class] selector:@selector(doSomethingWithString:) regex:@"abc (.*)" error:&error];
-	GHAssertNotNil(mapping, @"nil mapping, error says %@", error.localizedDescription);
-	mapping.command = @"abc def";
-	mapping.target = self;
+	[self invokeWithRegex: @"abc (.*)" selector:@selector(doSomethingWithString:) command:@"abc def"];
+}
 
+-(void) testInvokePassesNumberValue {
+	[self invokeWithRegex: @"abc (.*)" selector:@selector(doSomethingWithNumber:) command:@"abc 5"];
+}
+
+-(void) testInvokePassesIntValue {
+	[self invokeWithRegex: @"abc (.*)" selector:@selector(doSomethingWithInt:) command:@"abc 5"];
+}
+
+-(void) testInvokePassesIntegerValue {
+	[self invokeWithRegex: @"abc (.*)" selector:@selector(doSomethingWithInteger:) command:@"abc 5"];
+}
+
+-(void) testInvokePassesDoubleValue {
+	[self invokeWithRegex: @"abc (.*)" selector:@selector(doSomethingWithDouble:) command:@"abc 5"];
+}
+
+-(void) testInvokePassesFloatValue {
+	[self invokeWithRegex: @"abc (.*)" selector:@selector(doSomethingWithFloat:) command:@"abc 5"];
+}
+
+-(void) testInvokePassesBOOLValue {
+	[self invokeWithRegex: @"abc (.*)" selector:@selector(doSomethingWithBOOL:) command:@"abc yes"];
+}
+
+-(void) testInvokePassesBooleanValue {
+	[self invokeWithRegex: @"abc (.*)" selector:@selector(doSomethingWithBoolean:) command:@"abc yes"];
+}
+
+// Helpers
+
+-(void) invokeWithRegex:(NSString *) regex selector:(SEL) selector command:(NSString *) command {
+	NSError *error = nil;
+	SIStepMapping * mapping = [SIStepMapping stepMappingWithClass:[self class] selector:selector regex:regex error:&error];
+	GHAssertNotNil(mapping, @"nil mapping, error says %@", error.localizedDescription);
+	mapping.command = command;
+	mapping.target = self;
+	
 	BOOL ok = [mapping invoke:&error];
 	
 	GHAssertTrue(ok, @"Invocation should have worked, error %@", error.localizedDescription);
-	GHAssertTrue(doSomethingWithStringCalled, @"Method not called");
+	GHAssertTrue(methodCalled, @"Method not called");
 }
 
+// Called Methods.
+
 -(void) doSomething {
-	doSomethingCalled = YES;	
+	methodCalled = YES;	
 }
 
 -(void) doSomethingWithString:(NSString *) string {
-	doSomethingWithStringCalled = YES;
-	DC_LOG(@"Received string value %@", string);
+	methodCalled = YES;
 	GHAssertEqualStrings(string, @"def", @"Incorrect value passed to method.");
+}
+
+-(void) doSomethingWithNumber:(NSNumber *) number {
+	methodCalled = YES;
+	GHAssertEquals([number intValue], 5, @"Incorrect value passed to method.");
+}
+
+-(void) doSomethingWithInt:(int) number {
+	methodCalled = YES;
+	GHAssertEquals(number, 5, @"Incorrect value passed to method.");
+}
+
+-(void) doSomethingWithInteger:(NSInteger) number {
+	methodCalled = YES;
+	GHAssertEquals(number, (NSInteger)5, @"Incorrect value passed to method.");
+}
+
+-(void) doSomethingWithDouble:(double) number {
+	methodCalled = YES;
+	GHAssertEquals(number, 5.0, @"Incorrect value passed to method.");
+}
+
+-(void) doSomethingWithFloat:(float) number {
+	methodCalled = YES;
+	GHAssertEquals(number, (float)5.0, @"Incorrect value passed to method.");
+}
+
+-(void) doSomethingWithBOOL:(BOOL) yesNo {
+	methodCalled = YES;
+	GHAssertTrue(yesNo, @"Incorrect value passed to method.");
+}
+
+-(void) doSomethingWithBoolean:(Boolean) yesNo {
+	methodCalled = YES;
+	GHAssertTrue(yesNo, @"Incorrect value passed to method.");
+}
+
+-(void) doSomethingWithA:(NSString *) a andB:(NSString *) b {
+	methodCalled = YES;
+	GHAssertEqualStrings(a, @"abc", @"Incorrect value passed to method.");
+	GHAssertEqualStrings(b, @"def", @"Incorrect value passed to method.");
 }
 
 @end
