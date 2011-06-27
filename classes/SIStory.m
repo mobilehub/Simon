@@ -48,7 +48,7 @@
 	
 	DC_LOG(@"Executing steps");
 	for (SIStep *step in steps) {
-		[step execute:error];
+		[step executeWithObject:nil error:error];
 	}
 }
 

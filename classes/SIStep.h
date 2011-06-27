@@ -27,6 +27,6 @@
 
 -(BOOL) isMapped;
 
--(void) execute:(NSError **) error;
+-(void) executeWithObject:(id) object error:(NSError **) error;
 
 @end

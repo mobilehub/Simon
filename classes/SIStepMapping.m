@@ -28,7 +28,6 @@
 @synthesize class;
 @synthesize executed;
 @synthesize command;
-@synthesize target;
 
 +(SIStepMapping *) stepMappingWithClass:(Class) theClass selector:(SEL) aSelector regex:(NSString *) theRegex error:(NSError **) error {
 	SIStepMapping * mapping = [[[SIStepMapping alloc] init] autorelease];
@@ -79,7 +78,7 @@
 	return ! NSEqualRanges(rangeOfFirstMatch, NSMakeRange(NSNotFound, 0));
 }
 
--(BOOL) invoke:(NSError **) error {
+-(BOOL) invokeWithObject:(id) object error:(NSError **) error {
 	
 	// Create the invocation.
 	Method method = class_getInstanceMethod(class, selector);
@@ -90,7 +89,7 @@
 	
 	// No perform the invocation.
 	DC_LOG(@"Invoking methods on class");
-	[invocation invokeWithTarget:self.target];
+	[invocation invokeWithTarget:object];
 	return YES;
 }
 
@@ -199,9 +198,7 @@
 -(void) dealloc {
 	self.class = nil;
 	self.command = nil;
-	self.target = nil;
 	self.regex = nil;
-	self.target = nil;
 	self.selector = nil;
 	[super dealloc];
 }

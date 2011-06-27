@@ -64,9 +64,8 @@
 	SIStepMapping * mapping = [SIStepMapping stepMappingWithClass:[self class] selector:@selector(doSomething) regex:@"abc" error:&error];
 	GHAssertNotNil(mapping, @"nil mapping, error says %@", error.localizedDescription);
 	mapping.command = @"abc";
-	mapping.target = self;
 	
-	BOOL ok = [mapping invoke:&error];
+	BOOL ok = [mapping invokeWithObject:self error:&error];
 	
 	GHAssertTrue(ok, @"Invocation should have worked");
 	GHAssertTrue(methodCalled, @"Method not called");
@@ -111,9 +110,8 @@
 	SIStepMapping * mapping = [SIStepMapping stepMappingWithClass:[self class] selector:selector regex:regex error:&error];
 	GHAssertNotNil(mapping, @"nil mapping, error says %@", error.localizedDescription);
 	mapping.command = command;
-	mapping.target = self;
 	
-	BOOL ok = [mapping invoke:&error];
+	BOOL ok = [mapping invokeWithObject:self error:&error];
 	
 	GHAssertTrue(ok, @"Invocation should have worked, error %@", error.localizedDescription);
 	GHAssertTrue(methodCalled, @"Method not called");
