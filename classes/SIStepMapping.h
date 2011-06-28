@@ -15,14 +15,14 @@
 	@private
 	NSRegularExpression *regex;
 	SEL selector;
-	Class class;
+	Class targetClass;
 	BOOL executed;
 	NSString *command;
 }
 
 @property (nonatomic, retain) NSRegularExpression *regex;
 @property (nonatomic, assign) SEL selector;
-@property (nonatomic, assign) Class class;
+@property (nonatomic, assign) Class targetClass;
 @property (nonatomic, assign, readonly) BOOL executed;
 @property (nonatomic, retain) NSString *command;
 

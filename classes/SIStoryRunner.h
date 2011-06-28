@@ -19,6 +19,6 @@
 @property (retain, nonatomic) SIStoryFileReader * reader;
 @property (retain, readonly) SIRuntime *runtime;
 
--(void) runStories:(NSError **) error;
+-(BOOL) runStories:(NSError **) error;
 
 @end

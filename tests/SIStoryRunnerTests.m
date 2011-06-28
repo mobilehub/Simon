@@ -56,7 +56,7 @@ SIMapStep(@"Given this file exists", stepGivenThisFileExists)
 SIMapStep(@"then I should be able to read (\\d+) and ([a-z]+) from it", stepThenIShouldBeAbleToRead:and:)
 -(void) stepThenIShouldBeAbleToRead:(NSNumber *) aNumber and:(NSString *) aString {
 	DC_LOG(@"Then I should be able to read %f and %@", [aNumber floatValue], aString);
-	GHAssertEquals(aNumber, 5.0, @"Incorrect float value passed to step.");
+	GHAssertEquals([aNumber floatValue], (float) 5.0, @"Incorrect float value passed to step.");
 	GHAssertEqualStrings(aString, @"abc", @"Incorrect value passed to step.");
 	step3Called = YES;
 }

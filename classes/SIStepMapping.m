@@ -25,13 +25,13 @@
 
 @synthesize regex;
 @synthesize selector;
-@synthesize class;
+@synthesize targetClass;
 @synthesize executed;
 @synthesize command;
 
 +(SIStepMapping *) stepMappingWithClass:(Class) theClass selector:(SEL) aSelector regex:(NSString *) theRegex error:(NSError **) error {
 	SIStepMapping * mapping = [[[SIStepMapping alloc] init] autorelease];
-	mapping.class = theClass;
+	mapping.targetClass = theClass;
 	mapping.selector = aSelector;
 	mapping.regex = [NSRegularExpression regularExpressionWithPattern:theRegex 
 																				 options:NSRegularExpressionCaseInsensitive
@@ -81,7 +81,7 @@
 -(BOOL) invokeWithObject:(id) object error:(NSError **) error {
 	
 	// Create the invocation.
-	Method method = class_getInstanceMethod(class, selector);
+	Method method = class_getInstanceMethod(targetClass, selector);
 	NSInvocation *invocation = [self createInvocationForMethod:method];
 	if (![self populateInvocationParameters:invocation withMethod:method error:error]) {
 		return NO;		
@@ -94,7 +94,7 @@
 }
 
 -(NSInvocation *) createInvocationForMethod:(Method) method {
-	DC_LOG(@"Creating invocation for %@::%@", NSStringFromClass(class), NSStringFromSelector(selector));
+	DC_LOG(@"Creating invocation for %@::%@", NSStringFromClass(targetClass), NSStringFromSelector(selector));
 	NSMethodSignature *signature = [NSMethodSignature signatureWithObjCTypes:method_getTypeEncoding(method)];
 	NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
 	invocation.selector = selector;
@@ -196,7 +196,7 @@
 
 
 -(void) dealloc {
-	self.class = nil;
+	self.targetClass = nil;
 	self.command = nil;
 	self.regex = nil;
 	self.selector = nil;

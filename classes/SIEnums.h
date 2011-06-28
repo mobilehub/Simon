@@ -23,8 +23,15 @@ typedef enum {
 	SIErrorInvalidRegularExpression,
 	SIErrorUnknownSelector,
 	SIErrorCannotConvertArgumentToType,
-	SIErrorRegularExpressionWillNotMatchSelector
+	SIErrorRegularExpressionWillNotMatchSelector,
+	SIErrorNoStoriesFound
 } SIError;
 
-
+typedef enum {
+	SIStoryStatusSuccess = 0,
+	SIStoryStatusIgnored,
+	SIStoryStatusError,
+	SIStoryStatusNotMapped,
+	SIStoryStatusNotRun
+} SIStoryStatus;
 

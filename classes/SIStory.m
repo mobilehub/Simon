@@ -10,22 +10,27 @@
 
 #import "SIStory.h"
 #import "SIStep.h"
+#import "NSObject+Utils.h"
 
 @implementation SIStory
+
+@synthesize status;
 
 -(id) init {
 	self = [super init];
 	if (self) {
 		steps = [[NSMutableArray alloc] init];
+		instanceCache = [[NSMutableDictionary alloc] init];
+		status = SIStoryStatusNotRun;
 	}
 	return self;
 }
 
--(void) newStepWithKeyword:(SIKeyword) keyword command:(NSString *) theCommand {
-	SIStep * step = [[SIStep alloc] initWithKeyword:keyword command:theCommand];
+-(SIStep *) newStepWithKeyword:(SIKeyword) keyword command:(NSString *) theCommand {
+	SIStep * step = [[[SIStep alloc] initWithKeyword:keyword command:theCommand] autorelease];
 	DC_LOG(@"Adding new step with keyword %i and command \"%@\"", keyword, theCommand);
 	[steps addObject:step];
-	[step release];
+	return step;
 }
 
 -(SIStep *) stepAtIndex:(NSUInteger) index {
@@ -36,20 +41,41 @@
 	return [steps count];
 }
 
--(void) execute:(NSError **) error {
+-(BOOL) invoke:(NSError **) error {
 
 	// If the story is not fully mapped then exit.
 	for (SIStep *step in steps) {
 		if (![step isMapped]) {
-			DC_LOG(@"Story is not fully mapped. Cannot execute.");
-			return;
+			DC_LOG(@"Story is not fully mapped. Cannot execute step %@", step.command);
+			status = SIStoryStatusNotMapped;
+			return NO;
 		}
 	}
 	
 	DC_LOG(@"Executing steps");
 	for (SIStep *step in steps) {
-		[step executeWithObject:nil error:error];
+		
+		// First check the cache for an instance of the class. 
+		// Create an instance of the class if we don't have one.
+		Class targetClass = step.stepMapping.targetClass;
+		NSString *cacheKey = NSStringFromClass(targetClass);
+		id instance = [instanceCache objectForKey:cacheKey];
+		if (instance == nil) {
+			DC_LOG(@"Creating instance of %@", NSStringFromClass(targetClass));
+			instance = [[targetClass alloc] init];
+			[instanceCache setObject:instance forKey:cacheKey];
+			[instance release];
+		}
+
+		// Now invoke the step on the class.
+		if (![step invokeWithObject:instance error:error]) {
+			status = SIStoryStatusError;
+			return NO;
+		}
 	}
+
+	status = SIStoryStatusSuccess;
+	return YES;
 }
 
 -(void) mapSteps:(NSArray *) mappings {
@@ -60,6 +86,7 @@
 
 -(void) dealloc {
 	DC_DEALLOC(steps);
+	DC_DEALLOC(instanceCache);
 	[super dealloc];
 }
 

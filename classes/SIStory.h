@@ -12,12 +12,16 @@
 
 @interface SIStory : NSObject {
 	@private
-	NSMutableArray * steps;
+	NSMutableArray *steps;
+	NSMutableDictionary *instanceCache;
+	SIStoryStatus status;
 }
 
--(void) newStepWithKeyword:(SIKeyword) keyword command:(NSString *) theCommand;
+@property (nonatomic, readonly) SIStoryStatus status;
+
+-(SIStep *) newStepWithKeyword:(SIKeyword) keyword command:(NSString *) theCommand;
 -(SIStep *) stepAtIndex:(NSUInteger) index;
 -(NSUInteger) numberOfSteps;
--(void) execute:(NSError **) error;
+-(BOOL) invoke:(NSError **) error;
 -(void) mapSteps:(NSArray *) mappings;
 @end

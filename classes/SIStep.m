@@ -39,9 +39,9 @@
 	return self.stepMapping != nil;
 }
 
--(void) executeWithObject:(id) object error:(NSError **) error {
+-(BOOL) invokeWithObject:(id) object error:(NSError **) error {
 	self.stepMapping.command = self.command;
-	[self.stepMapping invokeWithObject:object error:error];
+	return [self.stepMapping invokeWithObject:object error:error];
 }
 
 -(void) dealloc {

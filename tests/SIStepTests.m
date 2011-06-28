@@ -9,6 +9,7 @@
 
 #import <GHUnitIOS/GHUnit.h>
 #import <dUsefulStuff/DCCommon.h>
+#import <OCMock/OCMock.h>
 #import "SIStep.h"
 
 @interface SIStepTests : GHTestCase {
@@ -51,6 +52,24 @@
 	[step findMappingInList:mappings];
 	
 	GHAssertFalse([step isMapped], @"Step should not have found a mapping.");
+}
+
+-(void) testCallsInvoke {
+	
+	SIStep * step = [[[SIStep alloc] initWithKeyword:SIKeywordGiven command:@"abc"] autorelease];
+
+	NSError *error = nil;
+	BOOL yes = YES;
+	
+	id mockMapping = [OCMockObject mockForClass:[SIStepMapping class]];
+	[[mockMapping expect] setCommand:@"abc"];
+	[[[mockMapping expect] andReturnValue:OCMOCK_VALUE(yes)] invokeWithObject:self error:&error];
+	
+	step.stepMapping = mockMapping;
+	[step invokeWithObject:self error:&error];
+
+	[mockMapping verify];
+	
 }
 
 @end
