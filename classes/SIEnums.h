@@ -24,7 +24,8 @@ typedef enum {
 	SIErrorUnknownSelector,
 	SIErrorCannotConvertArgumentToType,
 	SIErrorRegularExpressionWillNotMatchSelector,
-	SIErrorNoStoriesFound
+	SIErrorNoStoriesFound,
+	SIErrorStoryFailures
 } SIError;
 
 typedef enum {

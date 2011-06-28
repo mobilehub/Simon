@@ -10,6 +10,7 @@
 #import <dUsefulStuff/DCCommon.h>
 #import "SIStoryRunner.h"
 #import "SISimon.h"
+#import "SIStoryLogReporter.h"
 
 @interface SIStoryRunnerTests : GHTestCase {
 @private
@@ -24,18 +25,19 @@
 
 @implementation SIStoryRunnerTests
 
--(void) testRunsBasicStory {
+-(void) testRunStories {
 	SIStoryRunner * runner = [[[SIStoryRunner alloc] init] autorelease];
 	SIStoryFileReader *reader = [[[SIStoryFileReader alloc] initWithFileName:@"Story files"] autorelease];
 	runner.reader = reader;
+	runner.reporter = [[[SIStoryLogReporter alloc] init] autorelease];
 	
 	NSError *error = nil;
-	[runner runStories:&error];
+	BOOL success = [runner runStories:&error];
 	
-	GHAssertNil(error, @"Error returned %@", error.localizedDescription);
-	GHAssertTrue(step1Called, @"Step 1 not called");
-	GHAssertTrue(step2Called, @"Step 2 not called");
-	GHAssertTrue(step3Called, @"Step 3 not called");
+	GHAssertFalse(success, @"Run should not have returned success.");
+	GHAssertNotNil(error, @"Error should have been returned");
+	GHAssertEquals(error.code, SIErrorStoryFailures, @"Incorrect error code returned");
+
 }
 
 // ### Methods which are called by Simon ###
@@ -50,6 +52,7 @@ SIMapStep(@"As ([A-Z][a-z]+)", stepAs:)
 SIMapStep(@"Given this file exists", stepGivenThisFileExists)
 -(void) stepGivenThisFileExists {
 	DC_LOG(@"Given this file exists");
+	GHAssertTrue(step1Called, @"Step 1 not called");
 	step2Called = YES;
 }
 
@@ -58,6 +61,8 @@ SIMapStep(@"then I should be able to read (\\d+) and ([a-z]+) from it", stepThen
 	DC_LOG(@"Then I should be able to read %f and %@", [aNumber floatValue], aString);
 	GHAssertEquals([aNumber floatValue], (float) 5.0, @"Incorrect float value passed to step.");
 	GHAssertEqualStrings(aString, @"abc", @"Incorrect value passed to step.");
+	GHAssertTrue(step1Called, @"Step 1 not called");
+	GHAssertTrue(step2Called, @"Step 2 not called");
 	step3Called = YES;
 }
 

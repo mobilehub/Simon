@@ -29,8 +29,7 @@
 	SIStory *story = [[[SIStory alloc] init] autorelease];
 	[story newStepWithKeyword:SIKeywordGiven command:@"abc"];
 	
-	NSError *error = nil;
-	BOOL success = [story invoke:&error];
+	BOOL success = [story invoke];
 	
 	GHAssertFalse(success, @"Invoked should have failed");
 	GHAssertEquals(story.status, SIStoryStatusNotMapped, @"Incorrect status returned");
@@ -42,27 +41,17 @@
 	SIStory *story = [[[SIStory alloc] init] autorelease];
 	SIStep *step = [story newStepWithKeyword:SIKeywordGiven command:@"abc"];
 	
-	BOOL yes = YES;
 	NSError * error = nil;
 	
 	SIStepMapping * mapping = [SIStepMapping stepMappingWithClass:[SIStoryTests class] selector:@selector(abc) regex:@"abc" error:&error];
 	GHAssertNotNil(mapping, @"Mapping should not be nil, error %@", error.localizedDescription);
-
-	id mockMapping = [OCMockObject partialMockForObject:mapping];
+	step.stepMapping = mapping;
 	
-	[[[mockMapping expect] andReturnValue:OCMOCK_VALUE(yes)] 
-	 invokeWithObject:[OCMArg checkWithBlock:^(id value) {return [value isKindOfClass:[self class]];}] 
-	 error:&error];
+	BOOL success = [story invoke];
 	
-	step.stepMapping = mockMapping;
-	
-	BOOL success = [story invoke:&error];
-	
-	GHAssertTrue(success, @"Invoked should have worked. Error %@", error.localizedFailureReason);
-	GHAssertNil(error, @"Error not nil. Error %@", error.localizedFailureReason);
+	GHAssertTrue(success, @"Invoked should have worked. Error %@", story.error.localizedFailureReason);
+	GHAssertNil(story.error, @"Error not nil. Error %@", error.localizedFailureReason);
 	GHAssertEquals(story.status, SIStoryStatusSuccess, @"Success code not returned");
-	
-	[mockMapping verify];
 }
 
 -(void) testInvokeGivesStatusNotMapped {
@@ -70,11 +59,10 @@
 	SIStory *story = [[[SIStory alloc] init] autorelease];
 	[story newStepWithKeyword:SIKeywordGiven command:@"abc"];
 	
-	NSError * error = nil;
-	BOOL success = [story invoke:&error];
+	BOOL success = [story invoke];
 	
 	GHAssertFalse(success, @"Invocation should be false");
-	GHAssertNil(error, @"Error not nil. Error %@", error.localizedFailureReason);
+	GHAssertNil(story.error, @"Error not nil. Error %@", story.error.localizedFailureReason);
 	GHAssertEquals(story.status, SIStoryStatusNotMapped, @"incorrect story status");
 }
 
@@ -95,10 +83,10 @@
 	step1.stepMapping = mapping1;
 	step2.stepMapping = mapping2;
 	
-	BOOL success = [story invoke:&error];
+	BOOL success = [story invoke];
 	
-	GHAssertTrue(success, @"Invoked should have worked. Error %@", error.localizedFailureReason);
-	GHAssertNil(error, @"Error not nil. Error %@", error.localizedFailureReason);
+	GHAssertTrue(success, @"Invoked should have worked. Error %@", story.error.localizedFailureReason);
+	GHAssertNil(story.error, @"Error not nil. Error %@", story.error.localizedFailureReason);
 	GHAssertEquals(story.status, SIStoryStatusSuccess, @"Success code not returned");
 
 }

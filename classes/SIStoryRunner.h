@@ -9,15 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "SIStoryFileReader.h"
 #import "SIRuntime.h"
+#import "SIStoryReporter.h"
 
 @interface SIStoryRunner : NSObject {
 	@private 
 	SIStoryFileReader * reader;
 	SIRuntime *runtime;
+	NSObject<SIStoryReporter> * reporter;
 }
 
 @property (retain, nonatomic) SIStoryFileReader * reader;
-@property (retain, readonly) SIRuntime *runtime;
+@property (retain, readonly, nonatomic) SIRuntime *runtime;
+@property (retain, nonatomic) NSObject<SIStoryReporter> * reporter;
 
 -(BOOL) runStories:(NSError **) error;
 

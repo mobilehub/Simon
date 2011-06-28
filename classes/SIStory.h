@@ -15,13 +15,15 @@
 	NSMutableArray *steps;
 	NSMutableDictionary *instanceCache;
 	SIStoryStatus status;
+	NSError *error;
 }
 
+@property (nonatomic, readonly) NSArray * steps;
 @property (nonatomic, readonly) SIStoryStatus status;
+@property (nonatomic, readonly) NSError *error;
 
 -(SIStep *) newStepWithKeyword:(SIKeyword) keyword command:(NSString *) theCommand;
 -(SIStep *) stepAtIndex:(NSUInteger) index;
--(NSUInteger) numberOfSteps;
--(BOOL) invoke:(NSError **) error;
+-(BOOL) invoke;
 -(void) mapSteps:(NSArray *) mappings;
 @end

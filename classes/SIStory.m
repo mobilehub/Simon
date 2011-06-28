@@ -15,6 +15,8 @@
 @implementation SIStory
 
 @synthesize status;
+@synthesize error;
+@synthesize steps;
 
 -(id) init {
 	self = [super init];
@@ -22,6 +24,7 @@
 		steps = [[NSMutableArray alloc] init];
 		instanceCache = [[NSMutableDictionary alloc] init];
 		status = SIStoryStatusNotRun;
+		error = nil;
 	}
 	return self;
 }
@@ -37,11 +40,7 @@
 	return [steps objectAtIndex:index];
 }
 
--(NSUInteger) numberOfSteps {
-	return [steps count];
-}
-
--(BOOL) invoke:(NSError **) error {
+-(BOOL) invoke {
 
 	// If the story is not fully mapped then exit.
 	for (SIStep *step in steps) {
@@ -68,8 +67,8 @@
 		}
 
 		// Now invoke the step on the class.
-		if (![step invokeWithObject:instance error:error]) {
-			status = SIStoryStatusError;
+		if (![step invokeWithObject:instance error:&error]) {
+			[error retain];
 			return NO;
 		}
 	}
@@ -87,6 +86,7 @@
 -(void) dealloc {
 	DC_DEALLOC(steps);
 	DC_DEALLOC(instanceCache);
+	DC_DEALLOC(error);
 	[super dealloc];
 }
 

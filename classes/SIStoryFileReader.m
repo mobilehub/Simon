@@ -90,7 +90,7 @@
 	
 	// If the keyword is one that starts a story then do so.
 	// Given continues a story if the preceeding step is an "As" step.
-	BOOL givenContinues = [story stepAtIndex:[story numberOfSteps] -1].keyword == SIKeywordAs;
+	BOOL givenContinues = [story stepAtIndex:[story.steps count] -1].keyword == SIKeywordAs;
 	if ((keyword == SIKeywordGiven && !givenContinues) || keyword == SIKeywordAs) {
 		[self createNewStory];
 	}

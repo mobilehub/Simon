@@ -19,6 +19,7 @@
 
 @synthesize reader;
 @synthesize runtime;
+@synthesize reporter;
 
 - (id)init
 {
@@ -54,23 +55,23 @@
 
 	// Now execute the stories.
 	DC_LOG(@"Running %lu stories", [stories count]);
+	BOOL success = YES;
 	for (SIStory *story in stories) {
-		if (![story invoke:error]) {
-
-			// If it's a step that is not mapped then skip the story.
-			if (story.status == SIStoryStatusNotMapped) {
-				DC_LOG(@"Story not fully mapped");
-				continue;
+		if (![story invoke]) {
+			if (story.status == SIStoryStatusNotMapped || story.status == SIStoryStatusError) {
+				*error = [self errorForCode:SIErrorStoryFailures 
+							  shortDescription:@"One or more stories failed." 
+								  failureReason:@"One or more stories either failed or was not mapped fully."];
+				success = NO;
 			}
-			
-			// It's something else so exit the run.
-			DC_LOG(@"Error %@", [*error localizedFailureReason]);
-			return NO;
 		}
 	}
 
-	DC_LOG(@"Done.");
-	return YES;
+	// Publish the results.
+	[reporter reportOnStories:stories];
+	
+	DC_LOG(@"Done. All stories succeeded ? %@", DC_PRETTY_BOOL(success));
+	return success;
 }
 
 

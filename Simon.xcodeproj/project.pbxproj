@@ -46,6 +46,10 @@
 		6551A99313ACDEBE00679B94 /* SISimon.h in Headers */ = {isa = PBXBuildFile; fileRef = 6551A99213ACDEBE00679B94 /* SISimon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65A85A6413A86C6600599E31 /* GHUnitIOSTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A85A6313A86C6600599E31 /* GHUnitIOSTestMain.m */; };
 		65B647CE13B8B11E0083C114 /* SIStoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B647CA13B8AE5E0083C114 /* SIStoryTests.m */; };
+		65D03BD713BA096700A3F0FA /* SIStoryReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D03BD613BA096700A3F0FA /* SIStoryReporter.h */; };
+		65D03BDA13BA099700A3F0FA /* SIStoryLogReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D03BD813BA099700A3F0FA /* SIStoryLogReporter.h */; };
+		65D03BDB13BA099700A3F0FA /* SIStoryLogReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D03BD913BA099700A3F0FA /* SIStoryLogReporter.m */; };
+		65D03BDC13BA12D200A3F0FA /* SIStoryLogReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D03BD913BA099700A3F0FA /* SIStoryLogReporter.m */; };
 		65D35BB913A872C50007A8AD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D35BB813A872C50007A8AD /* CoreData.framework */; };
 		65D35BBB13A872CE0007A8AD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D35BB813A872C50007A8AD /* CoreData.framework */; };
 		65D35BC313A8BA130007A8AD /* NSObject+UtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D35BC213A8BA130007A8AD /* NSObject+UtilsTests.m */; };
@@ -97,6 +101,9 @@
 		6551A99213ACDEBE00679B94 /* SISimon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SISimon.h; sourceTree = "<group>"; };
 		65A85A6313A86C6600599E31 /* GHUnitIOSTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitIOSTestMain.m; sourceTree = "<group>"; };
 		65B647CA13B8AE5E0083C114 /* SIStoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryTests.m; sourceTree = "<group>"; };
+		65D03BD613BA096700A3F0FA /* SIStoryReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIStoryReporter.h; sourceTree = "<group>"; };
+		65D03BD813BA099700A3F0FA /* SIStoryLogReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIStoryLogReporter.h; sourceTree = "<group>"; };
+		65D03BD913BA099700A3F0FA /* SIStoryLogReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryLogReporter.m; sourceTree = "<group>"; };
 		65D35BB813A872C50007A8AD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		65D35BC213A8BA130007A8AD /* NSObject+UtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+UtilsTests.m"; sourceTree = "<group>"; };
 		65FCD11313ADDA7100A90FCA /* SISimon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SISimon.m; sourceTree = "<group>"; };
@@ -212,6 +219,9 @@
 				65FCD11D13AE2D6900A90FCA /* SIStepMapping.m */,
 				65FCD12413AF622300A90FCA /* SIRuntime.h */,
 				65FCD12513AF622300A90FCA /* SIRuntime.m */,
+				65D03BD613BA096700A3F0FA /* SIStoryReporter.h */,
+				65D03BD813BA099700A3F0FA /* SIStoryLogReporter.h */,
+				65D03BD913BA099700A3F0FA /* SIStoryLogReporter.m */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -263,6 +273,8 @@
 				6551A99313ACDEBE00679B94 /* SISimon.h in Headers */,
 				65FCD11E13AE2D6A00A90FCA /* SIStepMapping.h in Headers */,
 				65FCD12613AF622400A90FCA /* SIRuntime.h in Headers */,
+				65D03BD713BA096700A3F0FA /* SIStoryReporter.h in Headers */,
+				65D03BDA13BA099700A3F0FA /* SIStoryLogReporter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +369,7 @@
 				65FCD11413ADDA7100A90FCA /* SISimon.m in Sources */,
 				65FCD11F13AE2D6A00A90FCA /* SIStepMapping.m in Sources */,
 				65FCD12713AF622400A90FCA /* SIRuntime.m in Sources */,
+				65D03BDB13BA099700A3F0FA /* SIStoryLogReporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +396,7 @@
 				65FCD12813AF622400A90FCA /* SIRuntime.m in Sources */,
 				65FCD13313B23E9100A90FCA /* SIStepMappingTests.m in Sources */,
 				65B647CE13B8B11E0083C114 /* SIStoryTests.m in Sources */,
+				65D03BDC13BA12D200A3F0FA /* SIStoryLogReporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
