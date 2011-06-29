@@ -20,7 +20,7 @@
 
 -(void) testInitReturnsAllStoryFiles {
 	SIStoryFileReader * fileSystemStoryReader = [[[SIStoryFileReader alloc] init] autorelease];
-	GHAssertEquals([fileSystemStoryReader.files count], (NSUInteger)3, @"Incorrect number of files returned");
+	GHAssertEquals([fileSystemStoryReader.files count], (NSUInteger) 8, @"Incorrect number of files returned");
 	GHAssertTrue([(NSString *)[fileSystemStoryReader.files objectAtIndex:0] hasSuffix:STORY_EXTENSION], @"Incorrect extension");
 }
 
@@ -40,12 +40,49 @@
 	}
 }
 
--(void) testThrowsErrorWhenReadingInvalidSyntax {
-	SIStoryFileReader * fileSystemStoryReader = [[[SIStoryFileReader alloc] initWithFileName:@"Invalid Syntax"] autorelease];
+-(void) testReturnsErrorWhenReadingUnknownKeywords {
+	SIStoryFileReader * fileSystemStoryReader = [[[SIStoryFileReader alloc] initWithFileName:@"Non keyword steps"] autorelease];
 	NSError * error = nil;
-	[fileSystemStoryReader readStories:&error];
+	GHAssertNil([fileSystemStoryReader readStories:&error], @"Should not have returned an object.");
+	GHAssertNotNil(error, @"Error not thrown");
+	GHAssertEquals(error.code, SIErrorInvalidKeyword, @"Incorrect error thrown");
+	GHAssertEqualStrings(error.localizedDescription, @"Story syntax error, unknown keyword", @"Incorrect error message");
+}
+
+-(void) testReturnsErrorWhenReadingNonWords {
+	SIStoryFileReader * fileSystemStoryReader = [[[SIStoryFileReader alloc] initWithFileName:@"Non word steps"] autorelease];
+	NSError * error = nil;
+	GHAssertNil([fileSystemStoryReader readStories:&error], @"Should not have returned an object.");
+	GHAssertNotNil(error, @"Error not thrown");
+	GHAssertEquals(error.code, SIErrorInvalidKeyword, @"Incorrect error thrown");
+	GHAssertEqualStrings(error.localizedDescription, @"Story syntax error, unknown keyword", @"Incorrect error message");
+}
+
+-(void) testReturnsErrorWhenAndOutOfOrder {
+	SIStoryFileReader * fileSystemStoryReader = [[[SIStoryFileReader alloc] initWithFileName:@"Out of order steps1"] autorelease];
+	NSError * error = nil;
+	GHAssertNil([fileSystemStoryReader readStories:&error], @"Should not have returned an object.");
 	GHAssertNotNil(error, @"Error not thrown");
 	GHAssertEquals(error.code, SIErrorInvalidStorySyntax, @"Incorrect error thrown");
+	GHAssertEqualStrings(error.localizedDescription, @"Incorrect keyword order", @"Incorrect error message");
+}
+
+-(void) testReturnsErrorWhenThenOutOfOrder {
+	SIStoryFileReader * fileSystemStoryReader = [[[SIStoryFileReader alloc] initWithFileName:@"Out of order steps2"] autorelease];
+	NSError * error = nil;
+	GHAssertNil([fileSystemStoryReader readStories:&error], @"Should not have returned an object.");
+	GHAssertNotNil(error, @"Error not thrown");
+	GHAssertEquals(error.code, SIErrorInvalidStorySyntax, @"Incorrect error thrown");
+	GHAssertEqualStrings(error.localizedDescription, @"Incorrect keyword order", @"Incorrect error message");
+}
+
+-(void) testReturnsErrorWhenMultipleThens {
+	SIStoryFileReader * fileSystemStoryReader = [[[SIStoryFileReader alloc] initWithFileName:@"Out of order steps3"] autorelease];
+	NSError * error = nil;
+	GHAssertNil([fileSystemStoryReader readStories:&error], @"Shuld not have returned an object.");
+	GHAssertNotNil(error, @"Error not thrown");
+	GHAssertEquals(error.code, SIErrorInvalidStorySyntax, @"Incorrect error thrown");
+	GHAssertEqualStrings(error.localizedDescription, @"Incorrect keyword order", @"Incorrect error message");
 }
 
 -(void) testReturnsValidStories {

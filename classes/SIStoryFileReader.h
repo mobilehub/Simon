@@ -14,6 +14,7 @@
 	NSArray * files;
 	NSMutableArray *stories;
 	SIStory *story;
+	NSCharacterSet *trimChars;
 }
 
 /**

@@ -20,6 +20,7 @@ typedef enum {
 
 typedef enum {
 	SIErrorInvalidStorySyntax = 1,
+	SIErrorInvalidKeyword,
 	SIErrorInvalidRegularExpression,
 	SIErrorUnknownSelector,
 	SIErrorCannotConvertArgumentToType,

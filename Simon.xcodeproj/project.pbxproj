@@ -28,7 +28,7 @@
 		653D0EE413A783DC00A5AB82 /* SIStepTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0ED713A783DC00A5AB82 /* SIStepTests.m */; };
 		653D0EE813A783DC00A5AB82 /* SIStoryFileReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0ED913A783DC00A5AB82 /* SIStoryFileReaderTests.m */; };
 		653D0EEC13A783DC00A5AB82 /* UITreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D0EDB13A783DC00A5AB82 /* UITreeTests.m */; };
-		653D0EEE13A783DC00A5AB82 /* Invalid Syntax.stories in Resources */ = {isa = PBXBuildFile; fileRef = 653D0EDE13A783DC00A5AB82 /* Invalid Syntax.stories */; };
+		653D0EEE13A783DC00A5AB82 /* Non keyword steps.stories in Resources */ = {isa = PBXBuildFile; fileRef = 653D0EDE13A783DC00A5AB82 /* Non keyword steps.stories */; };
 		653D0EEF13A783DC00A5AB82 /* Story files.stories in Resources */ = {isa = PBXBuildFile; fileRef = 653D0EDF13A783DC00A5AB82 /* Story files.stories */; };
 		653D0EF113A7842500A5AB82 /* Simon-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 653D0EF013A7842500A5AB82 /* Simon-Prefix.pch */; };
 		653D0EF313A7846B00A5AB82 /* dUsefulStuff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D0EF213A7846B00A5AB82 /* dUsefulStuff.framework */; };
@@ -50,6 +50,10 @@
 		65D03BDA13BA099700A3F0FA /* SIStoryLogReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D03BD813BA099700A3F0FA /* SIStoryLogReporter.h */; };
 		65D03BDB13BA099700A3F0FA /* SIStoryLogReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D03BD913BA099700A3F0FA /* SIStoryLogReporter.m */; };
 		65D03BDC13BA12D200A3F0FA /* SIStoryLogReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D03BD913BA099700A3F0FA /* SIStoryLogReporter.m */; };
+		65D03BDE13BB3DE300A3F0FA /* Out of order steps1.stories in Resources */ = {isa = PBXBuildFile; fileRef = 65D03BDD13BB3DE300A3F0FA /* Out of order steps1.stories */; };
+		65D03BE013BB3E1200A3F0FA /* Out of order steps2.stories in Resources */ = {isa = PBXBuildFile; fileRef = 65D03BDF13BB3E1200A3F0FA /* Out of order steps2.stories */; };
+		65D03BE213BB3EFE00A3F0FA /* Out of order steps3.stories in Resources */ = {isa = PBXBuildFile; fileRef = 65D03BE113BB3EFD00A3F0FA /* Out of order steps3.stories */; };
+		65D03BE413BB4BFE00A3F0FA /* Non word steps.stories in Resources */ = {isa = PBXBuildFile; fileRef = 65D03BE313BB4BF700A3F0FA /* Non word steps.stories */; };
 		65D35BB913A872C50007A8AD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D35BB813A872C50007A8AD /* CoreData.framework */; };
 		65D35BBB13A872CE0007A8AD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D35BB813A872C50007A8AD /* CoreData.framework */; };
 		65D35BC313A8BA130007A8AD /* NSObject+UtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D35BC213A8BA130007A8AD /* NSObject+UtilsTests.m */; };
@@ -86,7 +90,7 @@
 		653D0ED713A783DC00A5AB82 /* SIStepTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStepTests.m; sourceTree = "<group>"; };
 		653D0ED913A783DC00A5AB82 /* SIStoryFileReaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryFileReaderTests.m; sourceTree = "<group>"; };
 		653D0EDB13A783DC00A5AB82 /* UITreeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITreeTests.m; sourceTree = "<group>"; };
-		653D0EDE13A783DC00A5AB82 /* Invalid Syntax.stories */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Invalid Syntax.stories"; sourceTree = "<group>"; };
+		653D0EDE13A783DC00A5AB82 /* Non keyword steps.stories */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Non keyword steps.stories"; sourceTree = "<group>"; };
 		653D0EDF13A783DC00A5AB82 /* Story files.stories */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Story files.stories"; sourceTree = "<group>"; };
 		653D0EF013A7842500A5AB82 /* Simon-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Simon-Prefix.pch"; sourceTree = "<group>"; };
 		653D0EF213A7846B00A5AB82 /* dUsefulStuff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = dUsefulStuff.framework; path = ../Releases/dUsefulStuff/v0.0.10/dUsefulStuff.framework; sourceTree = "<group>"; };
@@ -104,6 +108,10 @@
 		65D03BD613BA096700A3F0FA /* SIStoryReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIStoryReporter.h; sourceTree = "<group>"; };
 		65D03BD813BA099700A3F0FA /* SIStoryLogReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIStoryLogReporter.h; sourceTree = "<group>"; };
 		65D03BD913BA099700A3F0FA /* SIStoryLogReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStoryLogReporter.m; sourceTree = "<group>"; };
+		65D03BDD13BB3DE300A3F0FA /* Out of order steps1.stories */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Out of order steps1.stories"; sourceTree = "<group>"; };
+		65D03BDF13BB3E1200A3F0FA /* Out of order steps2.stories */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Out of order steps2.stories"; sourceTree = "<group>"; };
+		65D03BE113BB3EFD00A3F0FA /* Out of order steps3.stories */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Out of order steps3.stories"; sourceTree = "<group>"; };
+		65D03BE313BB4BF700A3F0FA /* Non word steps.stories */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Non word steps.stories"; sourceTree = "<group>"; };
 		65D35BB813A872C50007A8AD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		65D35BC213A8BA130007A8AD /* NSObject+UtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+UtilsTests.m"; sourceTree = "<group>"; };
 		65FCD11313ADDA7100A90FCA /* SISimon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SISimon.m; sourceTree = "<group>"; };
@@ -248,9 +256,13 @@
 		653D0EDD13A783DC00A5AB82 /* stories */ = {
 			isa = PBXGroup;
 			children = (
-				653D0EDE13A783DC00A5AB82 /* Invalid Syntax.stories */,
+				653D0EDE13A783DC00A5AB82 /* Non keyword steps.stories */,
 				653D0EDF13A783DC00A5AB82 /* Story files.stories */,
 				65FCD12D13B2245D00A90FCA /* Unformatted.stories */,
+				65D03BDD13BB3DE300A3F0FA /* Out of order steps1.stories */,
+				65D03BDF13BB3E1200A3F0FA /* Out of order steps2.stories */,
+				65D03BE113BB3EFD00A3F0FA /* Out of order steps3.stories */,
+				65D03BE313BB4BF700A3F0FA /* Non word steps.stories */,
 			);
 			path = stories;
 			sourceTree = "<group>";
@@ -346,9 +358,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				653D0EEE13A783DC00A5AB82 /* Invalid Syntax.stories in Resources */,
+				653D0EEE13A783DC00A5AB82 /* Non keyword steps.stories in Resources */,
 				653D0EEF13A783DC00A5AB82 /* Story files.stories in Resources */,
 				65FCD12E13B2291400A90FCA /* Unformatted.stories in Resources */,
+				65D03BDE13BB3DE300A3F0FA /* Out of order steps1.stories in Resources */,
+				65D03BE013BB3E1200A3F0FA /* Out of order steps2.stories in Resources */,
+				65D03BE213BB3EFE00A3F0FA /* Out of order steps3.stories in Resources */,
+				65D03BE413BB4BFE00A3F0FA /* Non word steps.stories in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
