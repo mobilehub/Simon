@@ -1,7 +1,9 @@
+Story: Basic story
 As Simon
 Given this file exists
 then I should be able to read 5 and abc from it.
 
+Story: Meaningless story.
 Given something
 and something else,
 then this should be ok

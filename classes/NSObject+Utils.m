@@ -20,7 +20,9 @@
 
 -(SIKeyword) keywordFromString:(NSString *) string {
 	NSString * upper = [string uppercaseString];
-	if ([@"GIVEN" isEqualToString:upper]) {
+	if ([@"STORY" isEqualToString:upper]) {
+		return SIKeywordStory;
+	} else if ([@"GIVEN" isEqualToString:upper]) {
 		return SIKeywordGiven;
 	} else if ([@"THEN" isEqualToString:upper]) {
 		return SIKeywordThen;
@@ -34,6 +36,10 @@
 
 -(NSString *) stringFromKeyword:(SIKeyword) keyword {
 	switch (keyword) {
+		case SIKeywordStory:
+			return @"Story";
+			break;
+
 		case SIKeywordGiven:
 			return @"Given";
 			break;

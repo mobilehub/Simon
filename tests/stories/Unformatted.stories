@@ -4,7 +4,7 @@
 
        # This is another comment.
 #And so is this without a space.
-
+  Story:NoSpaceInStoryTitleAndUnformatted
 Given this     is a story   
 
 Then I should be able to   read   it with out a problem.      
