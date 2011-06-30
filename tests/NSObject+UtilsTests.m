@@ -58,7 +58,7 @@
 }
 
 -(void) testKeywordToStringUnknown {
-	GHAssertEqualStrings([self stringFromKeyword:SIKeywordUnknown], nil, @"Incorrect String returned");
+	GHAssertEqualStrings([self stringFromKeyword:SIKeywordUnknown], @"Unknown", @"Incorrect String returned");
 }
 
 @end

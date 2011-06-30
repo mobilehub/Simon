@@ -16,11 +16,13 @@
 	NSMutableDictionary *instanceCache;
 	SIStoryStatus status;
 	NSError *error;
+	NSString *title;
 }
 
 @property (nonatomic, readonly) NSArray * steps;
 @property (nonatomic, readonly) SIStoryStatus status;
 @property (nonatomic, readonly) NSError *error;
+@property (nonatomic, retain) NSString *title;
 
 -(SIStep *) newStepWithKeyword:(SIKeyword) keyword command:(NSString *) theCommand;
 -(SIStep *) stepAtIndex:(NSUInteger) index;

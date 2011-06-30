@@ -20,7 +20,7 @@
 
 -(void) testInitReturnsAllStoryFiles {
 	SIStoryFileReader * fileSystemStoryReader = [[[SIStoryFileReader alloc] init] autorelease];
-	GHAssertEquals([fileSystemStoryReader.files count], (NSUInteger) 8, @"Incorrect number of files returned");
+	GHAssertEquals([fileSystemStoryReader.files count], (NSUInteger) 7, @"Incorrect number of files returned");
 	GHAssertTrue([(NSString *)[fileSystemStoryReader.files objectAtIndex:0] hasSuffix:STORY_EXTENSION], @"Incorrect extension");
 }
 
@@ -61,7 +61,8 @@
 -(void) testReturnsErrorWhenAndOutOfOrder {
 	SIStoryFileReader * fileSystemStoryReader = [[[SIStoryFileReader alloc] initWithFileName:@"Out of order steps1"] autorelease];
 	NSError * error = nil;
-	GHAssertNil([fileSystemStoryReader readStories:&error], @"Should not have returned an object.");
+	NSArray *stories = [fileSystemStoryReader readStories:&error];
+	GHAssertNil(stories, @"Should not have returned an object.");
 	GHAssertNotNil(error, @"Error not thrown");
 	GHAssertEquals(error.code, SIErrorInvalidStorySyntax, @"Incorrect error thrown");
 	GHAssertEqualStrings(error.localizedDescription, @"Incorrect keyword order", @"Incorrect error message");
@@ -91,8 +92,8 @@
 	NSArray * stories = [fileSystemStoryReader readStories:&error];
 	GHAssertNil(error, @"Unexpected error thrown %@", error.localizedDescription);
 	GHAssertEquals([stories count], (NSUInteger) 2, @"incorrect number of stories returned");
-	SIStory * story = [stories	objectAtIndex:0];
-	GHAssertNotNil(story, @"Nil story found");
+	GHAssertEqualStrings([(SIStory *)[stories objectAtIndex:0] title], @"Basic story", @"Title not correct");
+	GHAssertEqualStrings([(SIStory *)[stories objectAtIndex:1] title], @"Meaningless story", @"Title not correct");
 }
 
 -(void) testReturnsValidStoriesFromUnformattedSource {
@@ -101,8 +102,7 @@
 	NSArray * stories = [fileSystemStoryReader readStories:&error];
 	GHAssertNil(error, @"Unexpected error thrown %@", error.localizedDescription);
 	GHAssertEquals([stories count], (NSUInteger) 1, @"incorrect number of stories returned");
-	SIStory * story = [stories	objectAtIndex:0];
-	GHAssertNotNil(story, @"Nil story found");
+	GHAssertEqualStrings([(SIStory *)[stories objectAtIndex:0] title], @"NoSpaceInStoryTitleAndUnformatted", @"Title not correct");
 }
 
 @end

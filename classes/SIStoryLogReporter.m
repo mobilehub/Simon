@@ -63,7 +63,7 @@
 -(void) reportStory:(SIStory *) story {
  
 	NSLog(@" ");
-	NSLog(@"Story");
+	NSLog(@"Story: %@", story.title);
 	
 	NSString *status;
 	switch (story.status) {

@@ -57,9 +57,9 @@
 			break;
 
 		default:
+			return @"Unknown";
 			break;
 	}
-	return nil;	
 }
 
 @end

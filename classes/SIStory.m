@@ -17,6 +17,7 @@
 @synthesize status;
 @synthesize error;
 @synthesize steps;
+@synthesize title;
 
 -(id) init {
 	self = [super init];
@@ -87,6 +88,7 @@
 	DC_DEALLOC(steps);
 	DC_DEALLOC(instanceCache);
 	DC_DEALLOC(error);
+	self.title = nil;
 	[super dealloc];
 }
 

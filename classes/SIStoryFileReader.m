@@ -14,7 +14,7 @@
 
 @interface SIStoryFileReader()
 -(BOOL) processNextLine:(NSString *) line error:(NSError **) error;
--(void) createNewStory;
+-(void) createNewStory: (NSString *) line;
 -(SIKeyword) keywordFromLine:(NSString *) line error:(NSError **) error;
 -(SIKeyword) priorKeyword;
 -(void) mainInit;
@@ -92,16 +92,33 @@
 	// Attempt to figure out what the keyword is.
 	SIKeyword keyword = [self keywordFromLine:cleanLine error:error];
 	if (keyword == SIKeywordUnknown) {
+		DC_LOG(@"Detected unknown keyword in step: %@", cleanLine);
 		*error = [self errorForCode:SIErrorInvalidKeyword 
 					  shortDescription:@"Story syntax error, unknown keyword" 
 						  failureReason:[NSString stringWithFormat:@"Story syntax error, unknown keyword on step %@", cleanLine]];
 		return NO;
 	}
-	
+
 	// Validate the order of keywords.
 	SIKeyword priorKeyword = [self priorKeyword];
+	DC_LOG(@"Checking keywords %@ -> %@", 
+			 [self stringFromKeyword: priorKeyword],
+			 [self stringFromKeyword: keyword]);
+	
+	// Cross reference the prior keyword and current keyword to decide
+	// whether the syntax is ok.
 	switch (priorKeyword) {
-		case SIKeywordStory:
+
+		case SIKeywordNone:
+			if (keyword != SIKeywordStory) {
+				*error = [self errorForCode:SIErrorInvalidStorySyntax 
+							  shortDescription:@"Incorrect keyword order" 
+								  failureReason:@"Incorrect keyword order, the Story: keyword must be the first keyword."];
+				return NO;
+			}
+			break;
+			
+		case SIKeywordStory: // SIKeywordStory so no prior.
 			if (keyword != SIKeywordGiven && keyword != SIKeywordAs) {
 				*error = [self errorForCode:SIErrorInvalidStorySyntax 
 							  shortDescription:@"Incorrect keyword order" 
@@ -109,7 +126,7 @@
 				return NO;
 			}
 			break;
-			
+
 		case SIKeywordGiven:
 			if (keyword == SIKeywordGiven || keyword == SIKeywordAs || keyword == SIKeywordStory) {
 				*error = [self errorForCode:SIErrorInvalidStorySyntax 
@@ -137,21 +154,16 @@
 			
 			break;
 			
-		default: // SIKeywordUnknown so no prior.
-			if (keyword != SIKeywordStory) {
-				*error = [self errorForCode:SIErrorInvalidStorySyntax 
-							  shortDescription:@"Incorrect keyword order" 
-								  failureReason:[NSString stringWithFormat:@"Incorrect keyword order, %@ appears before Story:", [self stringFromKeyword:keyword]]];
-				return NO;
-			}
+		default: // SIKeywordUnknown
 			break;
 	}
-	
-	// Create a new story.
+
+	// Create a new story if its the story keyword and return without add a step.
 	if (keyword == SIKeywordStory) {
-		[self createNewStory];
+		[self createNewStory:cleanLine];
+		return YES;
 	}
-	
+
 	// Now add the step to the current story.
 	DC_LOG(@"Adding step: %@", cleanLine);
 	[story newStepWithKeyword:keyword command:cleanLine];
@@ -164,6 +176,12 @@
  * Returns SIKeywordUnknown if it doesn't find anything.
  */
 -(SIKeyword) priorKeyword {
+	
+	// If there is no current story then it's the first story so return none.
+	if (story == nil) {
+		return SIKeywordNone;
+	}
+	
 	// Go backwards to find the prior keyword.
 	for (int i = [story.steps count] - 1; i >= 0; i--) {
 		SIStep * step = [story.steps objectAtIndex:i]; 
@@ -172,7 +190,7 @@
 		}
 		return step.keyword;
 	}
-	return SIKeywordUnknown;
+	return SIKeywordStory;
 }
 
 
@@ -199,7 +217,7 @@
 }
 
 
--(void) createNewStory {
+-(void) createNewStory: (NSString *) line {
 	// Free the old story.
 	DC_DEALLOC(story);
 	
@@ -207,6 +225,10 @@
 	DC_LOG(@"Creating new story");
 	story = [[SIStory alloc] init];
 	[stories addObject:story];
+	
+	// Store the title.
+	NSString *title = [[line substringFromIndex: 6] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+	story.title = title;
 }
 
 

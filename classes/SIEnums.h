@@ -10,7 +10,8 @@
 
 typedef enum {
 	SIKeywordUnknown = 999,
-	SIKeywordStory = 0,
+	SIKeywordNone = 0,
+	SIKeywordStory,
 	SIKeywordGiven,
 	SIKeywordThen,
 	SIKeywordAs,
