@@ -125,7 +125,6 @@
 		65FCD11D13AE2D6900A90FCA /* SIStepMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStepMapping.m; sourceTree = "<group>"; };
 		65FCD12413AF622300A90FCA /* SIRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIRuntime.h; sourceTree = "<group>"; };
 		65FCD12513AF622300A90FCA /* SIRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIRuntime.m; sourceTree = "<group>"; };
-		65FCD12B13AF808000A90FCA /* libobjc.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.A.dylib; path = usr/lib/libobjc.A.dylib; sourceTree = SDKROOT; };
 		65FCD12D13B2245D00A90FCA /* Unformatted.stories */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Unformatted.stories; sourceTree = "<group>"; };
 		65FCD13013B23E8400A90FCA /* SIStepMappingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIStepMappingTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,7 +160,6 @@
 		653D0E7F13A782AC00A5AB82 = {
 			isa = PBXGroup;
 			children = (
-				65FCD12B13AF808000A90FCA /* libobjc.A.dylib */,
 				653D0EF013A7842500A5AB82 /* Simon-Prefix.pch */,
 				653D0ED413A783DC00A5AB82 /* tests */,
 				653D0EB113A783C000A5AB82 /* classes */,
