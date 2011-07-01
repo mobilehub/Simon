@@ -6,62 +6,70 @@
 //  Copyright 2011 Sensis. All rights reserved.
 //
 
+#import <dUsefulStuff/DCCommon.h>
+
 #import "SIStoryLogReporter.h"
 #import "SIStory.h"
 #import "SIStep.h"
+#import "SIStepMapping.h"
 
 @interface SIStoryLogReporter()
--(void) reportStory:(SIStory *) story;
+-(void) reportStory:(SIStory *) story
+			 successes:(NSMutableArray *) successes
+			 notMapped:(NSMutableArray *) notMapped
+			  failures:(NSMutableArray *) failures
+				ignored:(NSMutableArray *) ignored
+				 notRun:(NSMutableArray *) notRun;
+-(void) reportUnusedMappings:(NSArray *) mappings;
 @end
 
 @implementation SIStoryLogReporter
 
--(void) reportOnStories:(NSArray *) stories {
+-(void) reportOnStories:(NSArray *) stories andMappings:(NSArray *) mappings {
 	
 	NSLog(@"Simon's run report");
 	NSLog(@"====================================================");
-
+	
 	// Count result types.
-	int successes = 0;
-	int notMapped = 0;
-	int failures = 0;
-	int ignored = 0;
-	int notRun = 0;
+	NSMutableArray * successes = [[NSMutableArray alloc] init];
+	NSMutableArray * notMapped = [[NSMutableArray alloc] init];
+	NSMutableArray * failures = [[NSMutableArray alloc] init];
+	NSMutableArray * ignored = [[NSMutableArray alloc] init];
+	NSMutableArray * notRun = [[NSMutableArray alloc] init];
+	
 	for (SIStory * story in stories) {
-		
-		[self reportStory:story];
-		
-		switch (story.status) {
-			case SIStoryStatusSuccess:
-				successes++;
-				break;
-			case SIStoryStatusNotMapped:
-				notMapped++;
-				break;
-			case SIStoryStatusError:
-				failures++;
-				break;
-			case SIStoryStatusIgnored:
-				ignored++;
-				break;
-			default:
-				notRun++;
-				break;
-		}
+		[self reportStory:story successes:successes notMapped:notMapped failures:failures ignored:ignored notRun:notRun];
 	}
 	
 	NSLog(@" ");
 	NSLog(@"Total stories    : %u", [stories count]);
-	NSLog(@"Not run          : %i", notRun);
-	NSLog(@"Not fully mapped : %i", notMapped);
-	NSLog(@"Successfully run : %i", successes);
-	NSLog(@"Ignored          : %i", ignored);
-	NSLog(@"Failures         : %u", [stories count]);
+	NSLog(@"Not run          : %u", [notRun count]);
+	NSLog(@"Not fully mapped : %u", [notMapped count]);
+	NSLog(@"Successfully run : %u", [successes count]);
+	NSLog(@"Ignored          : %u", [ignored count]);
+	NSLog(@"Failures         : %u", [failures count]);
+	
+	for (SIStory *story in failures) {
+		NSLog(@"Failed story: %@", story.title);
+	}
+
+	[self reportUnusedMappings:mappings];
+	
+	DC_DEALLOC(successes);
+	DC_DEALLOC(notRun);
+	DC_DEALLOC(notMapped);
+	DC_DEALLOC(successes);
+	DC_DEALLOC(ignored);
 	
 }
 
--(void) reportStory:(SIStory *) story {
- 
+-(void) reportStory:(SIStory *) story
+			 successes:(NSMutableArray *) successes
+			 notMapped:(NSMutableArray *) notMapped
+			  failures:(NSMutableArray *) failures
+				ignored:(NSMutableArray *) ignored
+				 notRun:(NSMutableArray *) notRun {
+	
 	NSLog(@" ");
 	NSLog(@"Story: %@", story.title);
 	
@@ -69,18 +77,23 @@
 	switch (story.status) {
 		case SIStoryStatusSuccess:
 			status = @"Success";
+			[successes addObject:story];
 			break;
 		case SIStoryStatusNotMapped:
 			status = @"Not mapped";
+			[notMapped addObject:story];
 			break;
 		case SIStoryStatusError:
 			status = [NSString stringWithFormat:@"Failed: %@", story.error.localizedFailureReason];
+			[failures addObject:story];
 			break;
 		case SIStoryStatusIgnored:
 			status = @"Ignored";
+			[ignored addObject:story];
 			break;
 		default:
 			status = @"Not run";
+			[notRun addObject:story];
 			break;
 	}
 	
@@ -97,9 +110,22 @@
 		}
 	}
 	
-	
-	
-	
 }
+
+-(void) reportUnusedMappings:(NSArray *) mappings {
+	NSLog(@" ");
+	NSLog(@"Unused step to selector mappings");
+	int count = 0;
+	for (SIStepMapping * mapping in mappings) {
+		if (!mapping.executed) {
+			count++;
+			NSLog(@"\tMapping \"%@\" -> %@::%@", mapping.regex.pattern, NSStringFromClass(mapping.targetClass), NSStringFromSelector(mapping.selector));
+		}
+	}
+	if (count == 0) {
+		NSLog(@"All step mappings where executed during the tests.");
+	}
+}
+
 
 @end

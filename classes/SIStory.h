@@ -28,4 +28,7 @@
 -(SIStep *) stepAtIndex:(NSUInteger) index;
 -(BOOL) invoke;
 -(void) mapSteps:(NSArray *) mappings;
+-(void) storeObject:(id) object withKey:(id) key;
+-(id) retrieveObjectWithKey:(id) key;
+
 @end

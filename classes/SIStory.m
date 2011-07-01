@@ -11,6 +11,11 @@
 #import "SIStory.h"
 #import "SIStep.h"
 #import "NSObject+Utils.h"
+#import "SISimon.h"
+
+@interface SIStory()
+-(id) instanceForTargetClass:(Class) targetClass;
+@end
 
 @implementation SIStory
 
@@ -42,8 +47,8 @@
 }
 
 -(BOOL) invoke {
-
-	// If the story is not fully mapped then exit.
+	
+	// If the story is not fully mapped then exit because we cannot run it.
 	for (SIStep *step in steps) {
 		if (![step isMapped]) {
 			DC_LOG(@"Story is not fully mapped. Cannot execute step %@", step.command);
@@ -57,31 +62,51 @@
 		
 		// First check the cache for an instance of the class. 
 		// Create an instance of the class if we don't have one.
-		Class targetClass = step.stepMapping.targetClass;
-		NSString *cacheKey = NSStringFromClass(targetClass);
-		id instance = [instanceCache objectForKey:cacheKey];
-		if (instance == nil) {
-			DC_LOG(@"Creating instance of %@", NSStringFromClass(targetClass));
-			instance = [[targetClass alloc] init];
-			[instanceCache setObject:instance forKey:cacheKey];
-			[instance release];
-		}
-
+		id instance = [self instanceForTargetClass:step.stepMapping.targetClass];
+		
 		// Now invoke the step on the class.
 		if (![step invokeWithObject:instance error:&error]) {
 			[error retain];
 			return NO;
 		}
 	}
-
+	
 	status = SIStoryStatusSuccess;
 	return YES;
+}
+
+-(id) instanceForTargetClass:(Class) targetClass {
+	
+	NSString *cacheKey = NSStringFromClass(targetClass);
+	
+	id instance = [instanceCache objectForKey:cacheKey];
+	if (instance != nil) {
+		return instance;
+	}
+	
+	// Create one.
+	DC_LOG(@"Creating instance of %@", NSStringFromClass(targetClass));
+	instance = [[[targetClass alloc] init] autorelease];
+	[instanceCache setObject:instance forKey:cacheKey];
+
+	// Inject a reference to the story so it can be accessed for data.
+	objc_setAssociatedObject(instance, SIINSTANCE_STORY_REF_KEY, self, OBJC_ASSOCIATION_ASSIGN);
+	
+	return instance;
 }
 
 -(void) mapSteps:(NSArray *) mappings {
 	for (SIStep *step in steps) {
 		[step findMappingInList:mappings];
 	}
+}
+
+-(void) storeObject:(id) object withKey:(id) key {
+	[instanceCache setObject:object forKey:key];
+}
+
+-(id) retrieveObjectWithKey:(id) key {
+	return [instanceCache objectForKey:key];
 }
 
 -(void) dealloc {

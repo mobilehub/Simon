@@ -40,23 +40,36 @@
 
 }
 
+-(void) testIsAbleToPassValuesBetweenClassInstances {
+	SIStoryRunner * runner = [[[SIStoryRunner alloc] init] autorelease];
+	SIStoryFileReader *reader = [[[SIStoryFileReader alloc] initWithFileName:@"Communication"] autorelease];
+	runner.reader = reader;
+	runner.reporter = [[[SIStoryLogReporter alloc] init] autorelease];
+	
+	NSError *error = nil;
+	BOOL success = [runner runStories:&error];
+	
+	GHAssertTrue(success, @"Run should have returned success.");
+	GHAssertNil(error, @"Error should nil, error %@", error.localizedFailureReason);
+}
+
 // ### Methods which are called by Simon ###
 
-SIMapStep(@"As ([A-Z][a-z]+)", stepAs:)
+SIMapStepToSelector(@"As ([A-Z][a-z]+)", stepAs:)
 -(void) stepAs:(NSString *) name {
 	DC_LOG(@"As %@", name);
 	GHAssertEqualStrings(name, @"Simon", @"Incorrect name passed to step.");
 	step1Called = YES;
 }
 
-SIMapStep(@"Given this file exists", stepGivenThisFileExists)
+SIMapStepToSelector(@"Given this file exists", stepGivenThisFileExists)
 -(void) stepGivenThisFileExists {
 	DC_LOG(@"Given this file exists");
 	GHAssertTrue(step1Called, @"Step 1 not called");
 	step2Called = YES;
 }
 
-SIMapStep(@"then I should be able to read (\\d+) and ([a-z]+) from it", stepThenIShouldBeAbleToRead:and:)
+SIMapStepToSelector(@"then I should be able to read (\\d+) and ([a-z]+) from it", stepThenIShouldBeAbleToRead:and:)
 -(void) stepThenIShouldBeAbleToRead:(NSNumber *) aNumber and:(NSString *) aString {
 	DC_LOG(@"Then I should be able to read %f and %@", [aNumber floatValue], aString);
 	GHAssertEquals([aNumber floatValue], (float) 5.0, @"Incorrect float value passed to step.");

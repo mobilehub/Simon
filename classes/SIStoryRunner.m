@@ -68,7 +68,7 @@
 	}
 
 	// Publish the results.
-	[reporter reportOnStories:stories];
+	[reporter reportOnStories:stories andMappings:mappings];
 	
 	DC_LOG(@"Done. All stories succeeded ? %@", DC_PRETTY_BOOL(success));
 	return success;
@@ -78,6 +78,7 @@
 -(void) dealloc {
 	self.reader = nil;
 	DC_DEALLOC(runtime);
+	self.reporter = nil;
 	[super dealloc];
 }
 

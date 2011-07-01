@@ -5,6 +5,7 @@
 #import "SIRuntime.h"
 #import "SIStepMapping.h"
 
+
 @interface SIRuntimeTests : GHTestCase {
 @private
 }
@@ -17,7 +18,7 @@
 	SIRuntime * runtime = [[[SIRuntime alloc] init] autorelease];
 	NSArray * mappings = [runtime allMappingMethodsInRuntime];
 
-	GHAssertEquals([mappings count], (NSUInteger)3, @"incorrect number of classes returned");
+	GHAssertEquals([mappings count], (NSUInteger)5, @"incorrect number of classes returned");
 
 	SIStepMapping * mapping = [mappings objectAtIndex:0];
 	GHAssertEquals(mapping.selector, @selector(stepAs:), @"Incorrect selector returned");
@@ -34,11 +35,6 @@
 	GHAssertEqualStrings(NSStringFromClass(mapping.targetClass), @"SIStoryRunnerTests", @"Incorrect class returned");
 	GHAssertEqualStrings(mapping.regex.pattern, @"then I should be able to read (\\d+) and ([a-z]+) from it", @"Incorrect regex returned");
 
-}
-
--(void) testFindsSpecific {
-	
-	
 }
 
 @end

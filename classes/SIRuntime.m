@@ -9,11 +9,11 @@
 #import "SIRuntime.h"
 #import <dUsefulStuff/DCCommon.h>
 #import "SIStepMapping.h"
-#import "SISimon.h"
+#import "SIInternal.h"
 #import <objc/message.h>
 
 @interface SIRuntime()
--(void) addMappingMethodsFromClass:(Class) class toArray:(NSMutableArray *) array;
+-(BOOL) addMappingMethodsFromClass:(Class) class toArray:(NSMutableArray *) array;
 @end
 
 @implementation SIRuntime
@@ -51,7 +51,7 @@
 	
 }
 
--(void) addMappingMethodsFromClass:(Class) class toArray:(NSMutableArray *) array {
+-(BOOL) addMappingMethodsFromClass:(Class) class toArray:(NSMutableArray *) array {
 
 	DC_LOG(@"Checking %@", NSStringFromClass(class));
 
@@ -65,7 +65,8 @@
 	
 	// Search the methods for mapping methods. If found, execute them to retrieve the 
 	// mapping objects and add to the return array.
-	NSString  * prefix = toNSString(STEP_METHOD_PREFIX);
+	NSString  * prefix = toNSString(SISTEP_METHOD_PREFIX);
+	BOOL methodsFound = NO;
 	for (size_t j = 0; j < methodCount; ++j) {
 		
 		Method currMethod = methods[j];
@@ -75,8 +76,11 @@
 			DC_LOG(@"\tStep method found %@ %@", NSStringFromClass(class), NSStringFromSelector(sel));
 			id returnValue = objc_msgSend(class, sel, class);
 			[array addObject:returnValue];
+			methodsFound = YES;
 		}
 	}
+	
+	return methodsFound;
 }
 
 @end

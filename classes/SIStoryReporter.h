@@ -10,6 +10,6 @@
 
 @protocol SIStoryReporter <NSObject>
 
--(void) reportOnStories:(NSArray *) stories;
+-(void) reportOnStories:(NSArray *) stories andMappings:(NSArray *) mappings;
 
 @end

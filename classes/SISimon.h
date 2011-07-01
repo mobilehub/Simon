@@ -7,21 +7,21 @@
 //
 #import <dUsefulStuff/DCCommon.h>
 #import "SIStepMapping.h"
-
-#define STEP_METHOD_PREFIX __stepMap
-
-/**
- * Converts a sequence of chars to a string constant. Again we need that extra level of indirection 
- * to fix the translation of the parameter when stringification is involved.
- */
-#define _toNSString(chars) @#chars
-#define toNSString(chars) _toNSString(chars)
+#import "SIStory.h"
+#import "SIInternal.h"
 
 /**
- * Macro which is used in test code implementations to map selectors to BDD Steps.
+ * This macro maps a regex to a selector in the current class. Simon expects that the order and type of any groups in the regex will
+ * match the order and types of arguments in the selector. So we recommend that the this is used before the selector like this
+ * `
+ * SIMapStepToSelector(@"", thisIsMyMethod:)
+ * -(void) thisIsMyMethod:(NSString *) stringValue {
+ *    ...
+ * }
+ * `
  */
-#define SIMapStep(theRegex, aSelector) \
-+(SIStepMapping *) DC_CONCATINATE(STEP_METHOD_PREFIX, __LINE__):(Class) class { \
+#define SIMapStepToSelector(theRegex, aSelector) \
++(SIStepMapping *) DC_CONCATINATE(SISTEP_METHOD_PREFIX, __LINE__):(Class) class { \
 	DC_LOG(@"Creating mapping \"%@\" -> %@::%@", theRegex, NSStringFromClass(class), toNSString(aSelector)); \
 	NSError *error = nil; \
 	SIStepMapping *mapping = [SIStepMapping stepMappingWithClass:class selector:@selector(aSelector) regex:theRegex error:&error]; \
@@ -31,10 +31,17 @@
    return mapping; \
 }
 
-@interface SISimon : NSObject {
-@private
-}
-@end
+/**
+ * Macro which stores data in the story so it can be passed between implmentation classes. 
+ */
+#define SIStoreInStory(key, value) [(SIStory *) objc_getAssociatedObject(self, SIINSTANCE_STORY_REF_KEY) storeObject:value withKey:key]
+
+/**
+ * The opposite of SISToreInStory(key, value) this macro retrieves a previously stored value.
+ */
+#define SIRetrieveFromStory(key) [(SIStory *) objc_getAssociatedObject(self, SIINSTANCE_STORY_REF_KEY) retrieveObjectWithKey:key]
+
+
 
 
 
