@@ -14,7 +14,7 @@ h2. How to I write a story?
 
 Stories are written in plan text files with a "stories" extension Here's an example:
 
-{% highlight text %}
+{% highlight objc %}
 Story: Example story showing the basic syntax.
 Given Simon is working
 Then I should be able to see abc and 5 in the log
