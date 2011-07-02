@@ -57,10 +57,26 @@ SIMapStepToSelector(@"Given Simon is working", simonIsRunning)
 @end
 </pre>
 
-The first thing you wil notice is the inclusion of the SISimon.h header file. A necessary evil unfortunately. The second thing you will notice is the <pre>SIMapStepToSelector(@"Given Simon is working", simonIsRunning)</pre> line. That's Simon. This preprocessor directive instructs Simon to map the given step to the selector. 
+The first thing you wil notice is the inclusion of the SISimon.h header file. A necessary evil unfortunately. The second thing you will notice is the 
+<pre>SIMapStepToSelector(@"Given Simon is working", simonIsRunning)</pre>
+line. That's Simon. This preprocessor directive instructs Simon to map the given step to the selector. 
 
-Now it's not obvious from the above, but that first parameter is a "regular expression":http://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSRegularExpression_Class as specified in the doc for the "NSRegularExpression class":http://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSRegularExpression_Class in Apple's documentation. This means that we can use it to pick up a wide variety of steps and also (using regular expression groups) pick out arguments to pass to the selector. Oh, and the second argument is the selector to execute. You don't need to use @@@selector(...)@ with this as Simon needs it as text. Plus it's less to type in :-)
+Now it's not obvious from the above, but that first parameter is a "regular expression":http://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSRegularExpression_Class as specified in the doc for the "NSRegularExpression class":http://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSRegularExpression_Class in Apple's documentation. This means that we can use it to pick up a wide variety of steps and also (using regular expression groups) pick out arguments to pass to the selector. Oh, and the second argument is the selector to execute. You don't need to use objective C's @selector(...)@ with this as Simon needs it as text. Plus it's less to type in :-)
 
+h2. How do I map arguments in a step?
+
+Lets look at the *Then ...* step
+<pre>Then I should be able to see abc and 5 in the log<pre>
+As you can see there are two possible arguments in this step - *abc* and *5*. Simon can map these quite simply. The only rule is that the order of arguments in the method that will be executed matches the order of arguments in the step. Of course Simon also expects that the data types are a match as well. Here's the mapping:
+<pre>
+SIMapStepToSelector(@".* I should be able to see (.*) and (.*) in the log", verifyText:andNumber:) 
+-(void) verifyText:(NSString *) text andNumber:(int) number {
+	NSLog(@"Text: %@", text);
+	NSLog(@"Number: %i", number);
+}
+</pre>
+
+Simon will automatically scan the data types of the arguments and attempt a matching conversion. Also notice that in the regular expression I set the start to match any characters. This means that, for example, I could use this same expression with both a *Then ...* and a *And ...* step.
 
 h1. I'd like to say thanks to several developers for developing the following tools which have helped me tremendously is developing Simon:
 
