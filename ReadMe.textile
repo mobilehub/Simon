@@ -29,13 +29,37 @@ Thats pretty simple. The *Story: ...* line gives the story a name. The rest of t
 * The structure of the story lines must conform to:
 ** *As ...* _(optional)_
 ** *Given ...*
-** *And ..." _(zero or more)_
-** *Then ..." _(zero or more)_
-** *And ..." _(zero or more)_
+** *And ...* _(zero or more)_
+** *Then ...* _(zero or more)_
+** *And ...* _(zero or more)_
 * Leading and trail blanks are ignored on each line.
 * Lines that begin with *#* are treated as comments and ignored.
 * Blank lines are ignored.
 
+h2. How do I relate a story to the executable code?
+
+Firstly Simon regards each line in a story as a seperate item to be executed. So lets look at the @Given Simon is working@ line from the above story. Lets say we have a class called StepImplementations and we want to map the step to a method in it. Here's what it would look like:
+
+<pre lang="obj">
+#import <SISimon/SISimon.h>
+
+@interface StepImplementation : NSObject {
+}
+@end
+
+@implmentation StepImplementation
+
+SIMapStepToSelector(@"Given Simon is working", simonIsRunning) 
+-(void) simonIsRunning {
+	NSLog(@"Woo hoo, Simon is running");
+}
+
+@end
+</pre>
+
+The first thing you wil notice is the inclusion of the SISimon.h header file. A necessary evil unfortunately. The second thing you will notice is the @SIMapStepToSelector(@"Given Simon is working", simonIsRunning)@ line. That's Simon. This preprocessor directive instructs Simon to map the given step to the selector. 
+
+Now it's not obvious from the above, but that first parameter is a "regular expression":http://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSRegularExpression_Class as specified in the doc for the "NSRegularExpression class":http://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSRegularExpression_Class in Apple's documentation. This means that we can use it to pick up a wide variety of steps and also (using regular expression groups) pick out arguments to pass to the selector. Oh, and the second argument is the selector to execute. You don't need to use @@selector(...)@ with this as Simon needs it as text. Plus it's less to type in :-)
 
 
 h1. I'd like to say thanks to several developers for developing the following tools which have helped me tremendously is developing Simon:
