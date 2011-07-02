@@ -15,12 +15,27 @@ h2. How to I write a story?
 
 Stories are written in plan text files with a "stories" extension Here's an example:
 
+_example.stories_
 <pre lang="objc">
 Story: Example story showing the basic syntax.
 Given Simon is working
 Then I should be able to see abc and 5 in the log
 and say goodby at the end.
 </pre>
+
+Thats pretty simple. The *Story: ...* line gives the story a name. The rest of the lines outline the story and what is expected. Simon does impose some rules about the first word on each line. Ultimately it doesn't matter, but by imposing some simple rules, it helps to better understand the stories. Yes you can have more than one per file. Here's an outline f the syntax rules:
+
+* Each story must start with a line that begins with the word *story* or *story:*.
+* The structure of the story lines must conform to:
+** *As ...* _(optional)_
+** *Given ...*
+** *And ..." _(zero or more)_
+** *Then ..." _(zero or more)_
+** *And ..." _(zero or more)_
+* Leading and trail blanks are ignored on each line.
+* Lines that begin with *#* are treated as comments and ignored.
+* Blank lines are ignored.
+
 
 
 h1. I'd like to say thanks to several developers for developing the following tools which have helped me tremendously is developing Simon:
