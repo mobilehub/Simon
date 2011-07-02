@@ -15,12 +15,12 @@ h2. How to I write a story?
 
 Stories are written in plan text files with a "stories" extension Here's an example:
 
-{% highlight objc %}
+<pre lang="objc">
 Story: Example story showing the basic syntax.
 Given Simon is working
 Then I should be able to see abc and 5 in the log
 and say goodby at the end.
-{% endhighlight %}
+</pre>
 
 
 h1. I'd like to say thanks to several developers for developing the following tools which have helped me tremendously is developing Simon:
