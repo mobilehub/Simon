@@ -66,8 +66,11 @@ Now it's not obvious from the above, but that first parameter is a "regular expr
 h2. How do I map arguments in a step?
 
 Lets look at the *Then ...* step
-<pre>Then I should be able to see abc and 5 in the log<pre>
+
+<pre>Then I should be able to see abc and 5 in the log</pre>
+
 As you can see there are two possible arguments in this step - *abc* and *5*. Simon can map these quite simply. The only rule is that the order of arguments in the method that will be executed matches the order of arguments in the step. Of course Simon also expects that the data types are a match as well. Here's the mapping:
+
 <pre>
 SIMapStepToSelector(@".* I should be able to see (.*) and (.*) in the log", verifyText:andNumber:) 
 -(void) verifyText:(NSString *) text andNumber:(int) number {
