@@ -57,7 +57,7 @@ SIMapStepToSelector(@"Given Simon is working", simonIsRunning)
 @end
 </pre>
 
-The first thing you wil notice is the inclusion of the SISimon.h header file. A necessary evil unfortunately. The second thing you will notice is the @SIMapStepToSelector(==no@=="Given Simon is working", simonIsRunning)@ line. That's Simon. This preprocessor directive instructs Simon to map the given step to the selector. 
+The first thing you wil notice is the inclusion of the SISimon.h header file. A necessary evil unfortunately. The second thing you will notice is the @SIMapStepToSelector(&amp;"Given Simon is working", simonIsRunning)@ line. That's Simon. This preprocessor directive instructs Simon to map the given step to the selector. 
 
 Now it's not obvious from the above, but that first parameter is a "regular expression":http://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSRegularExpression_Class as specified in the doc for the "NSRegularExpression class":http://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSRegularExpression_Class in Apple's documentation. This means that we can use it to pick up a wide variety of steps and also (using regular expression groups) pick out arguments to pass to the selector. Oh, and the second argument is the selector to execute. You don't need to use @@@selector(...)@ with this as Simon needs it as text. Plus it's less to type in :-)
 
