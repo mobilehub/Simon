@@ -211,8 +211,7 @@
 		653D0EB113A783C000A5AB82 /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				653D0EB213A783C000A5AB82 /* NSObject+Utils.h */,
-				653D0EB313A783C000A5AB82 /* NSObject+Utils.m */,
+				65D03BEF13BE014700A3F0FA /* Categories */,
 				653D0EB413A783C000A5AB82 /* SIEnums.h */,
 				653D0EB513A783C000A5AB82 /* SIStep.h */,
 				653D0EB613A783C000A5AB82 /* SIStep.m */,
@@ -222,8 +221,6 @@
 				653D0EBD13A783C000A5AB82 /* SIStoryFileReader.m */,
 				6551A97F13AB904900679B94 /* SIStoryRunner.h */,
 				6551A98013AB904A00679B94 /* SIStoryRunner.m */,
-				6551A98813AC8A5200679B94 /* NSString+Utils.h */,
-				6551A98913AC8A5200679B94 /* NSString+Utils.m */,
 				6551A99213ACDEBE00679B94 /* SISimon.h */,
 				65D03BED13BDEBE000A3F0FA /* SIInternal.h */,
 				65FCD11C13AE2D6900A90FCA /* SIStepMapping.h */,
@@ -251,9 +248,9 @@
 				6551A98613AB931F00679B94 /* SIStoryRunnerTests.m */,
 				6551A98E13AC8B8900679B94 /* NSString+UtilsTests.m */,
 				65FCD11713ADE3C200A90FCA /* SIRuntimeTests.m */,
-				653D0EDD13A783DC00A5AB82 /* stories */,
 				65D03BE813BCB94F00A3F0FA /* CommsASteps.m */,
 				65D03BEB13BCBA3100A3F0FA /* CommsBSteps.m */,
+				653D0EDD13A783DC00A5AB82 /* stories */,
 			);
 			path = tests;
 			sourceTree = "<group>";
@@ -271,6 +268,17 @@
 				65D03BE513BCB8CE00A3F0FA /* Communication.stories */,
 			);
 			path = stories;
+			sourceTree = "<group>";
+		};
+		65D03BEF13BE014700A3F0FA /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				653D0EB213A783C000A5AB82 /* NSObject+Utils.h */,
+				653D0EB313A783C000A5AB82 /* NSObject+Utils.m */,
+				6551A98813AC8A5200679B94 /* NSString+Utils.h */,
+				6551A98913AC8A5200679B94 /* NSString+Utils.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

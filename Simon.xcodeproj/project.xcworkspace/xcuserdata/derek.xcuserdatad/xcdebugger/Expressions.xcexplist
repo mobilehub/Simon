@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[SIStepMappingTests testDoesntMapStepWhenInvalidRegex]:SIStepMappingTests.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[SIStepMapping populateInvocationParameters:withMethod:error:]:SIStepMapping.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[SIStepMapping invoke:]:SIStepMapping.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.target">
+            </PersistentString>
+            <PersistentString
+               value = "invocation.target">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -1,0 +1,29 @@
+h1. (simple) Simon BDD framework
+
+Simon is a BDD framework for testing apps on iOS simulators and devices. I've written it to be as simple to use and easy to add to your projects as possible.
+
+h1. Why use a BDD framework?
+
+Because it enables you to directly map customer stories to executable code which enacts thoses stories. Which means that when the customer ask "But does it work?" you can show them their own stories and those stories being executed. 
+
+h1. How do I install it?
+
+Ok, still working on this bit :-)
+
+h2. How to I write a story?
+
+Stories are written in plan text files with a "stories" extension Here's an example:
+
+{% highlight %}
+Story: Example story showing the basic syntax.
+Given Simon is working
+Then I should be able to see abc and 5 in the log
+and say goodby at the end.
+{% highlight %}
+
+
+h1. I'd like to say thanks to several developers for developing the following tools which have helped me tremendously is developing Simon:
+
+* Tomaž Kragelj for [Appledoc V2](http://www.gentlebytes.com/home/appledocapp/)
+* Gabriel Handford for [GHUnit](https://github.com/gabriel/gh-unit)
+* Erik Doernenburg for [OCMock](http://www.mulle-kybernetik.com/software/OCMock/)
