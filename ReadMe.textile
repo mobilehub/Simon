@@ -19,11 +19,11 @@ Story: Example story showing the basic syntax.
 Given Simon is working
 Then I should be able to see abc and 5 in the log
 and say goodby at the end.
-{% highlight %}
+{% endhighlight %}
 
 
 h1. I'd like to say thanks to several developers for developing the following tools which have helped me tremendously is developing Simon:
 
-* Tomaž Kragelj for [Appledoc V2](http://www.gentlebytes.com/home/appledocapp/)
-* Gabriel Handford for [GHUnit](https://github.com/gabriel/gh-unit)
-* Erik Doernenburg for [OCMock](http://www.mulle-kybernetik.com/software/OCMock/)
+* Tomaž Kragelj for "Appledoc V2":http://www.gentlebytes.com/home/appledocapp
+* Gabriel Handford for "GHUnit":https://github.com/gabriel/gh-unit
+* Erik Doernenburg for "OCMock":http://www.mulle-kybernetik.com/software/OCMock
