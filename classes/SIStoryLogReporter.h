@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "SIStoryReporter.h"
 
+/**
+ An instance of the SIStoryReporter protocol that logs a report to the console via NSLog(...) commands.
+ */
 @interface SIStoryLogReporter : NSObject<SIStoryReporter>
 
 @end

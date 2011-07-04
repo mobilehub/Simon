@@ -29,6 +29,7 @@
 	if (self) {
 		steps = [[NSMutableArray alloc] init];
 		instanceCache = [[NSMutableDictionary alloc] init];
+		storyCache = [[NSMutableDictionary alloc] init];
 		status = SIStoryStatusNotRun;
 		error = nil;
 	}
@@ -67,6 +68,7 @@
 		// Now invoke the step on the class.
 		if (![step invokeWithObject:instance error:&error]) {
 			[error retain];
+			status = SIStoryStatusError;
 			return NO;
 		}
 	}
@@ -102,16 +104,17 @@
 }
 
 -(void) storeObject:(id) object withKey:(id) key {
-	[instanceCache setObject:object forKey:key];
+	[storyCache setObject:object forKey:key];
 }
 
 -(id) retrieveObjectWithKey:(id) key {
-	return [instanceCache objectForKey:key];
+	return [storyCache objectForKey:key];
 }
 
 -(void) dealloc {
 	DC_DEALLOC(steps);
 	DC_DEALLOC(instanceCache);
+	DC_DEALLOC(storyCache);
 	DC_DEALLOC(error);
 	self.title = nil;
 	[super dealloc];

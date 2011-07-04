@@ -81,6 +81,8 @@ SIMapStepToSelector(@".* I should be able to see (.*) and (.*) in the log", veri
 
 Simon will automatically scan the data types of the arguments and attempt a matching conversion. Also notice that in the regular expression I set the start to match any characters. This means that, for example, I could use this same expression with both a *Then ...* and a *And ...* step.
 
+Note that each step in a story can matched to only one selector. But that a selector can be mapped to any number of story steps. This gives you the ability to share code across many steps, saving you from repeat yourself.
+
 h1. I'd like to say thanks to several developers for developing the following tools which have helped me tremendously is developing Simon:
 
 * Tomaž Kragelj for "Appledoc V2":http://www.gentlebytes.com/home/appledocapp

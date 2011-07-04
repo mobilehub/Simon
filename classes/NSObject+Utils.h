@@ -9,8 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "SIEnums.h"
 
+/**
+ Extra methods applicable to all objects.
+ */
 @interface NSObject (NSObject_Utils)
 
+/**
+ This creates NSError objects based on the passed information.
+ 
+ @param errorCode
+ */
 -(NSError *) errorForCode:(SIError) errorCode shortDescription:(NSString *) shortDescription failureReason:(NSString *) failureReason; 
 
 -(SIKeyword) keywordFromString:(NSString *) string;

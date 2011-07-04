@@ -41,7 +41,6 @@
 		6551A98A13AC8A5300679B94 /* NSString+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 6551A98813AC8A5200679B94 /* NSString+Utils.h */; };
 		6551A98B13AC8A5300679B94 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6551A98913AC8A5200679B94 /* NSString+Utils.m */; };
 		6551A98C13AC8A5300679B94 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6551A98913AC8A5200679B94 /* NSString+Utils.m */; };
-		6551A99013AC8B8900679B94 /* NSString+UtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6551A98E13AC8B8900679B94 /* NSString+UtilsTests.m */; };
 		6551A99113AC8B8900679B94 /* NSString+UtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6551A98E13AC8B8900679B94 /* NSString+UtilsTests.m */; };
 		6551A99313ACDEBE00679B94 /* SISimon.h in Headers */ = {isa = PBXBuildFile; fileRef = 6551A99213ACDEBE00679B94 /* SISimon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65A85A6413A86C6600599E31 /* GHUnitIOSTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A85A6313A86C6600599E31 /* GHUnitIOSTestMain.m */; };
@@ -397,7 +396,6 @@
 				653D0ECF13A783C000A5AB82 /* SIStoryFileReader.m in Sources */,
 				6551A98213AB904A00679B94 /* SIStoryRunner.m in Sources */,
 				6551A98B13AC8A5300679B94 /* NSString+Utils.m in Sources */,
-				6551A99013AC8B8900679B94 /* NSString+UtilsTests.m in Sources */,
 				65FCD11F13AE2D6A00A90FCA /* SIStepMapping.m in Sources */,
 				65FCD12713AF622400A90FCA /* SIRuntime.m in Sources */,
 				65D03BDB13BA099700A3F0FA /* SIStoryLogReporter.m in Sources */,
