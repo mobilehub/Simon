@@ -70,7 +70,7 @@ h2. How do I relate a story to the executable code?
 
 Firstly Simon regards each line in a story as a seperate item to be executed. So lets look at the @Given Simon is working@ line from the above story. Lets say we have a class called StepImplementations and we want to map the step to a method in it. Here's what it would look like:
 
-<pre lang="obj">
+<pre lang="objc">
 #import <SISimon/SISimon.h>
 
 @interface StepImplementation : NSObject {
@@ -101,7 +101,7 @@ Lets look at the *Then ...* step
 
 As you can see there are two possible arguments in this step - *abc* and *5*. Simon can map these quite simply. The only rule is that the order of arguments in the method that will be executed matches the order of arguments in the step. Of course Simon also expects that the data types are a match as well. Here's the mapping:
 
-<pre>
+<pre lang="objc">
 SIMapStepToSelector(@".* I should be able to see (.*) and (.*) in the log", verifyText:andNumber:) 
 -(void) verifyText:(NSString *) text andNumber:(int) number {
 	NSLog(@"Text: %@", text);
@@ -126,14 +126,14 @@ h2. When they are in different classes
 But when dealing with step mappings in different classes, Simon has to be a little smarter. Each story has a local storage area your code can use to transfer objects between classes without these classes even being aware of each other. Accessing this storage is done through two macros. Here is an example:
 
 _Communications.stories_
-<pre>
+<pre lang="objc">
 Story: Should be able to pass objects between step classes.
 Given this class stores abc in the story storage using key def
 then this class should be able to retrieve abc from storage with key def
 </pre>
 
 _CommsASteps.m_
-<pre>
+<pre lang="objc">
 @implementation CommsASteps
 
    SIMapStepToSelector(@"Given this class stores (.*) in the story storage using key (.*)", storesString:withKey:)
@@ -147,7 +147,7 @@ _CommsASteps.m_
 CommsAStep reads a key and a value from a step and then stores the value in the story cache so that other objects can access it.
 
 _CommsBSteps.m_
-<pre>
+<pre lang="objc">
 @implementation CommsBSteps
 
    SIMapStepToSelector(@"then this class should be able to retrieve (.*) from storage with key (.*)", retrieveString:withKey:)
