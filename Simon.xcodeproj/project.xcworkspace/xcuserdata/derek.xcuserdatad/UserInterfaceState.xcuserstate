@@ -14350,9 +14350,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>332344628.36711901</real>
-		<string>{6562, 1767}</string>
-		<string>{7657, 0}</string>
+		<real>332344875.39765602</real>
+		<string>{5981, 1718}</string>
+		<string>{6582, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -20555,7 +20555,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 11:05 PM</string>
+		<string>Yesterday at 11:05 PM</string>
 		<integer>234</integer>
 		<dict>
 			<key>$class</key>
@@ -36747,9 +36747,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>332344628.372123</real>
-		<string>{6562, 1767}</string>
-		<string>{7657, 0}</string>
+		<real>332344875.40049499</real>
+		<string>{5981, 1718}</string>
+		<string>{6582, 0}</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>

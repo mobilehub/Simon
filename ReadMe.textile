@@ -130,7 +130,7 @@ _Communications.stories_
 Story: Should be able to pass objects between step classes.
 Given this class stores abc in the story storage using key def
 then this class should be able to retrieve abc from storage with key def
-<pre>
+</pre>
 
 _CommsASteps.m_
 <pre>
