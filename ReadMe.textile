@@ -23,15 +23,16 @@ You place this macro into the *main.m* file of your app. Here's a simplified exa
 #import "SISimon.h"
 
 int main(int argc, char *argv[]) {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+   
+   NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
    // Add Simon.
    SIRun();
 
    int retVal = UIApplicationMain(argc, argv, nil, @"YourAppDelegate");
    
-	[pool release];
-	return retVal;
+   [pool release];
+   return retVal;
 }
 </pre>
 
