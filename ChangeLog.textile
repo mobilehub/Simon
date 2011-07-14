@@ -1,0 +1,4 @@
+h1. Version 0.1.0
+July 2011
+
+* Initial release of code. See Readme.

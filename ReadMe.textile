@@ -9,7 +9,36 @@ Because it enables you to directly map customer stories to executable code which
 
 h1. How do I install it?
 
-Ok, still working on this bit :-)
+Simon is designed to run on a background thread in your app. To save you from having the headache of working this out, there is a simple macro you can use to install and run stories. This macros:
+
+# Sets up Simon on a background thread.
+# Waits for your app to finish loading by watching the UIApplication notifications. 
+# Once your app is up, starts running the stories.
+
+You place this macro into the *main.m* file of your app. Here's a simplified example so show you what it looks like:
+
+<pre lang="objc">
+#import <UIKit/UIKit.h>
+
+#import "SISimon.h"
+
+int main(int argc, char *argv[]) {
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+   // Add Simon.
+   SIRun();
+
+   int retVal = UIApplicationMain(argc, argv, nil, @"YourAppDelegate");
+   
+	[pool release];
+	return retVal;
+}
+</pre>
+
+There are two versions of the macros
+
+* *SIRun()* which searches the app for story files (*.stories) and runs them all.
+* *SIRunFile(filename-without-extension)* which runs stories from the specified file only.
 
 h2. How to I write a story?
 
@@ -82,6 +111,10 @@ SIMapStepToSelector(@".* I should be able to see (.*) and (.*) in the log", veri
 Simon will automatically scan the data types of the arguments and attempt a matching conversion. Also notice that in the regular expression I set the start to match any characters. This means that, for example, I could use this same expression with both a *Then ...* and a *And ...* step.
 
 Note that each step in a story can matched to only one selector. But that a selector can be mapped to any number of story steps. This gives you the ability to share code across many steps, saving you from repeat yourself.
+
+h1. How do I interact with my app?
+
+Initially Simon is just about running code. So it's effectively a runner for Unit Tests. The next release is planned to include utilities that will provide the means to interact with the GUI of your app. (I'm working as hard on this as I can - there's a lot to do :-)
 
 h1. I'd like to say thanks to several developers for developing the following tools which have helped me tremendously is developing Simon:
 
