@@ -111,7 +111,59 @@ SIMapStepToSelector(@".* I should be able to see (.*) and (.*) in the log", veri
 
 Simon will automatically scan the data types of the arguments and attempt a matching conversion. Also notice that in the regular expression I set the start to match any characters. This means that, for example, I could use this same expression with both a *Then ...* and a *And ...* step.
 
-Note that each step in a story can matched to only one selector. But that a selector can be mapped to any number of story steps. This gives you the ability to share code across many steps, saving you from repeat yourself.
+Note that each step in a story can matched to only one selector. But that a selector can be mapped to any number of story steps. This gives you the ability to share code across many steps, saving you from repeating yourself. Also know as the "DRY principle":http://en.wikipedia.org/wiki/Don't_repeat_yourself.
+
+h1. But wait, what if the step implementations are in different classes?
+
+This is where Simon gets a bit smarter than the original Simon. 
+
+h2. When steps are in the same class
+
+Simon instantiates each class that contains mapped steps when it needs to run those steps. In addition it also caches and reuses these objects, so transferring data between story step mappings in the same class is as simple as use class properties. 
+
+h2. When they are in different classes
+
+But when dealing with step mappings in different classes, Simon has to be a little smarter. Each story has a local storage area your code can use to transfer objects between classes without these classes even being aware of each other. Accessing this storage is done through two macros. Here is an example:
+
+_Communications.stories_
+<pre>
+Story: Should be able to pass objects between step classes.
+Given this class stores abc in the story storage using key def
+then this class should be able to retrieve abc from storage with key def
+<pre>
+
+_CommsASteps.m_
+<pre>
+@implementation CommsASteps
+
+   SIMapStepToSelector(@"Given this class stores (.*) in the story storage using key (.*)", storesString:withKey:)
+   -(void) storesString:(NSString *) aString withKey:(NSString *) key{
+      SIStoreInStory(key, aString);
+   }
+ 
+@end
+</pre>
+
+CommsAStep reads a key and a value from a step and then stores the value in the story cache so that other objects can access it.
+
+_CommsBSteps.m_
+<pre>
+@implementation CommsBSteps
+
+   SIMapStepToSelector(@"then this class should be able to retrieve (.*) from storage with key (.*)", retrieveString:withKey:)
+   -(void) retrieveString:(NSString *) aString withKey:(NSString *) key{
+      NSString *value = SIRetrieveFromStory(key);
+      GHAssertEqualStrings(value, aString, @"Strings do not match");
+   }
+
+@end
+</pre>
+
+CommsBSteps then reads that value back from the cache and verifies it.
+
+h2. Just in case you are wondering
+
+After each story has finished, Simon clears out the story's caches - releasing the step mapping implementations. So you cannot transfer data between stories. That may come later.
 
 h1. How do I interact with my app?
 
