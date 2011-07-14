@@ -14,6 +14,8 @@
  */
 @interface NSObject (NSObject_Utils)
 
+/// @name Tasks
+
 /**
  This creates NSError objects based on the passed information.
  
@@ -21,7 +23,13 @@
  */
 -(NSError *) errorForCode:(SIError) errorCode shortDescription:(NSString *) shortDescription failureReason:(NSString *) failureReason; 
 
+/**
+ Examines a string and returns the matching SIKeyword.
+
+ @return the matching SIkeyword.
+ */
 -(SIKeyword) keywordFromString:(NSString *) string;
+
 -(NSString *) stringFromKeyword:(SIKeyword) keyword;
 
 @end

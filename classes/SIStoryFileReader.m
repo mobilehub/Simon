@@ -13,7 +13,7 @@
 #import "NSObject+Utils.h"
 
 @interface SIStoryFileReader()
--(BOOL) processNextLine:(NSString *) line error:(NSError **) error;
+-(BOOL) processNextLine:(NSString *) line file:(NSString *) file error:(NSError **) error;
 -(void) createNewStory: (NSString *) line;
 -(SIKeyword) keywordFromLine:(NSString *) line error:(NSError **) error;
 -(SIKeyword) priorKeyword;
@@ -62,6 +62,7 @@
 	for (NSString * file in self.files) {
 		
 		// Read the file.
+		DC_LOG(@"Reading file: %@", file);
 		NSString *contents = [NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:error];
 		if (contents == nil) {
 			DC_LOG(@"Failed to read file %@", file);
@@ -70,7 +71,7 @@
 		
 		// Break it up and process the lines.
 		for (NSString * line in [contents componentsSeparatedByString:@"\n"]) {
-			if (![self processNextLine: line error:error]) {
+			if (![self processNextLine: line file:file error:error]) {
 				return nil;
 			}
 		}
@@ -79,7 +80,9 @@
 	return stories;
 }
 
--(BOOL) processNextLine:(NSString *) line error:(NSError **) error {
+-(BOOL) processNextLine:(NSString *) line file:(NSString *) file error:(NSError **) error {
+	
+	DC_LOG(@"Line: %@", line);
 	
 	// Trim whitespace and trailing punctuation.
 	NSString *cleanLine = [line stringByTrimmingCharactersInSet:trimChars];
@@ -95,7 +98,7 @@
 		DC_LOG(@"Detected unknown keyword in step: %@", cleanLine);
 		*error = [self errorForCode:SIErrorInvalidKeyword 
 					  shortDescription:@"Story syntax error, unknown keyword" 
-						  failureReason:[NSString stringWithFormat:@"Story syntax error, unknown keyword on step %@", cleanLine]];
+						  failureReason:[NSString stringWithFormat:@"Story syntax error in %@, unknown keyword on step \"%@\"", file, cleanLine]];
 		return NO;
 	}
 

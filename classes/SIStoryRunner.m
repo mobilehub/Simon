@@ -11,6 +11,7 @@
 #import "SIStory.h"
 #import "SIStepMapping.h"
 #import "NSObject+Utils.h"
+#import "SIStoryLogReporter.h"
 
 @interface SIStoryRunner()
 @end
@@ -25,8 +26,10 @@
 {
     self = [super init];
     if (self) {
+		 // Now setup the defaults.
 		 reader = [[SIStoryFileReader alloc] init];
 		 runtime = [[SIRuntime alloc] init];
+		 reporter = [[SIStoryLogReporter alloc] init];
     }
     
     return self;
@@ -40,10 +43,19 @@
 	// Read the stories.
 	DC_LOG(@"Reading stories");
 	NSArray *stories = [reader readStories: error];
-	if (stories == nil || [stories count] == 0) {
+	
+	// If there was an error then return.
+	if (stories == nil) {
+		DC_LOG(@"Error reading story files. Exiting");
+		return NO;
+	}
+
+	// If no stories where read then generate an error and return.
+	if ([stories count] == 0) {
 		*error = [self errorForCode:SIErrorNoStoriesFound 
 					  shortDescription:@"No stories read" 
 						  failureReason:@"No stories where read from the files."];
+		DC_LOG(@"No stories found. Exiting");
 		return NO;
 	}
 	

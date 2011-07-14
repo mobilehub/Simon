@@ -31,6 +31,9 @@
 
 // If you are using the framework
 #import <GHUnitIOS/GHUnit.h>
+
+#import "SISimon.h"
+
 // If you are using the static library and importing header files manually
 //#import "GHUnit.h"
 void exceptionHandler(NSException *exception);
@@ -70,6 +73,9 @@ int main(int argc, char *argv[]) {
   // Register any special test case classes
   //[[GHTesting sharedInstance] registerClassName:@"GHSpecialTestCase"];  
   
+	// Add Simon.
+	SIRunFile(@"Story files");
+	
   int retVal = 0;
   // If GHUNIT_CLI is set we are using the command line interface and run the tests
   // Otherwise load the GUI app

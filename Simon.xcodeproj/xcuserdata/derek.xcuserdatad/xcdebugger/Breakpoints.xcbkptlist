@@ -8,41 +8,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "classes/SIStoryLogReporter.m"
-         timestampString = "331132904.405852"
+         filePath = "classes/SIAppBackpack.m"
+         timestampString = "332340685.451804"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "117"
-         endingLineNumber = "117"
-         landmarkName = "-reportUnusedMappings:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "classes/SIStoryLogReporter.m"
-         timestampString = "331132904.405852"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "58"
-         endingLineNumber = "58"
-         landmarkName = "-reportOnStories:andMappings:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "classes/SIRuntime.m"
-         timestampString = "331217252.025284"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "68"
-         endingLineNumber = "68"
-         landmarkName = "-addMappingMethodsFromClass:toArray:"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
+         landmarkName = "-start"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
