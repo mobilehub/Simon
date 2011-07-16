@@ -109,7 +109,7 @@ Firstly Simon regards each line in a story as a seperate item to be executed. So
 
 @implmentation StepImplementation
 
-	SIMapStepToSelector(@"Given Simon is working", simonIsRunning) 
+   SIMapStepToSelector(@"Given Simon is working", simonIsRunning) 
    -(void) simonIsRunning {
       NSLog(@"Woo hoo, Simon is running");
    }
@@ -134,8 +134,8 @@ As you can see there are two possible arguments in this step - *abc* and *5*. Si
 <pre lang="objc">
 SIMapStepToSelector(@".* I should be able to see (.*) and (.*) in the log", verifyText:andNumber:) 
    -(void) verifyText:(NSString *) text andNumber:(int) number {
-	   NSLog(@"Text: %@", text);
-	   NSLog(@"Number: %i", number);
+      NSLog(@"Text: %@", text);
+      NSLog(@"Number: %i", number);
    }
 </pre>
 
@@ -167,6 +167,7 @@ _CommsASteps.m_
 @implementation CommsASteps
 
    SIMapStepToSelector(@"Given this class stores (.*) in the story storage using key (.*)", storesString:withKey:)
+
    -(void) storesString:(NSString *) aString withKey:(NSString *) key{
       SIStoreInStory(key, aString);
    }
@@ -181,6 +182,7 @@ _CommsBSteps.m_
 @implementation CommsBSteps
 
    SIMapStepToSelector(@"then this class should be able to retrieve (.*) from storage with key (.*)", retrieveString:withKey:)
+
    -(void) retrieveString:(NSString *) aString withKey:(NSString *) key{
       NSString *value = SIRetrieveFromStory(key);
       GHAssertEqualStrings(value, aString, @"Strings do not match");
