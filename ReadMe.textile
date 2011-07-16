@@ -3,13 +3,28 @@ h1. (simple) Simon BDD framework
 
 Simon is a BDD framework for testing apps on iOS simulators and devices. I've written it to be as simple to use and easy to add to your projects as possible. In fact, it's so simple that all you need to do is to write a story file, include a single line macro to run Simon, and then include another single line macro on each step implementation. 
 
-h1. Why use a BDD framework?
+h2. Why use a BDD framework?
 
 Customes don't understand code. So showing then a Unit test run or raw code means little to them. That's ok, that's why we write the code and they don't. However, customers do understand their own requirements and they usually can express those requirements quite well. 
 
 Behaviour Driven Development is an agile technique where we get the customer to express their requirements in simple story like terns. Then using a framework like Simon, we match executable code to the stories, thus proving that they are implemented. By doing this we can prove that the app meets the customers expectations.
 
-h1. Ok how does it really work?
+h2. Why did I write Simon?
+
+There are other BDD style frameworks for iOS. But after looking at them, they each had something I wasn't that fond of. Everyone required me to modify my Mac for accessibility. Some placed the code in the same files as the steps. And other things. So I sat down and thought about what I wanted as a developer. I came up with this list:
+
+* I wanted to use Objective C because that's what every iOS developer already knows.
+* I wanted it to be easy to include and run without requiring modifications to the system.
+* I wanted to use as little as possible "Glue" code to relate story steps to Objective C methods.
+* I wanted the stories to be stored in seperate files from the code so they would be easier to modify and update and the customer could read them.
+* I wanted it to run on the simulator.
+* I wanted it - most of all - to be dead simple to run. 
+
+h2. Where did the name come from?
+
+When I was thinking about keeping things simple, I thought of the old nursery rhyme "Simple Simon":http://en.wikipedia.org/wiki/Simple_Simon_(nursery_rhyme) and the name stuck.
+
+h2. Ok how does it really work?
 
 Here's the basic sequence:
 
@@ -94,10 +109,10 @@ Firstly Simon regards each line in a story as a seperate item to be executed. So
 
 @implmentation StepImplementation
 
-SIMapStepToSelector(@"Given Simon is working", simonIsRunning) 
--(void) simonIsRunning {
-	NSLog(@"Woo hoo, Simon is running");
-}
+	SIMapStepToSelector(@"Given Simon is working", simonIsRunning) 
+   -(void) simonIsRunning {
+      NSLog(@"Woo hoo, Simon is running");
+   }
 
 @end
 </pre>
@@ -118,10 +133,10 @@ As you can see there are two possible arguments in this step - *abc* and *5*. Si
 
 <pre lang="objc">
 SIMapStepToSelector(@".* I should be able to see (.*) and (.*) in the log", verifyText:andNumber:) 
--(void) verifyText:(NSString *) text andNumber:(int) number {
-	NSLog(@"Text: %@", text);
-	NSLog(@"Number: %i", number);
-}
+   -(void) verifyText:(NSString *) text andNumber:(int) number {
+	   NSLog(@"Text: %@", text);
+	   NSLog(@"Number: %i", number);
+   }
 </pre>
 
 Simon will automatically scan the data types of the arguments and attempt a matching conversion. Also notice that in the regular expression I set the start to match any characters. This means that, for example, I could use this same expression with both a *Then ...* and a *And ...* step.
