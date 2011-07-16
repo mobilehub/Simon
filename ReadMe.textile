@@ -1,11 +1,26 @@
 
 h1. (simple) Simon BDD framework
 
-Simon is a BDD framework for testing apps on iOS simulators and devices. I've written it to be as simple to use and easy to add to your projects as possible.
+Simon is a BDD framework for testing apps on iOS simulators and devices. I've written it to be as simple to use and easy to add to your projects as possible. In fact, it's so simple that all you need to do is to write a story file, include a single line macro to run Simon, and then include another single line macro on each step implementation. 
 
 h1. Why use a BDD framework?
 
-Because it enables you to directly map customer stories to executable code which enacts thoses stories. Which means that when the customer ask "But does it work?" you can show them their own stories and those stories being executed. 
+Customes don't understand code. So showing then a Unit test run or raw code means little to them. That's ok, that's why we write the code and they don't. However, customers do understand their own requirements and they usually can express those requirements quite well. 
+
+Behaviour Driven Development is an agile technique where we get the customer to express their requirements in simple story like terns. Then using a framework like Simon, we match executable code to the stories, thus proving that they are implemented. By doing this we can prove that the app meets the customers expectations.
+
+h1. Ok how does it really work?
+
+Here's the basic sequence:
+
+# The Customer and Developer work together to write stories in the form "As/Given .... then ...." For example "Given Simon is running Then I expect it to execute the stories".
+# You create a new target which runs your app as though you where going to manually test it.
+# You add the text files containing the stories to your code base and the new target.
+# You add the Simon framework to this target.
+# You then open the startup code and add 1 line to get Simon launched in the background.
+# You write one or more classes containing the code that executed each step in the stories.
+# You add one line macros to the classes for each step, mapping the story step to a method.
+# You lanuch the target on your simulator or device. Simon will automatically startup, read the story files, match the steps to the methos and run each story. At the end Simon will produce a repot detailing successful executions of stories or failures.
 
 h1. How do I install it?
 
@@ -169,7 +184,7 @@ h1. How do I interact with my app?
 
 Initially Simon is just about running code. So it's effectively a runner for Unit Tests. The next release is planned to include utilities that will provide the means to interact with the GUI of your app. (I'm working as hard on this as I can - there's a lot to do :-)
 
-h1. I'd like to say thanks to several developers for developing the following tools which have helped me tremendously is developing Simon:
+h1. I'd like to say thanks to several developers for developing the following tools:
 
 * Tomaž Kragelj for "Appledoc V2":http://www.gentlebytes.com/home/appledocapp
 * Gabriel Handford for "GHUnit":https://github.com/gabriel/gh-unit
